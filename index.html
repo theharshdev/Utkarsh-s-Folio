@@ -1,0 +1,124 @@
+<!-- npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link href="./src/output.css" rel="stylesheet" />
+  </head>
+  <body class="bg-violet-950 text-amber-100 font-primary">
+    <section class="text-center p-10 h-dvh relative">
+      <!-- Custom Cursor -->
+      <span
+        id="cursor"
+        class="w-2.5 h-2.5 bg-amber-100 cursor-auto top-0 left-0 fixed z-99 rounded-full -translate-1/2 pointer-events-none"
+      ></span>
+      <!-- Navbar -->
+      <nav
+        class="flex justify-between items-center gap-4 absolute top-2 right-10 left-10 text-lg font-medium"
+      >
+        <div class="flex items-center gap-4">
+          <a href="#" class="hover:underline">Linkedin</a>
+          <a href="#" class="hover:underline">Github</a>
+        </div>
+        <div class="flex justify-end items-center gap-4">
+          <a href="#" class="hover:underline">About </a>
+          <a href="#" class="hover:underline">Projects</a>
+          <a href="#" class="hover:underline">Resume</a>
+          <a href="#" class="hover:underline">Hire Me</a>
+        </div>
+      </nav>
+      <!-- Bottom Date -->
+      <div
+        class="flex justify-between items-center gap-4 absolute bottom-2 right-10 left-10 text-lg font-medium"
+      >
+        <p id="coordinates"></p>
+        <p id="dateTime"></p>
+      </div>
+      <!-- View Stack Button -->
+      <button
+        type="button"
+        class="border border-amber-100 text-lg py-2 px-6 rounded-lg cursor-pointer hover:bg-amber-100 transition duration-500 hover:text-violet-950 font-medium fixed bottom-4 left-1/2 -translate-x-1/2 bg-violet-950"
+      >
+        View Tech Stack
+      </button>
+      <!-- Horizontal Scroller Animation -->
+      <div
+        class="w-full fixed top-1/2 left-0 -translate-y-1/2 z-10 overflow-hidden"
+      >
+        <div
+          class="flex items-center gap-12 text-6xl font-medium transformAnimation w-max"
+        >
+          <!-- First set -->
+          <div class="flex items-center gap-12">
+            <p class="whitespace-nowrap">React.JS</p>
+            <p class="whitespace-nowrap">HTML</p>
+            <p class="whitespace-nowrap">CSS</p>
+            <p class="whitespace-nowrap">Python</p>
+            <p class="whitespace-nowrap">Node.JS</p>
+            <p class="whitespace-nowrap">SQL</p>
+            <p class="whitespace-nowrap">MongoDB</p>
+            <p class="whitespace-nowrap">Next.JS</p>
+            <p class="whitespace-nowrap">Bootstrap</p>
+            <p class="whitespace-nowrap">TailwindCSS</p>
+            <p class="whitespace-nowrap">Shadcn</p>
+            <p class="whitespace-nowrap">GEN AI</p>
+            <p class="whitespace-nowrap">JavaScript</p>
+            <p class="whitespace-nowrap">TypeScript</p>
+          </div>
+          <!-- Duplicate set -->
+          <div class="flex items-center gap-12">
+            <p class="whitespace-nowrap">React.JS</p>
+            <p class="whitespace-nowrap">HTML</p>
+            <p class="whitespace-nowrap">CSS</p>
+            <p class="whitespace-nowrap">Python</p>
+            <p class="whitespace-nowrap">Node.JS</p>
+            <p class="whitespace-nowrap">SQL</p>
+            <p class="whitespace-nowrap">MongoDB</p>
+            <p class="whitespace-nowrap">Next.JS</p>
+            <p class="whitespace-nowrap">Bootstrap</p>
+            <p class="whitespace-nowrap">TailwindCSS</p>
+            <p class="whitespace-nowrap">Shadcn</p>
+            <p class="whitespace-nowrap">GEN AI</p>
+            <p class="whitespace-nowrap">JavaScript</p>
+            <p class="whitespace-nowrap">TypeScript</p>
+          </div>
+        </div>
+      </div>
+      <!-- Hero Section -->
+      <div
+        class="w-full h-full flex justify-center items-center flex-col gap-4 p-8 border border-amber-100 overflow-hidden rounded-lg"
+      >
+        <div
+          class="fixed top-1/2 left-1/2 -translate-1/2 bg-violet-950 z-20 border-x border-amber-100 px-12 py-6"
+        >
+          <h2 class="text-8xl">consectetur adipisic</h2>
+          <p class="text-2xl max-w-md leading-5 mx-auto">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eos
+            quibusdam sit? Ipsam, quisquam.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- <div id="smooth-wrapper">
+      <div id="smooth-content"></div>
+    </div> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
+    <script src="./src/js/script.js"></script>
+  </body>
+</html>
