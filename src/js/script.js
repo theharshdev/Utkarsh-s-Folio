@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const aboutTitle = document.getElementById("aboutTitle");
   const aboutPara = document.getElementById("aboutPara");
   const aboutLink = document.getElementById("aboutLink");
+  const threeDmodel = document.getElementById("3dmodel");
 
   let stackTimelineTrue = true;
   let stackTimeline = gsap.timeline();
@@ -91,6 +92,9 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         "stack"
       );
+      stackTimeline.to(threeDmodel, {
+        y: "100%",
+      });
       stackTimeline.to(aboutme, {
         opacity: 1,
       });
