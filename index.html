@@ -48,7 +48,7 @@
       <button
         id="stackBtn"
         type="button"
-        class="border border-amber-100 text-lg py-2 px-6 rounded-lg cursor-pointer hover:bg-amber-100 transition duration-500 hover:text-violet-950 font-medium fixed bottom-4 left-1/2 -translate-x-1/2 bg-violet-950"
+        class="border border-amber-100 text-lg py-2 px-6 rounded-lg cursor-pointer hover:bg-amber-100 transition duration-500 hover:text-violet-950 font-medium fixed bottom-4 z-40 left-1/2 -translate-x-1/2 bg-violet-950"
       >
         About Me
       </button>
@@ -96,18 +96,52 @@
       </div>
       <!-- Hero Section -->
       <div
-        class="w-full h-full flex justify-center items-center flex-col gap-4 p-8 border border-amber-100 overflow-hidden rounded-lg"
+        class="w-full h-full flex justify-center items-center flex-col gap-4 p-8 border border-amber-100 rounded-lg"
       >
+        <!-- Hero Box -->
         <div
           id="heroBox"
-          class="fixed top-1/2 left-1/2 -translate-1/2 bg-violet-950 z-20 border-x border-amber-100 px-12 py-6 pointer-events-none"
+          class="fixed top-1/2 left-1/2 -translate-1/2 text-violet-950 font-semibold z-30 px-12 py-6 pointer-events-none"
         >
-          <h2 class="text-8xl">consectetur adipisic</h2>
+          <h2 class="text-8xl">Utkarsh Kushwaha</h2>
           <p class="text-2xl max-w-md leading-5 mx-auto">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor eos
-            quibusdam sit? Ipsam, quisquam.
+            A Full-Stack Developer and GenAI enthusiast with expertise in React,
+            Next.js, Node.js, Python.
           </p>
         </div>
+        <!-- About Me -->
+        <div
+          id="aboutme"
+          class="flex flex-col gap-6 max-w-7xl text-start pointer-events-none opacity-0 relative z-50 bg-violet-950/30 backdrop-blur-md p-8 rounded-lg"
+        >
+          <h3 id="aboutTitle" class="text-6xl">Hello! I'm Utkarsh Kushwaha</h3>
+          <p id="aboutPara" class="text-2xl max-w-3xl mt-8 opacity-0">
+            I'm a Full-Stack Developer with a strong frontend foundation and a
+            growing focus on Generative AI solutions. With hands-on experience
+            in React.js and Next.js, I build fast, scalable, and visually
+            refined web applications that prioritize performance and user
+            experience. On the backend, I work with Node.js, Express, MongoDB,
+            and Python to design reliable APIs and data-driven systems. I
+            actively explore GenAI technologies to create intelligent features
+            such as AI-powered workflows, automation, and smart user
+            interactions.
+          </p>
+          <div class="flex justify-end text-2xl mt-16">
+            <a id="aboutLink" href="#" class="hover:underline opacity-0">
+              utkarsh@gmail.com
+            </a>
+          </div>
+        </div>
+        <!-- Object 3D -->
+        <script
+          type="module"
+          src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"
+        ></script>
+        <spline-viewer
+          class="fixed -top-10 left-0 w-full h-full pointer-events-none z-20"
+          url="https://prod.spline.design/FVZWbQH2B6ndj9UU/scene.splinecode"
+          events-target="global"
+        ></spline-viewer>
       </div>
     </section>
     <!-- <div id="smooth-wrapper">

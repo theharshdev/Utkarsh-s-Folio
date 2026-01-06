@@ -53,11 +53,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const stackBtn = document.getElementById("stackBtn");
   const heroBox = document.getElementById("heroBox");
   const scrollerContainer = document.getElementById("scrollerContainer");
+  const aboutme = document.getElementById("aboutme");
+  const aboutTitle = document.getElementById("aboutTitle");
+  const aboutPara = document.getElementById("aboutPara");
+  const aboutLink = document.getElementById("aboutLink");
 
   let stackTimelineTrue = true;
   let stackTimeline = gsap.timeline();
+  const splitTitle = new SplitText(aboutTitle, { type: "chars" });
 
   stackBtn.addEventListener("click", () => {
+    aboutme.classList.toggle("pointer-events-none");
+    scrollerContainer.classList.toggle("pointer-events-none");
+    heroBox.classList.toggle("pointer-events-none");
     if (stackTimelineTrue) {
       stackTimeline.play();
       stackTimeline.to(
@@ -65,7 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           scale: 2,
           opacity: 0,
-          duration: 1,
         },
         "stack"
       );
@@ -74,7 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           scale: 0.4,
           opacity: 0,
-          duration: 1,
         },
         "stack"
       );
@@ -85,6 +91,21 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         "stack"
       );
+      stackTimeline.to(aboutme, {
+        opacity: 1,
+      });
+      stackTimeline.from(splitTitle.chars, {
+        opacity: 0,
+        x: 20,
+        stagger: 0.03,
+      });
+      stackTimeline.to(aboutPara, {
+        opacity: 1,
+      });
+      stackTimeline.to(aboutLink, {
+        opacity: 1,
+      });
+
       stackTimelineTrue = false;
     } else {
       stackTimeline.reverse();
