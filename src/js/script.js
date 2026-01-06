@@ -4,13 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
     ScrollSmoother,
     SplitText,
     ScrambleTextPlugin,
-    ScrollToPlugin
+    ScrollToPlugin,
+    Flip,
+    TextPlugin
   );
 
-  ScrollSmoother.create({
-    smooth: 2,
-    effects: true,
-  });
+  // ScrollSmoother.create({
+  //   smooth: 2,
+  //   effects: true,
+  // });
 
   const coordinates = document.getElementById("coordinates");
   const cursor = document.getElementById("cursor");
@@ -20,8 +22,74 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.to(cursor, {
       x: e.clientX,
       y: e.clientY,
+      opacity: 1,
       duration: 0.8,
     });
+  });
+
+  window.addEventListener("mouseleave", () => {
+    gsap.to(cursor, {
+      opacity: 0,
+    });
+  });
+
+  const navLinks = document.querySelectorAll(".navLinks");
+
+  navLinks.forEach((navLink) => {
+    let navLinktext = navLink.textContent;
+    navLink.addEventListener("mouseover", () => {
+      gsap.to(navLink, {
+        duration: 1,
+        scrambleText: {
+          text: `${navLinktext}`,
+          chars: "/",
+          revealDelay: 0.3,
+          speed: 0.3,
+        },
+      });
+    });
+  });
+
+  const stackBtn = document.getElementById("stackBtn");
+  const heroBox = document.getElementById("heroBox");
+  const scrollerContainer = document.getElementById("scrollerContainer");
+
+  let stackTimelineTrue = true;
+  let stackTimeline = gsap.timeline();
+
+  stackBtn.addEventListener("click", () => {
+    if (stackTimelineTrue) {
+      stackTimeline.play();
+      stackTimeline.to(
+        heroBox,
+        {
+          scale: 2,
+          opacity: 0,
+          duration: 1,
+        },
+        "stack"
+      );
+      stackTimeline.to(
+        scrollerContainer,
+        {
+          scale: 0.4,
+          opacity: 0,
+          duration: 1,
+        },
+        "stack"
+      );
+      stackTimeline.to(
+        stackBtn,
+        {
+          text: "Close",
+        },
+        "stack"
+      );
+      stackTimelineTrue = false;
+    } else {
+      stackTimeline.reverse();
+      stackTimelineTrue = true;
+    }
   });
 });
 

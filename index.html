@@ -21,21 +21,20 @@
       <!-- Custom Cursor -->
       <span
         id="cursor"
-        class="w-2.5 h-2.5 bg-amber-100 cursor-auto top-0 left-0 fixed z-99 rounded-full -translate-1/2 pointer-events-none"
+        class="w-2.5 h-2.5 bg-amber-100 cursor-auto top-0 left-0 fixed z-99 rounded-full -translate-1/2 pointer-events-none opacity-0"
       ></span>
       <!-- Navbar -->
       <nav
         class="flex justify-between items-center gap-4 absolute top-2 right-10 left-10 text-lg font-medium"
       >
         <div class="flex items-center gap-4">
-          <a href="#" class="hover:underline">Linkedin</a>
-          <a href="#" class="hover:underline">Github</a>
+          <a href="#" class="navLinks">Linkedin</a>
+          <a href="#" class="navLinks">Github</a>
         </div>
         <div class="flex justify-end items-center gap-4">
-          <a href="#" class="hover:underline">About </a>
-          <a href="#" class="hover:underline">Projects</a>
-          <a href="#" class="hover:underline">Resume</a>
-          <a href="#" class="hover:underline">Hire Me</a>
+          <a href="#" class="navLinks">Projects</a>
+          <a href="#" class="navLinks">Resume</a>
+          <a href="#" class="navLinks">Hire Me</a>
         </div>
       </nav>
       <!-- Bottom Date -->
@@ -45,20 +44,20 @@
         <p id="coordinates"></p>
         <p id="dateTime"></p>
       </div>
-      <!-- View Stack Button -->
+      <!-- About Button -->
       <button
+        id="stackBtn"
         type="button"
         class="border border-amber-100 text-lg py-2 px-6 rounded-lg cursor-pointer hover:bg-amber-100 transition duration-500 hover:text-violet-950 font-medium fixed bottom-4 left-1/2 -translate-x-1/2 bg-violet-950"
       >
-        View Tech Stack
+        About Me
       </button>
       <!-- Horizontal Scroller Animation -->
       <div
-        class="w-full fixed top-1/2 left-0 -translate-y-1/2 z-10 overflow-hidden"
+        id="scrollerContainer"
+        class="w-full fixed text-6xl font-medium top-1/2 left-0 -translate-y-1/2 z-10 overflow-hidden pointer-events-none"
       >
-        <div
-          class="flex items-center gap-12 text-6xl font-medium transformAnimation w-max"
-        >
+        <div class="flex items-center gap-12 transformAnimation w-max">
           <!-- First set -->
           <div class="flex items-center gap-12">
             <p class="whitespace-nowrap">React.JS</p>
@@ -100,7 +99,8 @@
         class="w-full h-full flex justify-center items-center flex-col gap-4 p-8 border border-amber-100 overflow-hidden rounded-lg"
       >
         <div
-          class="fixed top-1/2 left-1/2 -translate-1/2 bg-violet-950 z-20 border-x border-amber-100 px-12 py-6"
+          id="heroBox"
+          class="fixed top-1/2 left-1/2 -translate-1/2 bg-violet-950 z-20 border-x border-amber-100 px-12 py-6 pointer-events-none"
         >
           <h2 class="text-8xl">consectetur adipisic</h2>
           <p class="text-2xl max-w-md leading-5 mx-auto">
@@ -119,6 +119,8 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/Flip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/TextPlugin.min.js"></script>
     <script src="./src/js/script.js"></script>
   </body>
 </html>
