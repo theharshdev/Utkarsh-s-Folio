@@ -7,9 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     TextPlugin
   );
 
-  /* =========================
-     ELEMENT REFERENCES
-  ========================== */
+  /* ELEMENT REFERENCES */
   const namaste = document.getElementById("namaste");
   const cursor = document.getElementById("cursor");
   const coordinates = document.getElementById("coordinates");
@@ -26,9 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const threeDmodel = document.getElementById("3dmodel");
   const closeProjects = document.getElementById("closeProjects");
 
-  /* =========================
-     LOADING ANIMATION
-  ========================== */
+  /* LOADING ANIMATION */
   const loadingTimeline = gsap.timeline({ paused: true });
 
   window.addEventListener("load", () => {
@@ -47,9 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadingTimeline.play();
   });
 
-  /* =========================
-     CURSOR + PARALLAX (PERF)
-  ========================== */
+  /* CURSOR + PARALLAX (PERF) */
   const cursorX = gsap.quickTo(cursor, "x", { duration: 0.3, ease: "power3" });
   const cursorY = gsap.quickTo(cursor, "y", { duration: 0.3, ease: "power3" });
 
@@ -79,9 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.to(cursor, { opacity: 0, duration: 0.2 });
   });
 
-  /* =========================
-     NAV SCRAMBLE TEXT
-  ========================== */
+  /* NAV SCRAMBLE TEXT */
   navLinks.forEach((link) => {
     const text = link.textContent;
     link.addEventListener("mouseenter", () => {
@@ -97,22 +89,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* =========================
-     ABOUT SECTION TIMELINE
-  ========================== */
+  /* ABOUT SECTION TIMELINE */
   const splitTitle = new SplitText(aboutTitle, { type: "chars" });
 
-  const aboutTimeline = gsap.timeline({ paused: true });
+  const masterTimeline = gsap.timeline({ paused: true });
+
+  const homeTimeline = gsap.timeline();
+  const aboutTimeline = gsap.timeline();
+
   let aboutOpen = false;
 
-  aboutTimeline
+  homeTimeline
+    .to("#navbar", { y: -200, opacity: 0 })
     .to(heroBox, { scale: 2, opacity: 0 }, "stack")
     .to(scrollerContainer, { scale: 0.4, opacity: 0 }, "stack")
     .to(stackBtn, { text: "Close" }, "stack")
     .to("#absoluteText", { text: "About Me" }, "stack")
     .to(threeDmodel, { y: "100%" })
     .to("#hireMeTxt", { y: -100 }, "stack")
-    .to("#myNameTxt", { y: 100 }, "stack")
+    .to("#myNameTxt", { y: 100 }, "stack");
+
+  aboutTimeline
     .to(aboutme, { opacity: 1 })
     .from(splitTitle.chars, {
       opacity: 0,
@@ -122,24 +119,24 @@ document.addEventListener("DOMContentLoaded", () => {
     .to(aboutPara, { opacity: 1 })
     .to(aboutLink, { opacity: 1 });
 
+  masterTimeline.add(homeTimeline).add(aboutTimeline);
+
   stackBtn.addEventListener("click", () => {
     aboutme.style.display = "block";
     if (!aboutOpen) {
       aboutme.classList.remove("pointer-events-none");
       heroBox.classList.add("pointer-events-none");
       projectBox.style.display = "none";
-      aboutTimeline.play();
+      masterTimeline.play();
     } else {
       aboutme.classList.add("pointer-events-none");
       heroBox.classList.remove("pointer-events-none");
-      aboutTimeline.reverse();
+      masterTimeline.reverse();
     }
     aboutOpen = !aboutOpen;
   });
 
-  /* =========================
-     PROJECT SECTION TIMELINE
-  ========================== */
+  /* PROJECT SECTION TIMELINE */
   const projectTimeline = gsap.timeline({ paused: true });
 
   projectTimeline
@@ -150,14 +147,15 @@ document.addEventListener("DOMContentLoaded", () => {
     .to(threeDmodel, { y: "100%" }, "stack")
     .to("#hireMeTxt", { x: -300 }, "stack")
     .to("#myNameTxt", { x: 300 }, "stack")
-    .to(projectBox, { opacity: 1 });
+    .to(aboutme, { opacity: 0, duration: 1 }, "stack")
+    .to(projectBox, { opacity: 1 }, "stack")
+    .to(".projectist", { x: 0, stagger: 0.1, opacity: 1 });
 
   projectBtn.addEventListener("click", () => {
     projectBox.style.display = "flex";
     closeProjects.style.display = "block";
     projectBox.classList.remove("pointer-events-none");
     heroBox.classList.add("pointer-events-none");
-    aboutme.style.display = "none";
     projectTimeline.play();
   });
 
@@ -169,11 +167,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-/* =========================
-   DATE & TIME
-========================== */
+/* DATE & TIME */
 const datePara = document.getElementById("dateTime");
-
 function updateDateTime() {
   const now = new Date();
   const days = [
@@ -197,6 +192,5 @@ function updateDateTime() {
     days[now.getDay()]
   }, ${hours}:${minutes}:${seconds} ${ampm}`;
 }
-
 updateDateTime();
 setInterval(updateDateTime, 1000);
