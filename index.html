@@ -16,13 +16,34 @@
     />
     <link href="./src/output.css" rel="stylesheet" />
   </head>
-  <body class="bg-violet-950 text-amber-100 font-primary">
+  <body class="bg-violet-950 text-amber-100 font-primary select-none">
+    <!-- Loader -->
+    <div
+      id="namaste"
+      class="flex justify-center items-center fixed top-0 left-0 w-full h-dvh z-99999 bg-violet-950"
+    >
+      <div class="text-center text-3xl font-medium leading-none">
+        <div class="animate-pulse duration-1000 transition">
+          <p>नमस्ते</p>
+          <p class="border-t-2 border-amber-100 w-fit mx-auto">Namaste</p>
+        </div>
+        <p class="text-sm mt-6">Creative coding by Harsh Kushwaha</p>
+      </div>
+    </div>
+    <!-- Go Back to Home Btn -->
+    <button
+      id="closeProjects"
+      type="button"
+      class="text-lg p-0 hidden border-0 outline-0 bg-transparent cursor-pointer fixed top-2 left-1/2 -translate-x-1/2 navLinks z-999"
+    >
+      Back to Home
+    </button>
+    <!-- Custom Cursor -->
+    <span
+      id="cursor"
+      class="w-2.5 h-2.5 bg-amber-100 cursor-auto top-0 left-0 fixed z-99 rounded-full -translate-1/2 pointer-events-none opacity-0"
+    ></span>
     <section class="text-center p-10 h-dvh relative">
-      <!-- Custom Cursor -->
-      <span
-        id="cursor"
-        class="w-2.5 h-2.5 bg-amber-100 cursor-auto top-0 left-0 fixed z-99 rounded-full -translate-1/2 pointer-events-none opacity-0"
-      ></span>
       <!-- Navbar -->
       <nav
         class="flex justify-between items-center gap-4 absolute top-2 right-10 left-10 text-lg font-medium"
@@ -32,9 +53,25 @@
           <a href="#" class="navLinks">Github</a>
         </div>
         <div class="flex justify-end items-center gap-4">
-          <a href="#" class="navLinks">Projects</a>
-          <a href="#" class="navLinks">Resume</a>
-          <a href="#" class="navLinks">Hire Me</a>
+          <button
+            id="projectBtn"
+            type="button"
+            class="navLinks p-0 bg-transparent border-0 outline-0 cursor-pointer"
+          >
+            Projects
+          </button>
+          <button
+            type="button"
+            class="navLinks p-0 bg-transparent border-0 outline-0 cursor-pointer"
+          >
+            Resume
+          </button>
+          <button
+            type="button"
+            class="navLinks p-0 bg-transparent border-0 outline-0 cursor-pointer"
+          >
+            Hire Me
+          </button>
         </div>
       </nav>
       <!-- Bottom Date -->
@@ -48,7 +85,7 @@
       <button
         id="stackBtn"
         type="button"
-        class="border border-amber-100 text-lg py-2 px-6 rounded-lg cursor-pointer hover:bg-amber-100 transition duration-500 hover:text-violet-950 font-medium fixed bottom-4 z-40 left-1/2 -translate-x-1/2 bg-violet-950"
+        class="text-lg py-2 px-6 rounded-lg cursor-pointer bg-amber-100 transition duration-500 text-violet-950 hover:text-amber-100 font-medium fixed bottom-4 z-40 left-1/2 -translate-x-1/2 hover:bg-violet-950"
       >
         About Me
       </button>
@@ -96,15 +133,61 @@
       </div>
       <!-- Hero Section -->
       <div
-        class="w-full h-full flex justify-center items-center flex-col gap-4 p-8 border border-amber-100 rounded-lg"
+        id="mainContainer"
+        class="w-full h-full flex justify-center items-center flex-col gap-4 p-8 border border-amber-100 rounded-lg relative overflow-hidden"
       >
+        <!-- Absolute text -->
+        <div
+          id="hireMeTxt"
+          class="absolute top-2 left-3 max-w-md text-start pointer-events-none"
+        >
+          <p
+            class="text-3xl leading-6 font-medium windowMove uppercase max-w-64"
+          >
+            Hire me before AI replaces both of us.
+          </p>
+        </div>
+        <!-- Absolute text -->
+        <div
+          id="myNameTxt"
+          class="absolute bottom-2 right-3 w-fit text-end pointer-events-none z-50"
+        >
+          <p class="text-2xl font-bold uppercase windowMove leading-none">
+            Utkarsh Kushwaha
+          </p>
+          <p class="text-lg font-medium leading-none windowMove">Portfolio</p>
+        </div>
+        <!-- Absolute text -->
+        <span
+          id="absoluteText"
+          class="absolute bottom-0 windowMove left-0 text-[15.5dvw] leading-40 whitespace-nowrap uppercase font-bold text-violet-900 opacity-50 pointer-events-none z-0 block text-center w-full"
+        >
+          Utkarsh Kushwaha
+        </span>
+        <!-- Object 3D -->
+        <script
+          type="module"
+          src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"
+        ></script>
+        <div
+          id="3dmodel"
+          class="fixed top-0 left-0 w-full h-full pointer-events-none z-20"
+        >
+          <spline-viewer
+            class="fixed top-0 left-0 w-full h-full pointer-events-none z-20"
+            url="https://prod.spline.design/FVZWbQH2B6ndj9UU/scene.splinecode"
+            events-target="global"
+          ></spline-viewer>
+        </div>
         <!-- Hero Box -->
         <div
           id="heroBox"
           class="fixed top-1/2 left-1/2 -translate-1/2 text-violet-950 font-semibold z-30 px-12 py-6 pointer-events-none"
         >
-          <h2 class="text-8xl">Utkarsh Kushwaha</h2>
-          <p class="text-2xl max-w-md leading-5 mx-auto">
+          <h2 class="text-8xl font-bold leading-16">
+            Creative Full Stack Developer.
+          </h2>
+          <p class="text-2xl max-w-md leading-5 mx-auto mt-6">
             A Full-Stack Developer and GenAI enthusiast with expertise in React,
             Next.js, Node.js, Python.
           </p>
@@ -112,10 +195,95 @@
         <!-- About Me -->
         <div
           id="aboutme"
-          class="flex flex-col gap-6 max-w-7xl text-start pointer-events-none opacity-0 relative z-50 bg-violet-950/30 backdrop-blur-md p-8 rounded-lg"
+          class="flex flex-col gap-6 text-start pointer-events-none opacity-0 relative z-10"
         >
-          <h3 id="aboutTitle" class="text-6xl">Hello! I'm Utkarsh Kushwaha</h3>
-          <p id="aboutPara" class="text-2xl max-w-3xl mt-8 opacity-0">
+          <div class="flex items-end gap-6">
+            <div>
+              <h3 id="aboutTitle" class="text-6xl">
+                Hello! I'm Utkarsh Kushwaha
+              </h3>
+              <div
+                class="flex gap-2 items-center flex-wrap mt-4 text-lg font-medium max-w-md"
+              >
+                <p
+                  class="whitespace-nowrap border border-amber-100 rounded-lg py-0.5 px-3"
+                >
+                  Python
+                </p>
+                <p
+                  class="whitespace-nowrap border border-amber-100 rounded-lg py-0.5 px-3"
+                >
+                  GEN AI
+                </p>
+                <p
+                  class="whitespace-nowrap border border-amber-100 rounded-lg py-0.5 px-3"
+                >
+                  React.JS
+                </p>
+                <p
+                  class="whitespace-nowrap border border-amber-100 rounded-lg py-0.5 px-3"
+                >
+                  Next.JS
+                </p>
+                <p
+                  class="whitespace-nowrap border border-amber-100 rounded-lg py-0.5 px-3"
+                >
+                  Node.JS
+                </p>
+                <p
+                  class="whitespace-nowrap border border-amber-100 rounded-lg py-0.5 px-3"
+                >
+                  JavaScript
+                </p>
+                <p
+                  class="whitespace-nowrap border border-amber-100 rounded-lg py-0.5 px-3"
+                >
+                  TypeScript
+                </p>
+                <p
+                  class="whitespace-nowrap border border-amber-100 rounded-lg py-0.5 px-3"
+                >
+                  SQL
+                </p>
+                <p
+                  class="whitespace-nowrap border border-amber-100 rounded-lg py-0.5 px-3"
+                >
+                  MongoDB
+                </p>
+                <p
+                  class="whitespace-nowrap border border-amber-100 rounded-lg py-0.5 px-3"
+                >
+                  Bootstrap
+                </p>
+                <p
+                  class="whitespace-nowrap border border-amber-100 rounded-lg py-0.5 px-3"
+                >
+                  TailwindCSS
+                </p>
+                <p
+                  class="whitespace-nowrap border border-amber-100 rounded-lg py-0.5 px-3"
+                >
+                  Shadcn
+                </p>
+                <p
+                  class="whitespace-nowrap border border-amber-100 rounded-lg py-0.5 px-3"
+                >
+                  HTML
+                </p>
+                <p
+                  class="whitespace-nowrap border border-amber-100 rounded-lg py-0.5 px-3"
+                >
+                  CSS
+                </p>
+              </div>
+            </div>
+            <img
+              src="./src/img/user.jpg"
+              alt="..."
+              class="max-w-32 block rounded-lg"
+            />
+          </div>
+          <p id="aboutPara" class="text-2xl opacity-0 max-w-6xl">
             I'm a Full-Stack Developer with a strong frontend foundation and a
             growing focus on Generative AI solutions. With hands-on experience
             in React.js and Next.js, I build fast, scalable, and visually
@@ -126,33 +294,215 @@
             such as AI-powered workflows, automation, and smart user
             interactions.
           </p>
-          <div class="flex justify-end text-2xl mt-16">
+          <div class="flex justify-end text-2xl">
             <a id="aboutLink" href="#" class="hover:underline opacity-0">
               utkarsh@gmail.com
             </a>
           </div>
         </div>
-        <!-- Object 3D -->
-        <script
-          type="module"
-          src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"
-        ></script>
-        <spline-viewer id="3dmodel"
-          class="fixed top-0 left-0 w-full h-full pointer-events-none z-20"
-          url="https://prod.spline.design/FVZWbQH2B6ndj9UU/scene.splinecode"
-          events-target="global"
-        ></spline-viewer>
+        <!-- Projects -->
+        <div
+          id="projectBox"
+          class="w-full h-full flex flex-col opacity-0 pointer-events-none relative z-9999"
+        >
+          <div
+            class="flex justify-between gap-6 w-full text-start bg-violet-950 px-4 h-32 hover:h-full group transition-all duration-500 hover:pb-8 overflow-hidden pt-8 -mt-8"
+          >
+            <div class="flex gap-6">
+              <img
+                src="./src/img/prroject-img-01.jpg"
+                alt=""
+                class="lg:w-lg object-cover rounded-lg aspect-video h-80 group-hover:h-full"
+              />
+              <div>
+                <h3 class="text-6xl uppercase font-bold">Project 01</h3>
+                <p class="text-2xl leading-6 max-w-lg mt-8">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex,
+                  deleniti, optio, deserunt libero similique autem maxime
+                  numquam placeat voluptas commodi voluptatem consequuntur
+                  quidem incidunt quisquam? Quibusdam rem eaque earum tempora.
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="bg-transparent cursor-pointer p-0 outline-0 border-0 h-fit overflow-hidden w-16 flex justify-center items-center aspect-square relative group"
+            >
+              <span></span>
+              <i
+                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 -translate-x-full translate-y-full group-hover:translate-0 duration-500 transition"
+              ></i>
+              <i
+                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 group-hover:-translate-y-full group-hover:translate-x-full transition duration-500"
+              ></i>
+            </button>
+          </div>
+          <div
+            class="flex justify-between gap-6 w-full text-start bg-violet-950 px-4 h-32 hover:h-full group transition-all duration-500 hover:pb-8 overflow-hidden border-t border-amber-100 pt-8"
+          >
+            <div class="flex gap-6">
+              <img
+                src="./src/img/prroject-img-02.jpg"
+                alt=""
+                class="lg:w-lg object-cover rounded-lg aspect-video h-80 group-hover:h-full"
+              />
+              <div>
+                <h3 class="text-6xl uppercase font-bold">Project 02</h3>
+                <p class="text-2xl leading-6 max-w-lg mt-8">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex,
+                  deleniti, optio, deserunt libero similique autem maxime
+                  numquam placeat voluptas commodi voluptatem consequuntur
+                  quidem incidunt quisquam? Quibusdam rem eaque earum tempora.
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="bg-transparent cursor-pointer p-0 outline-0 border-0 h-fit overflow-hidden w-16 flex justify-center items-center aspect-square relative group"
+            >
+              <span></span>
+              <i
+                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 -translate-x-full translate-y-full group-hover:translate-0 duration-500 transition"
+              ></i>
+              <i
+                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 group-hover:-translate-y-full group-hover:translate-x-full transition duration-500"
+              ></i>
+            </button>
+          </div>
+          <div
+            class="flex justify-between gap-6 w-full text-start bg-violet-950 px-4 h-32 hover:h-full group transition-all duration-500 hover:pb-8 overflow-hidden border-t border-amber-100 pt-8"
+          >
+            <div class="flex gap-6">
+              <img
+                src="./src/img/prroject-img-03.jpg"
+                alt=""
+                class="lg:w-lg object-cover rounded-lg aspect-video h-80 group-hover:h-full"
+              />
+              <div>
+                <h3 class="text-6xl uppercase font-bold">Project 03</h3>
+                <p class="text-2xl leading-6 max-w-lg mt-8">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex,
+                  deleniti, optio, deserunt libero similique autem maxime
+                  numquam placeat voluptas commodi voluptatem consequuntur
+                  quidem incidunt quisquam? Quibusdam rem eaque earum tempora.
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="bg-transparent cursor-pointer p-0 outline-0 border-0 h-fit overflow-hidden w-16 flex justify-center items-center aspect-square relative group"
+            >
+              <span></span>
+              <i
+                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 -translate-x-full translate-y-full group-hover:translate-0 duration-500 transition"
+              ></i>
+              <i
+                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 group-hover:-translate-y-full group-hover:translate-x-full transition duration-500"
+              ></i>
+            </button>
+          </div>
+          <div
+            class="flex justify-between gap-6 w-full text-start bg-violet-950 px-4 h-32 hover:h-full group transition-all duration-500 hover:pb-8 overflow-hidden border-t border-amber-100 pt-8"
+          >
+            <div class="flex gap-6">
+              <img
+                src="./src/img/prroject-img-04.jpg"
+                alt=""
+                class="lg:w-lg object-cover rounded-lg aspect-video h-80 group-hover:h-full"
+              />
+              <div>
+                <h3 class="text-6xl uppercase font-bold">Project 04</h3>
+                <p class="text-2xl leading-6 max-w-lg mt-8">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex,
+                  deleniti, optio, deserunt libero similique autem maxime
+                  numquam placeat voluptas commodi voluptatem consequuntur
+                  quidem incidunt quisquam? Quibusdam rem eaque earum tempora.
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="bg-transparent cursor-pointer p-0 outline-0 border-0 h-fit overflow-hidden w-16 flex justify-center items-center aspect-square relative group"
+            >
+              <span></span>
+              <i
+                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 -translate-x-full translate-y-full group-hover:translate-0 duration-500 transition"
+              ></i>
+              <i
+                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 group-hover:-translate-y-full group-hover:translate-x-full transition duration-500"
+              ></i>
+            </button>
+          </div>
+          <div
+            class="flex justify-between gap-6 w-full text-start bg-violet-950 px-4 h-32 hover:h-full group transition-all duration-500 hover:pb-8 overflow-hidden border-t border-amber-100 pt-8"
+          >
+            <div class="flex gap-6">
+              <img
+                src="./src/img/prroject-img-05.jpg"
+                alt=""
+                class="lg:w-lg object-cover rounded-lg aspect-video h-80 group-hover:h-full"
+              />
+              <div>
+                <h3 class="text-6xl uppercase font-bold">Project 05</h3>
+                <p class="text-2xl leading-6 max-w-lg mt-8">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex,
+                  deleniti, optio, deserunt libero similique autem maxime
+                  numquam placeat voluptas commodi voluptatem consequuntur
+                  quidem incidunt quisquam? Quibusdam rem eaque earum tempora.
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="bg-transparent cursor-pointer p-0 outline-0 border-0 h-fit overflow-hidden w-16 flex justify-center items-center aspect-square relative group"
+            >
+              <span></span>
+              <i
+                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 -translate-x-full translate-y-full group-hover:translate-0 duration-500 transition"
+              ></i>
+              <i
+                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 group-hover:-translate-y-full group-hover:translate-x-full transition duration-500"
+              ></i>
+            </button>
+          </div>
+          <div
+            class="flex justify-between gap-6 w-full text-start bg-violet-950 px-4 h-32 hover:h-full group transition-all duration-500 hover:pb-8 overflow-hidden border-y border-amber-100 pt-8 pb-8"
+          >
+            <div class="flex gap-6">
+              <img
+                src="./src/img/prroject-img-06.jpg"
+                alt=""
+                class="lg:w-lg object-cover rounded-lg aspect-video h-80 group-hover:h-full"
+              />
+              <div>
+                <h3 class="text-6xl uppercase font-bold">Project 06</h3>
+                <p class="text-2xl leading-6 max-w-lg mt-8">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex,
+                  deleniti, optio, deserunt libero similique autem maxime
+                  numquam placeat voluptas commodi voluptatem consequuntur
+                  quidem incidunt quisquam? Quibusdam rem eaque earum tempora.
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              class="bg-transparent cursor-pointer p-0 outline-0 border-0 h-fit overflow-hidden w-16 flex justify-center items-center aspect-square relative group"
+            >
+              <i
+                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 -translate-x-full translate-y-full group-hover:translate-0 duration-500 transition"
+              ></i>
+              <i
+                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 group-hover:-translate-y-full group-hover:translate-x-full transition duration-500"
+              ></i>
+            </button>
+          </div>
+        </div>
       </div>
     </section>
-    <!-- <div id="smooth-wrapper">
-      <div id="smooth-content"></div>
-    </div> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/Flip.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/TextPlugin.min.js"></script>
     <script src="./src/js/script.js"></script>
