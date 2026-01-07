@@ -116,8 +116,10 @@ document.addEventListener("DOMContentLoaded", () => {
       x: 20,
       stagger: 0.03,
     })
-    .to(aboutPara, { opacity: 1 })
-    .to(aboutLink, { opacity: 1 });
+    .from(".aboutSkills", { x: 50, opacity: 0, stagger: 0.03 })
+    .from(aboutPara, { y: 100, opacity: 0 }, "about")
+    .from(aboutLink, { y: 100, opacity: 0 }, "about")
+    .from("#aboutImg", { x: 100, opacity: 0 }, "about");
 
   masterTimeline.add(homeTimeline).add(aboutTimeline);
 
