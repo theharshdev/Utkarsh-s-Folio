@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const aboutLink = document.getElementById("aboutLink");
   const threeDmodel = document.getElementById("3dmodel");
   const closeProjects = document.getElementById("closeProjects");
+  const resumeBtn = document.getElementById("resumeBtn");
 
   /* LOADING ANIMATION */
   const loadingTimeline = gsap.timeline({ paused: true });
@@ -32,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loadingTimeline
       .to(namaste, { opacity: 0, duration: 1 }, "+=4")
+      .from(threeDmodel, { opacity: 0, scale: 2 })
       .from(navLinks, { y: -80, opacity: 0, stagger: 0.1 })
       .from(scrollerContainer, { y: 200, opacity: 0 }, "<")
       .from(heroBox, { scale: 3, opacity: 0 }, "<")
@@ -140,6 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const projectTimeline = gsap.timeline({ paused: true });
 
   projectTimeline
+    .to("#navbar", { y: -200, opacity: 0 })
     .to(heroBox, { scale: 2, opacity: 0 }, "stack")
     .to(scrollerContainer, { scale: 0.4, opacity: 0 }, "stack")
     .to(stackBtn, { y: 200, opacity: 0 }, "stack")
@@ -164,6 +167,49 @@ document.addEventListener("DOMContentLoaded", () => {
     projectBox.classList.add("pointer-events-none");
     heroBox.classList.remove("pointer-events-none");
     projectTimeline.reverse();
+  });
+
+  const resumeTimeline = gsap.timeline({ paused: true });
+
+  resumeTimeline
+    .to(heroBox, { scale: 0.3, opacity: 0 })
+    .to(stackBtn, { y: 200, opacity: 0 })
+    .to("#navbar", { y: -200, opacity: 0 })
+    .to("#resumeBox", { scale: 1, opacity: 1 });
+
+  document.getElementById("resumeBtn").addEventListener("click", () => {
+    resumeTimeline.play();
+  });
+  document.getElementById("closeResume").addEventListener("click", () => {
+    resumeTimeline.reverse();
+  });
+
+  const hiremeBtn = document.getElementById("hiremeBtn");
+  const contactSection = document.getElementById("contactSection");
+  const closeContact = document.getElementById("closeContact");
+  const hireTimeline = gsap.timeline({ paused: true });
+
+  hireTimeline
+    .to("#navbar", { y: -200, opacity: 0 }, "hire")
+    .to(heroBox, { scale: 2, opacity: 0 }, "hire")
+    .to(scrollerContainer, { scale: 0.4, opacity: 0 }, "hire")
+    .to(stackBtn, { y: 200, opacity: 0 }, "hire")
+    .to("#absoluteText", { opacity: 0 }, "hire")
+    .to(threeDmodel, { y: "100%", opacity: 0 }, "hire")
+    .to("#hireMeTxt", { x: -300 }, "hire")
+    .to("#myNameTxt", { x: 300 }, "hire")
+    .to("#contactSection", { opacity: 1, scale: 1 }, "hire")
+    .to("#contactTitle", { y: 0, opacity: 1 })
+    .to(".contactPara", { y: 0, opacity: 1, stagger: 0.3 })
+    .to(".contactLink", { opacity: 1 });
+
+  hiremeBtn.addEventListener("click", () => {
+    contactSection.classList.remove("pointer-events-none");
+    hireTimeline.play();
+  });
+  closeContact.addEventListener("click", () => {
+    contactSection.classList.add("pointer-events-none");
+    hireTimeline.reverse();
   });
 });
 
