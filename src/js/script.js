@@ -91,9 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ABOUT SECTION TIMELINE */
   const splitTitle = new SplitText(aboutTitle, { type: "chars" });
-
   const masterTimeline = gsap.timeline({ paused: true });
-
   const homeTimeline = gsap.timeline();
   const aboutTimeline = gsap.timeline();
 
@@ -186,10 +184,8 @@ function updateDateTime() {
   let hours = now.getHours();
   const minutes = String(now.getMinutes()).padStart(2, "0");
   const seconds = String(now.getSeconds()).padStart(2, "0");
-
   const ampm = hours >= 12 ? "PM" : "AM";
   hours = hours % 12 || 12;
-
   datePara.textContent = `${
     days[now.getDay()]
   }, ${hours}:${minutes}:${seconds} ${ampm}`;
