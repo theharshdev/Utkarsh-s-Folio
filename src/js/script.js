@@ -211,6 +211,22 @@ document.addEventListener("DOMContentLoaded", () => {
     contactSection.classList.add("pointer-events-none");
     hireTimeline.reverse();
   });
+
+  const projectButtons = document.querySelectorAll(".projectButton");
+  const projectImgs = document.querySelectorAll(".projectImg");
+  const projectTitles = document.querySelectorAll(".projectTitle");
+  const projectParas = document.querySelectorAll(".projectPara");
+  const projectists = document.querySelectorAll(".projectist");
+
+  projectButtons.forEach((projectButton, i) => {
+    // const state = Flip.getState(projectImgs[i]);
+    projectButton.addEventListener("click", () => {
+      // projectImgs[i].classList.add("fixed", "top-0", "right-0", "z-99999");
+      // Flip.from(state, {
+      //   duration: 2,
+      // });
+    });
+  });
 });
 
 /* DATE & TIME */
