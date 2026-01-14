@@ -152,18 +152,17 @@ document.addEventListener("DOMContentLoaded", () => {
     .to("#myNameTxt", { x: 300 }, "stack")
     .to(aboutme, { opacity: 0, duration: 1 }, "stack")
     .to(projectBox, { opacity: 1 }, "stack")
-    .to(".projectist", { x: 0, stagger: 0.1, opacity: 1 });
+    .to(".projectist", { x: 0, stagger: 0.1, opacity: 1 })
+    .to(closeProjects, { y: 0, x: 0, opacity: 1 });
 
   projectBtn.addEventListener("click", () => {
     projectBox.style.display = "flex";
-    closeProjects.style.display = "block";
     projectBox.classList.remove("pointer-events-none");
     heroBox.classList.add("pointer-events-none");
     projectTimeline.play();
   });
 
   closeProjects.addEventListener("click", () => {
-    closeProjects.style.display = "none";
     projectBox.classList.add("pointer-events-none");
     heroBox.classList.remove("pointer-events-none");
     projectTimeline.reverse();
@@ -218,14 +217,49 @@ document.addEventListener("DOMContentLoaded", () => {
   const projectParas = document.querySelectorAll(".projectPara");
   const projectists = document.querySelectorAll(".projectist");
 
+  const projectPopupContentBox = document.getElementById(
+    "projectPopupContentBox"
+  );
+  const projectPopupBox = document.getElementById("projectPopupBox");
+  const projectPopupCloseBtn = document.getElementById("projectPopupCloseBtn");
+  const projectPopupLink = document.getElementById("projectPopupLink");
+  const projectPopupPara = document.getElementById("projectPopupPara");
+  const projectPopupTitle = document.getElementById("projectPopupTitle");
+  const projectImgContainer = document.getElementById("projectImgContainer");
+  const projectPopupBGimg = document.getElementById("projectPopupBGimg");
+
+  const openProjectsTimeline = gsap.timeline({ paused: true });
+
+  const splitProjectPopupTitle = new SplitText(projectPopupTitle);
+
+  openProjectsTimeline
+    .to(closeProjects, { y: -300, opacity: 0 })
+    .to(projectBox, { opacity: 0 })
+    .to(".projectist", { x: 200, stagger: 0.1, opacity: 0 })
+    .to("#mainSection", { opacity: 0, duration: 1 })
+    .to(projectPopupBox, { display: "flex" })
+    .from(
+      splitProjectPopupTitle.words,
+      { y: 100, opacity: 0, stagger: 0.03, duration: 1 },
+      "popup"
+    )
+    .from(projectPopupPara, { y: 100, opacity: 0 }, "popup")
+    .from(projectPopupLink, { y: 200, opacity: 0, ease: "none" }, "popup")
+    .from(projectPopupContentBox, { x: "200%", opacity: 0 }, "popup")
+    .from(projectImgContainer, { x: "-200%", opacity: 0 })
+    .from(projectPopupBGimg, { y: "-200%", opacity: 0 });
+
   projectButtons.forEach((projectButton, i) => {
-    // const state = Flip.getState(projectImgs[i]);
     projectButton.addEventListener("click", () => {
-      // projectImgs[i].classList.add("fixed", "top-0", "right-0", "z-99999");
-      // Flip.from(state, {
-      //   duration: 2,
-      // });
+      const imgPath = projectImgs[i].getAttribute("src");
+      projectImgContainer.setAttribute("src", `${imgPath}`);
+      projectPopupBGimg.setAttribute("src", `${imgPath}`);
+      openProjectsTimeline.play();
     });
+  });
+
+  projectPopupCloseBtn.addEventListener("click", () => {
+    openProjectsTimeline.reverse();
   });
 });
 
@@ -252,5 +286,6 @@ function updateDateTime() {
     days[now.getDay()]
   }, ${hours}:${minutes}:${seconds} ${ampm}`;
 }
+
 updateDateTime();
 setInterval(updateDateTime, 1000);

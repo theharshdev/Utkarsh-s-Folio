@@ -24,3 +24,7 @@
 .windowMove {
   will-change: transform;
 }
+
+#projectPopupBox {
+  display: none;
+}
