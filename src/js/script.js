@@ -260,7 +260,8 @@ document.addEventListener("DOMContentLoaded", () => {
     .to("#contactSection", { opacity: 1, scale: 1 }, "hire")
     .to("#contactTitle", { y: 0, opacity: 1 })
     .to(".contactPara", { y: 0, opacity: 1, stagger: 0.3 })
-    .to(".contactLink", { opacity: 1 });
+    .to(".contactLink", { opacity: 1 })
+    .from(closeContact, { x: 200, opacity: 1 });
 
   hiremeBtn.addEventListener("click", () => {
     contactSection.classList.remove("pointer-events-none");
@@ -273,13 +274,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const projectButtons = document.querySelectorAll(".projectButton");
   const projectImgs = document.querySelectorAll(".projectImg");
-  const projectTitles = document.querySelectorAll(".projectTitle");
-  const projectParas = document.querySelectorAll(".projectPara");
-  const projectists = document.querySelectorAll(".projectist");
-
-  const projectPopupContentBox = document.getElementById(
-    "projectPopupContentBox"
-  );
+  const projectPopupCBox = document.getElementById("projectPopupContentBox");
   const projectPopupBox = document.getElementById("projectPopupBox");
   const projectPopupCloseBtn = document.getElementById("projectPopupCloseBtn");
   const projectPopupLink = document.getElementById("projectPopupLink");
@@ -288,7 +283,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const projectImgContainer = document.getElementById("projectImgContainer");
   const projectPopupBGimg = document.getElementById("projectPopupBGimg");
   const projectLiveLink = document.getElementById("projectLiveLink");
-
   const openProjectsTimeline = gsap.timeline({ paused: true });
 
   openProjectsTimeline
@@ -300,7 +294,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .from(projectPopupTitle, { y: 100, opacity: 0, duration: 1 }, "popup")
     .from(projectPopupPara, { y: 200, opacity: 0 }, "popup")
     .from(projectPopupLink, { y: 200, opacity: 0, ease: "none" }, "popup")
-    .from(projectPopupContentBox, { x: "200%", opacity: 0 }, "popup")
+    .from(projectPopupCBox, { x: "200%", opacity: 0 }, "popup")
     .from(projectImgContainer, { opacity: 0 })
     .from(projectPopupBGimg, { opacity: 0 });
 
@@ -345,5 +339,6 @@ function updateDateTime() {
     days[now.getDay()]
   }, ${hours}:${minutes}:${seconds} ${ampm}`;
 }
+
 updateDateTime();
 setInterval(updateDateTime, 1000);
