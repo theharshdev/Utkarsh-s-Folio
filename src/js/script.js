@@ -25,6 +25,66 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeProjects = document.getElementById("closeProjects");
   const resumeBtn = document.getElementById("resumeBtn");
 
+  /* Project Data */
+  const projectsData = [
+    {
+      id: 1,
+      name: "AI Resume Analyzer",
+      description:
+        "An AI-powered resume screening platform that extracts skills, experience, and education from resumes and ranks candidates based on job descriptions using NLP and machine learning techniques.",
+      liveLink: "https://example.com/ai-resume-analyzer",
+    },
+    {
+      id: 2,
+      name: "E-Commerce Recommendation Engine",
+      description:
+        "A personalized recommendation system that analyzes user behavior, browsing history, and purchase patterns to deliver relevant product suggestions using collaborative and content-based filtering.",
+      liveLink: "https://example.com/ecommerce-recommendation",
+    },
+    {
+      id: 3,
+      name: "Smart Attendance System",
+      description:
+        "A real-time attendance management system using face recognition and computer vision to automatically identify users, prevent proxy attendance, and generate detailed attendance reports.",
+      liveLink: "https://example.com/smart-attendance",
+    },
+    {
+      id: 4,
+      name: "Customer Support Chatbot",
+      description:
+        "An intelligent chatbot that understands user intent using NLP, provides instant responses to common queries, automates support workflows, and escalates complex issues to human agents.",
+      liveLink: "https://example.com/support-chatbot",
+    },
+    {
+      id: 5,
+      name: "Real-Time Stock Price Tracker",
+      description:
+        "A responsive web application that displays live stock prices, historical trends, and interactive charts using real-time APIs to help users analyze market movements effectively.",
+      liveLink: "https://example.com/stock-tracker",
+    },
+    {
+      id: 6,
+      name: "Online Learning Management System",
+      description:
+        "A scalable learning platform that supports course creation, video streaming, quizzes, progress tracking, and role-based access for students, instructors, and administrators.",
+      liveLink: "https://example.com/learning-management-system",
+    },
+  ];
+
+  let data = "";
+
+  for (let i = 0; i < projectsData.length; i++) {
+    data += `<div class="flex justify-between gap-6 w-full text-start bg-violet-950 h-44 hover:h-full group transition-all duration-500 hover:pb-4 overflow-hidden projectist translate-x-full opacity-0 pt-4 border-b border-amber-100"><div class="flex gap-6"><img src="./src/img/prroject-img-0${
+      i + 1
+    }.jpg" alt="" class="lg:w-lg object-cover rounded-lg aspect-video h-80 group-hover:h-full projectImg"/><div><h3 class="text-5xl uppercase font-bold projectTitle">${
+      projectsData[i].name
+    }</h3><p class="text-2xl leading-6 max-w-lg mt-4 projectPara opacity-0 group-hover:opacity-100 transition duration-500">${
+      projectsData[i].description
+    }</p></div></div><button type="button" class="bg-transparent cursor-pointer p-0 outline-0 border-0 h-fit overflow-hidden w-16 flex justify-center items-center aspect-square relative group projectButton hover:text-violet-500 transition duration-500"><i class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 -translate-x-full translate-y-full group-hover:translate-0 duration-500 transition"></i><i class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 group-hover:-translate-y-full group-hover:translate-x-full transition duration-500"></i></button></div>`;
+  }
+
+  projectBox.innerHTML = data;
+
   /* LOADING ANIMATION */
   const loadingTimeline = gsap.timeline({ paused: true });
 
@@ -227,10 +287,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const projectPopupTitle = document.getElementById("projectPopupTitle");
   const projectImgContainer = document.getElementById("projectImgContainer");
   const projectPopupBGimg = document.getElementById("projectPopupBGimg");
+  const projectLiveLink = document.getElementById("projectLiveLink");
 
   const openProjectsTimeline = gsap.timeline({ paused: true });
-
-  const splitProjectPopupTitle = new SplitText(projectPopupTitle);
 
   openProjectsTimeline
     .to(closeProjects, { y: -300, opacity: 0 })
@@ -238,19 +297,19 @@ document.addEventListener("DOMContentLoaded", () => {
     .to(".projectist", { x: 200, stagger: 0.1, opacity: 0 })
     .to("#mainSection", { opacity: 0, duration: 1 })
     .to(projectPopupBox, { display: "flex" })
-    .from(
-      splitProjectPopupTitle.words,
-      { y: 100, opacity: 0, stagger: 0.03, duration: 1 },
-      "popup"
-    )
-    .from(projectPopupPara, { y: 100, opacity: 0 }, "popup")
+    .from(projectPopupTitle, { y: 100, opacity: 0, duration: 1 }, "popup")
+    .from(projectPopupPara, { y: 200, opacity: 0 }, "popup")
     .from(projectPopupLink, { y: 200, opacity: 0, ease: "none" }, "popup")
     .from(projectPopupContentBox, { x: "200%", opacity: 0 }, "popup")
-    .from(projectImgContainer, { x: "-200%", opacity: 0 })
-    .from(projectPopupBGimg, { y: "-200%", opacity: 0 });
+    .from(projectImgContainer, { opacity: 0 })
+    .from(projectPopupBGimg, { opacity: 0 });
 
   projectButtons.forEach((projectButton, i) => {
     projectButton.addEventListener("click", () => {
+      projectPopupTitle.textContent = projectsData[i].name;
+      projectPopupPara.textContent = projectsData[i].description;
+      projectLiveLink.setAttribute("href", `${projectsData[i].liveLink}`);
+
       const imgPath = projectImgs[i].getAttribute("src");
       projectImgContainer.setAttribute("src", `${imgPath}`);
       projectPopupBGimg.setAttribute("src", `${imgPath}`);
@@ -286,6 +345,5 @@ function updateDateTime() {
     days[now.getDay()]
   }, ${hours}:${minutes}:${seconds} ${ampm}`;
 }
-
 updateDateTime();
 setInterval(updateDateTime, 1000);

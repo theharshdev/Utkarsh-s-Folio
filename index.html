@@ -106,6 +106,8 @@
             Go Back
           </button>
           <a
+            id="projectLiveLink"
+            target="_blank"
             href="#"
             class="bg-transparent transition duration-500 py-2 px-6 text-2xl font-medium text-center border border-amber-100 hover:bg-amber-100 hover:text-violet-950 cursor-pointer w-full"
           >
@@ -229,16 +231,14 @@
       <!-- Hero Section -->
       <div
         id="mainContainer"
-        class="w-full h-full flex justify-center items-center flex-col gap-4 p-8 border border-amber-100 rounded-lg relative overflow-hidden"
+        class="w-full h-full flex justify-center items-center flex-col gap-4 px-4 pb-4 border border-amber-100 rounded-lg relative overflow-hidden"
       >
         <!-- Absolute text -->
         <div
           id="hireMeTxt"
-          class="absolute top-2 left-3 max-w-md text-start pointer-events-none"
+          class="absolute top-3 left-3 max-w-md text-start pointer-events-none"
         >
-          <p
-            class="text-3xl leading-6 font-medium windowMove uppercase max-w-64"
-          >
+          <p class="text-3xl leading-6 font-medium uppercase max-w-64">
             Hire me before AI replaces both of us.
           </p>
         </div>
@@ -397,211 +397,7 @@
         <div
           id="projectBox"
           class="w-full h-full flex flex-col opacity-0 pointer-events-none relative z-9999"
-        >
-          <div
-            class="flex justify-between gap-6 w-full text-start bg-violet-950 px-4 h-32 hover:h-full group transition-all duration-500 hover:pb-8 overflow-hidden projectist translate-x-full opacity-0 pt-8 -mt-8"
-          >
-            <div class="flex gap-6">
-              <img
-                src="./src/img/prroject-img-01.jpg"
-                alt=""
-                class="lg:w-lg object-cover rounded-lg aspect-video h-80 group-hover:h-full projectImg"
-              />
-              <div>
-                <h3 class="text-6xl uppercase font-bold projectTitle">
-                  Project 01
-                </h3>
-                <p class="text-2xl leading-6 max-w-lg mt-8 projectPara">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex,
-                  deleniti, optio, deserunt libero similique autem maxime
-                  numquam placeat voluptas commodi voluptatem consequuntur
-                  quidem incidunt quisquam? Quibusdam rem eaque earum tempora.
-                </p>
-              </div>
-            </div>
-            <button
-              type="button"
-              class="bg-transparent cursor-pointer p-0 outline-0 border-0 h-fit overflow-hidden w-16 flex justify-center items-center aspect-square relative group projectButton hover:text-violet-500 transition duration-500"
-            >
-              <span></span>
-              <i
-                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 -translate-x-full translate-y-full group-hover:translate-0 duration-500 transition"
-              ></i>
-              <i
-                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 group-hover:-translate-y-full group-hover:translate-x-full transition duration-500"
-              ></i>
-            </button>
-          </div>
-          <div
-            class="flex justify-between gap-6 w-full text-start bg-violet-950 px-4 h-32 hover:h-full group transition-all duration-500 hover:pb-8 overflow-hidden projectist translate-x-full opacity-0 border-t border-amber-100 pt-8"
-          >
-            <div class="flex gap-6">
-              <img
-                src="./src/img/prroject-img-02.jpg"
-                alt=""
-                class="lg:w-lg object-cover rounded-lg aspect-video h-80 group-hover:h-full projectImg"
-              />
-              <div>
-                <h3 class="text-6xl uppercase font-bold projectTitle">
-                  Project 02
-                </h3>
-                <p class="text-2xl leading-6 max-w-lg mt-8 projectPara">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex,
-                  deleniti, optio, deserunt libero similique autem maxime
-                  numquam placeat voluptas commodi voluptatem consequuntur
-                  quidem incidunt quisquam? Quibusdam rem eaque earum tempora.
-                </p>
-              </div>
-            </div>
-            <button
-              type="button"
-              class="bg-transparent cursor-pointer p-0 outline-0 border-0 h-fit overflow-hidden w-16 flex justify-center items-center aspect-square relative group projectButton hover:text-violet-500 transition duration-500"
-            >
-              <span></span>
-              <i
-                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 -translate-x-full translate-y-full group-hover:translate-0 duration-500 transition"
-              ></i>
-              <i
-                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 group-hover:-translate-y-full group-hover:translate-x-full transition duration-500"
-              ></i>
-            </button>
-          </div>
-          <div
-            class="flex justify-between gap-6 w-full text-start bg-violet-950 px-4 h-32 hover:h-full group transition-all duration-500 hover:pb-8 overflow-hidden projectist translate-x-full opacity-0 border-t border-amber-100 pt-8"
-          >
-            <div class="flex gap-6">
-              <img
-                src="./src/img/prroject-img-03.jpg"
-                alt=""
-                class="lg:w-lg object-cover rounded-lg aspect-video h-80 group-hover:h-full projectImg"
-              />
-              <div>
-                <h3 class="text-6xl uppercase font-bold projectTitle">
-                  Project 03
-                </h3>
-                <p class="text-2xl leading-6 max-w-lg mt-8 projectPara">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex,
-                  deleniti, optio, deserunt libero similique autem maxime
-                  numquam placeat voluptas commodi voluptatem consequuntur
-                  quidem incidunt quisquam? Quibusdam rem eaque earum tempora.
-                </p>
-              </div>
-            </div>
-            <button
-              type="button"
-              class="bg-transparent cursor-pointer p-0 outline-0 border-0 h-fit overflow-hidden w-16 flex justify-center items-center aspect-square relative group projectButton hover:text-violet-500 transition duration-500"
-            >
-              <span></span>
-              <i
-                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 -translate-x-full translate-y-full group-hover:translate-0 duration-500 transition"
-              ></i>
-              <i
-                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 group-hover:-translate-y-full group-hover:translate-x-full transition duration-500"
-              ></i>
-            </button>
-          </div>
-          <div
-            class="flex justify-between gap-6 w-full text-start bg-violet-950 px-4 h-32 hover:h-full group transition-all duration-500 hover:pb-8 overflow-hidden projectist translate-x-full opacity-0 border-t border-amber-100 pt-8"
-          >
-            <div class="flex gap-6">
-              <img
-                src="./src/img/prroject-img-04.jpg"
-                alt=""
-                class="lg:w-lg object-cover rounded-lg aspect-video h-80 group-hover:h-full projectImg"
-              />
-              <div>
-                <h3 class="text-6xl uppercase font-bold projectTitle">
-                  Project 04
-                </h3>
-                <p class="text-2xl leading-6 max-w-lg mt-8 projectPara">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex,
-                  deleniti, optio, deserunt libero similique autem maxime
-                  numquam placeat voluptas commodi voluptatem consequuntur
-                  quidem incidunt quisquam? Quibusdam rem eaque earum tempora.
-                </p>
-              </div>
-            </div>
-            <button
-              type="button"
-              class="bg-transparent cursor-pointer p-0 outline-0 border-0 h-fit overflow-hidden w-16 flex justify-center items-center aspect-square relative group projectButton hover:text-violet-500 transition duration-500"
-            >
-              <span></span>
-              <i
-                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 -translate-x-full translate-y-full group-hover:translate-0 duration-500 transition"
-              ></i>
-              <i
-                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 group-hover:-translate-y-full group-hover:translate-x-full transition duration-500"
-              ></i>
-            </button>
-          </div>
-          <div
-            class="flex justify-between gap-6 w-full text-start bg-violet-950 px-4 h-32 hover:h-full group transition-all duration-500 hover:pb-8 overflow-hidden projectist translate-x-full opacity-0 border-t border-amber-100 pt-8"
-          >
-            <div class="flex gap-6">
-              <img
-                src="./src/img/prroject-img-05.jpg"
-                alt=""
-                class="lg:w-lg object-cover rounded-lg aspect-video h-80 group-hover:h-full projectImg"
-              />
-              <div>
-                <h3 class="text-6xl uppercase font-bold projectTitle">
-                  Project 05
-                </h3>
-                <p class="text-2xl leading-6 max-w-lg mt-8 projectPara">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex,
-                  deleniti, optio, deserunt libero similique autem maxime
-                  numquam placeat voluptas commodi voluptatem consequuntur
-                  quidem incidunt quisquam? Quibusdam rem eaque earum tempora.
-                </p>
-              </div>
-            </div>
-            <button
-              type="button"
-              class="bg-transparent cursor-pointer p-0 outline-0 border-0 h-fit overflow-hidden w-16 flex justify-center items-center aspect-square relative group projectButton hover:text-violet-500 transition duration-500"
-            >
-              <span></span>
-              <i
-                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 -translate-x-full translate-y-full group-hover:translate-0 duration-500 transition"
-              ></i>
-              <i
-                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 group-hover:-translate-y-full group-hover:translate-x-full transition duration-500"
-              ></i>
-            </button>
-          </div>
-          <div
-            class="flex justify-between gap-6 w-full text-start bg-violet-950 px-4 h-32 hover:h-full group transition-all duration-500 hover:pb-8 overflow-hidden projectist translate-x-full opacity-0 border-y border-amber-100 pt-8 pb-8"
-          >
-            <div class="flex gap-6">
-              <img
-                src="./src/img/prroject-img-06.jpg"
-                alt=""
-                class="lg:w-lg object-cover rounded-lg aspect-video h-80 group-hover:h-full projectImg"
-              />
-              <div>
-                <h3 class="text-6xl uppercase font-bold projectTitle">
-                  Project 06
-                </h3>
-                <p class="text-2xl leading-6 max-w-lg mt-8 projectPara">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex,
-                  deleniti, optio, deserunt libero similique autem maxime
-                  numquam placeat voluptas commodi voluptatem consequuntur
-                  quidem incidunt quisquam? Quibusdam rem eaque earum tempora.
-                </p>
-              </div>
-            </div>
-            <button
-              type="button"
-              class="bg-transparent cursor-pointer p-0 outline-0 border-0 h-fit overflow-hidden w-16 flex justify-center items-center aspect-square relative group projectButton hover:text-violet-500 transition duration-500"
-            >
-              <i
-                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 -translate-x-full translate-y-full group-hover:translate-0 duration-500 transition"
-              ></i>
-              <i
-                class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 group-hover:-translate-y-full group-hover:translate-x-full transition duration-500"
-              ></i>
-            </button>
-          </div>
-        </div>
+        ></div>
         <!-- Contact Me -->
         <div
           id="contactSection"
