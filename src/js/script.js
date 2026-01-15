@@ -327,11 +327,11 @@ document.addEventListener("DOMContentLoaded", () => {
     .to(".projectist", { x: 200, stagger: 0.1, opacity: 0 })
     .to("#mainSection", { opacity: 0, duration: 1 })
     .to(projectPopupBox, { display: "flex" })
-    .from(projectPopupTitle, { y: 100, opacity: 0, duration: 1 }, "popup")
+    .from(projectPopupTitle, { y: 200, opacity: 0 }, "popup")
     .from(projectPopupPara, { y: 200, opacity: 0 }, "popup")
-    .from(projectPopupLink, { y: 200, opacity: 0, ease: "none" }, "popup")
+    .from(projectPopupLink, { y: 200, opacity: 0 }, "popup")
     .from(projectPopupCBox, { x: "200%", opacity: 0 }, "popup")
-    .from(projectImgContainer, { opacity: 0 })
+    .from(projectImgContainer, { opacity: 0 });
 
   projectButtons.forEach((projectButton, i) => {
     projectButton.addEventListener("click", () => {
