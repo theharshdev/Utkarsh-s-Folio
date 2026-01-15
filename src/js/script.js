@@ -249,7 +249,11 @@ document.addEventListener("DOMContentLoaded", () => {
     .to("#myNameTxt", { x: 300 }, "stack")
     .to(aboutme, { opacity: 0, duration: 1 }, "stack")
     .to(projectBox, { opacity: 1 }, "stack")
-    .to(".projectist", { x: 0, stagger: 0.1, opacity: 1 })
+    .fromTo(
+      ".projectist",
+      { x: "100%", opacity: 0 },
+      { x: 0, opacity: 1, stagger: 0.1 }
+    )
     .to(closeProjects, { y: 0, x: 0, opacity: 1 });
 
   projectBtn.addEventListener("click", () => {
@@ -324,7 +328,7 @@ document.addEventListener("DOMContentLoaded", () => {
   openProjectsTimeline
     .to(closeProjects, { y: -300, opacity: 0 })
     .to(projectBox, { opacity: 0 })
-    .to(".projectist", { x: 200, stagger: 0.1, opacity: 0 })
+    .to(".projectist", { x: 320, stagger: 0.1, opacity: 0 })
     .to("#mainSection", { opacity: 0, duration: 1 })
     .to(projectPopupBox, { display: "flex" })
     .from(projectPopupTitle, { y: 200, opacity: 0 }, "popup")

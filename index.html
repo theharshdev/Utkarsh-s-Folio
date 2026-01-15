@@ -18,9 +18,9 @@
   </head>
   <body class="bg-white text-orange-500 font-primary select-none">
     <!-- Loader -->
-    <div
+    <article
       id="namaste"
-      class="flex justify-center items-center fixed top-0 left-0 w-full h-dvh z-9999999999 bg-white"
+      class="flex justify-center items-center fixed top-0 left-0 w-full h-dvh z-100 bg-white"
     >
       <div class="text-center text-3xl font-medium leading-none">
         <div class="animate-pulse duration-1000 transition">
@@ -29,22 +29,22 @@
         </div>
         <p class="text-sm mt-6">Creative coding by Harsh Kushwaha</p>
       </div>
-    </div>
+    </article>
     <!-- Go Back to Home Btn -->
     <button
       id="closeProjects"
       type="button"
-      class="text-lg p-0 border-0 outline-0 bg-transparent cursor-pointer fixed top-2 right-12 navLinks z-999 -translate-y-75 opacity-0"
+      class="text-lg p-0 border-0 outline-0 bg-transparent cursor-pointer fixed top-2 right-12 navLinks z-90 -translate-y-75 opacity-0"
     >
       Back to Home
     </button>
     <!-- Custom Cursor -->
     <span
       id="cursor"
-      class="w-2.5 h-2.5 bg-orange-500 cursor-auto top-0 left-0 fixed z-99 rounded-full -translate-1/2 pointer-events-none opacity-0"
+      class="w-2.5 h-2.5 bg-orange-500 cursor-auto top-0 left-0 fixed z-95 rounded-full -translate-1/2 pointer-events-none opacity-0"
     ></span>
     <!-- Resume Box -->
-    <div class="fixed top-1/2 left-1/2 z-999 -translate-1/2">
+    <div class="fixed top-1/2 left-1/2 z-90 -translate-1/2">
       <div
         id="resumeBox"
         class="flex items-start gap-2 opacity-0 scale-0 w-full h-full"
@@ -65,9 +65,9 @@
       </div>
     </div>
     <!-- Project Popup Box -->
-    <div
+    <article
       id="projectPopupBox"
-      class="fixed top-0 left-0 w-full h-dvh bg-white px-8 z-99999 text-start overflow-auto flex gap-6 justify-between items-start"
+      class="fixed top-0 left-0 w-full h-dvh text-zinc-800 bg-white px-8 z-90 text-start overflow-auto flex gap-6 justify-between items-start"
     >
       <div
         class="max-w-lg flex flex-col justify-between gap-6 h-dvh py-8 sticky top-0 z-10"
@@ -89,7 +89,7 @@
           <button
             id="projectPopupCloseBtn"
             type="button"
-            class="bg-transparent transition duration-500 py-2 px-6 text-2xl font-medium text-center border border-orange-500 hover:bg-orange-500 hover:text-white cursor-pointer w-full"
+            class="bg-transparent transition duration-500 py-2 px-6 text-2xl font-medium text-center border border-orange-500 hover:bg-orange-500 text-orange-500 hover:text-white cursor-pointer w-full"
           >
             Go Back
           </button>
@@ -97,7 +97,7 @@
             id="projectLiveLink"
             target="_blank"
             href="#"
-            class="bg-transparent transition duration-500 py-2 px-6 text-2xl font-medium text-center border border-orange-500 hover:bg-orange-500 hover:text-white cursor-pointer w-full"
+            class="bg-transparent transition duration-500 py-2 px-6 text-2xl font-medium text-center border border-orange-500 hover:bg-orange-500 text-orange-500 hover:text-white cursor-pointer w-full"
           >
             Live Link
           </a>
@@ -105,19 +105,19 @@
       </div>
       <div
         id="projectPopupContentBox"
-        class="w-full max-w-xl py-8 flex flex-col gap-8 relative z-10"
+        class="w-full max-w-xl py-8 flex flex-col gap-8 relative z-10 text-2xl font-medium leading-8"
       >
         <h3 class="text-4xl font-semibold uppercase">challenges</h3>
-        <p id="challenges" class="text-2xl font-medium leading-8 -mt-4"></p>
+        <p id="challenges" class="-mt-4"></p>
         <h3 class="text-4xl font-semibold uppercase">solution</h3>
-        <p id="solution" class="text-2xl font-medium leading-8 -mt-4"></p>
+        <p id="solution" class="-mt-4"></p>
         <h3 class="text-4xl font-semibold uppercase">impact</h3>
-        <p id="impact" class="text-2xl font-medium leading-8 -mt-4"></p>
+        <p id="impact" class="-mt-4"></p>
         <h3 class="text-4xl font-semibold uppercase">techStack</h3>
-        <p id="techStack" class="text-2xl font-medium leading-8 -mt-4"></p>
+        <p id="techStack" class="-mt-4"></p>
       </div>
-    </div>
-    <section id="mainSection" class="text-center p-10 h-dvh relative">
+    </article>
+    <main id="mainSection" class="text-center p-10 h-dvh relative">
       <!-- Navbar -->
       <nav
         class="flex justify-between items-center gap-4 absolute top-2 right-10 left-10 text-lg font-medium"
@@ -250,7 +250,7 @@
           events-target="global"
         ></spline-viewer>
         <!-- Hero Box -->
-        <div
+        <header
           id="heroBox"
           class="fixed top-1/2 left-1/2 -translate-1/2 text-white font-semibold z-30 px-12 py-6 pointer-events-none opacity-100"
         >
@@ -262,100 +262,46 @@
             A Full-Stack Developer and GenAI enthusiast with expertise in React,
             Next.js, Node.js, Python.
           </p>
-        </div>
+        </header>
         <!-- About Me -->
-        <div
+        <article
           id="aboutme"
           class="flex flex-col gap-6 text-start pointer-events-none opacity-0 absolute top-1/2 left-1/2 w-full max-w-6xl -translate-1/2 z-10 px-4"
         >
           <div class="flex items-end gap-6">
-            <div>
+            <div class="flex justify-between gap-8 w-full">
+              <div>
+                <h3 id="aboutTitle" class="text-6xl">
+                  Hello! I'm Beckham Petersen
+                </h3>
+                <div
+                  class="flex leading-none gap-2 items-center flex-wrap mt-4 text-lg font-medium max-w-md"
+                >
+                  <p class="whitespace-nowrap aboutSkills">Python</p>
+                  <p class="whitespace-nowrap aboutSkills">GEN AI</p>
+                  <p class="whitespace-nowrap aboutSkills">React.JS</p>
+                  <p class="whitespace-nowrap aboutSkills">Next.JS</p>
+                  <p class="whitespace-nowrap aboutSkills">Node.JS</p>
+                  <p class="whitespace-nowrap aboutSkills">JavaScript</p>
+                  <p class="whitespace-nowrap aboutSkills">TypeScript</p>
+                  <p class="whitespace-nowrap aboutSkills">SQL</p>
+                  <p class="whitespace-nowrap aboutSkills">MongoDB</p>
+                  <p class="whitespace-nowrap aboutSkills">Bootstrap</p>
+                  <p class="whitespace-nowrap aboutSkills">TailwindCSS</p>
+                  <p class="whitespace-nowrap aboutSkills">Shadcn</p>
+                  <p class="whitespace-nowrap aboutSkills">HTML</p>
+                  <p class="whitespace-nowrap aboutSkills">CSS</p>
+                </div>
+              </div>
               <img
                 id="aboutImg"
                 src="./src/img/user.jpg"
                 alt="..."
-                class="max-w-32 block rounded-lg absolute top-0 right-4"
+                class="max-w-32 block rounded-lg"
               />
-              <h3 id="aboutTitle" class="text-6xl">
-                Hello! I'm Beckham Petersen
-              </h3>
-              <div
-                class="flex gap-2 items-center flex-wrap mt-4 text-lg font-medium max-w-md"
-              >
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  Python
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  GEN AI
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  React.JS
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  Next.JS
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  Node.JS
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  JavaScript
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  TypeScript
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  SQL
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  MongoDB
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  Bootstrap
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  TailwindCSS
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  Shadcn
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  HTML
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  CSS
-                </p>
-              </div>
             </div>
           </div>
-          <p id="aboutPara" class="text-2xl max-w-6xl mt-4">
+          <p id="aboutPara" class="text-2xl max-w-6xl mt-4 text-zinc-800">
             I'm a Full-Stack Developer with a strong frontend foundation and a
             growing focus on Generative AI solutions. With hands-on experience
             in React.js and Next.js, I build fast, scalable, and visually
@@ -371,16 +317,16 @@
               ndhsaidnaj@gmail.com
             </a>
           </div>
-        </div>
+        </article>
         <!-- Projects -->
-        <div
+        <article
           id="projectBox"
-          class="w-full h-full flex flex-col opacity-0 pointer-events-none relative z-9999"
-        ></div>
+          class="w-full h-full flex flex-col opacity-0 pointer-events-none relative z-70"
+        ></article>
         <!-- Contact Me -->
-        <div
+        <footer
           id="contactSection"
-          class="pointer-events-none absolute top-0 left-0 p-8 z-9999 text-start h-full overflow-hidden w-full flex flex-col justify-between gap-12 opacity-0"
+          class="pointer-events-none absolute top-0 left-0 p-8 z-80 text-start h-full overflow-hidden w-full flex flex-col justify-between gap-12 opacity-0"
         >
           <div class="flex justify-between items-start gap-8 w-full">
             <h3
@@ -459,9 +405,9 @@
               </div>
             </div>
           </div>
-        </div>
+        </footer>
       </div>
-    </section>
+    </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
