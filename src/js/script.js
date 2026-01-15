@@ -111,13 +111,13 @@ document.addEventListener("DOMContentLoaded", () => {
   let data = "";
 
   for (let i = 0; i < projectsData.length; i++) {
-    data += `<div class="flex justify-between gap-6 w-full text-start bg-white h-44 hover:h-full group transition-all duration-500 hover:pb-4 overflow-hidden projectist translate-x-full opacity-0 pt-4 border-b border-orange-500"><div class="flex gap-6"><img src="./src/img/prroject-img-0${
-      i + 1
-    }.jpg" alt="" class="lg:w-lg object-cover rounded-lg aspect-video h-80 group-hover:h-full projectImg"/><div><h3 class="text-5xl uppercase font-bold projectTitle">${
-      projectsData[i].name
-    }</h3><p class="text-2xl leading-6 max-w-lg mt-4 projectPara opacity-0 group-hover:opacity-100 transition duration-500">${
-      projectsData[i].overview
-    }</p></div></div><button type="button" class="bg-transparent cursor-pointer p-0 outline-0 border-0 h-fit overflow-hidden w-16 flex justify-center items-center aspect-square relative group projectButton hover:text-orange-500 transition duration-500"><i class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 -translate-x-full translate-y-full group-hover:translate-0 duration-500 transition"></i><i class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 group-hover:-translate-y-full group-hover:translate-x-full transition duration-500"></i></button></div>`;
+    data += `<div class="flex justify-between gap-6 w-full text-start bg-white h-44 hover:h-full group transition-all duration-500 hover:pb-4 overflow-hidden projectist translate-x-full opacity-0 pt-4 border-b border-orange-500"><div class="flex gap-6"><img src="./src/img/prroject-img-0
+    ${i + 1}
+    .jpg" alt="" class="lg:w-lg object-cover rounded-lg aspect-video h-80 group-hover:h-full projectImg"/><div><h3 class="text-5xl uppercase font-bold projectTitle">
+    ${projectsData[i].name}
+    </h3><p class="text-2xl leading-6 max-w-lg mt-4 projectPara opacity-0 group-hover:opacity-100 transition duration-500">
+    ${projectsData[i].overview}
+    </p></div></div><button type="button" class="bg-transparent cursor-pointer p-0 outline-0 border-0 h-fit overflow-hidden w-16 flex justify-center items-center aspect-square relative group projectButton hover:text-orange-500 transition duration-500"><i class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 -translate-x-full translate-y-full group-hover:translate-0 duration-500 transition"></i><i class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 group-hover:-translate-y-full group-hover:translate-x-full transition duration-500"></i></button></div>`;
   }
 
   projectBox.innerHTML = data;
