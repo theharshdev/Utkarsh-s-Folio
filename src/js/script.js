@@ -28,45 +28,82 @@ document.addEventListener("DOMContentLoaded", () => {
   /* Project Data */
   const projectsData = [
     {
-      id: 1,
       name: "AI Resume Analyzer",
-      description:
-        "An AI-powered resume screening platform that extracts skills, experience, and education from resumes and ranks candidates based on job descriptions using NLP and machine learning techniques.",
+      overview:
+        "The AI Resume Analyzer is a web-based application designed to automate and streamline the recruitment screening process. The platform analyzes resumes submitted in various formats, extracts relevant information such as skills, experience, and education, and intelligently compares them against job descriptions.",
+      challenges:
+        "One of the most significant challenges was processing resumes that were highly unstructured and inconsistent in format, layout, and language. Candidates used different fonts, templates, file formats, and naming conventions for similar skills, which made reliable information extraction extremely difficult. Another major challenge was avoiding simple keyword-based matching, as it often failed to capture contextual relevance and transferable skills. Additionally, ensuring fairness and reducing bias in automated resume screening required careful handling of training data, evaluation logic, and scoring mechanisms. The system also needed to scale efficiently while processing a large volume of resumes without performance degradation.",
+      solution:
+        "To address these challenges, a comprehensive NLP-driven processing pipeline was implemented to clean, normalize, and structure resume content. Advanced text parsing and entity recognition techniques were used to accurately extract skills, experience, and educational background. Machine learning models were trained to analyze semantic similarity between resumes and job descriptions rather than relying on keyword matches alone. The solution was designed with modular components, making it easy to adapt to different job roles and update scoring logic as hiring requirements evolved. Performance optimizations ensured fast processing even at scale.",
+      impact:
+        "The final solution significantly reduced manual resume screening time and improved the consistency and accuracy of candidate shortlisting. Recruiters were able to focus on high-quality candidates more quickly, leading to faster hiring decisions and reduced recruitment costs. The system improved transparency and fairness in the hiring process while increasing overall recruiter productivity. Over time, the platform demonstrated measurable improvements in hiring efficiency and candidate satisfaction.",
+      techStack:
+        "JavaScript, Python, Natural Language Processing, Machine Learning",
       liveLink: "https://example.com/ai-resume-analyzer",
     },
     {
-      id: 2,
       name: "E-Commerce Recommendation Engine",
-      description:
-        "A personalized recommendation system that analyzes user behavior, browsing history, and purchase patterns to deliver relevant product suggestions using collaborative and content-based filtering.",
+      overview:
+        "The E-Commerce Recommendation Engine was built to enhance online shopping experiences by delivering personalized product recommendations based on user behavior and preferences.",
+      challenges:
+        "One of the primary challenges was solving the cold-start problem for new users and newly added products with limited interaction data. Processing large volumes of user behavior data such as clicks, searches, and purchases in real time introduced performance and scalability concerns. Maintaining recommendation relevance while keeping response times low was difficult as the product catalog and user base continued to grow. Additionally, preventing repetitive or irrelevant recommendations required constant tuning of recommendation logic.",
+      solution:
+        "A hybrid recommendation system was developed by combining collaborative filtering and content-based approaches. This allowed the engine to provide meaningful recommendations even when historical data was limited. Efficient data pipelines and caching strategies were implemented to support real-time processing without performance bottlenecks. Recommendation algorithms were continuously refined using user feedback and interaction data to improve relevance and diversity. The architecture was designed to scale seamlessly as traffic increased.",
+      impact:
+        "The recommendation engine significantly improved product discoverability and increased average session duration. Users engaged more deeply with the platform due to personalized suggestions tailored to their interests. The system contributed to higher conversion rates, increased sales, and improved customer retention. Overall, it enhanced the shopping experience while delivering measurable business value.",
+      techStack: "JavaScript, Python, Data Analysis, Recommendation Algorithms",
       liveLink: "https://example.com/ecommerce-recommendation",
     },
     {
-      id: 3,
       name: "Smart Attendance System",
-      description:
-        "A real-time attendance management system using face recognition and computer vision to automatically identify users, prevent proxy attendance, and generate detailed attendance reports.",
+      overview:
+        "The Smart Attendance System is an automated solution that uses face recognition and computer vision to accurately record attendance in real time.",
+      challenges:
+        "Achieving reliable face recognition accuracy in real-world environments was a major challenge due to varying lighting conditions, camera quality, and facial orientations. Handling multiple faces simultaneously without introducing latency required significant optimization. Ensuring data privacy and preventing false positives or duplicate attendance entries were also critical challenges. The system needed to operate consistently across different environments such as classrooms and offices.",
+      solution:
+        "Image preprocessing techniques were applied to normalize lighting and enhance facial features before recognition. Optimized computer vision and face recognition models were implemented to balance accuracy and performance. The system was thoroughly tested under different environmental conditions to ensure reliability. Careful tuning and validation helped minimize recognition errors while maintaining real-time responsiveness.",
+      impact:
+        "The system successfully eliminated proxy attendance and reduced manual administrative workload. Attendance records became more accurate, secure, and reliable. Institutions benefited from improved operational efficiency and reduced errors in attendance tracking. The solution also increased trust in automated systems among administrators and users.",
+      techStack: "Python, OpenCV, Computer Vision, Face Recognition",
       liveLink: "https://example.com/smart-attendance",
     },
     {
-      id: 4,
       name: "Customer Support Chatbot",
-      description:
-        "An intelligent chatbot that understands user intent using NLP, provides instant responses to common queries, automates support workflows, and escalates complex issues to human agents.",
+      overview:
+        "The Customer Support Chatbot automates customer interactions by understanding natural language queries and providing instant responses.",
+      challenges:
+        "Understanding diverse user phrasing, slang, and ambiguous queries was a major challenge. Designing a chatbot that could handle unsupported questions gracefully without frustrating users required careful planning. Maintaining conversational flow while ensuring accurate intent recognition was complex. Additionally, integrating seamless escalation to human support agents without breaking the user experience was essential.",
+      solution:
+        "An NLP-based intent classification model was implemented to accurately detect user needs. The chatbot combined rule-based flows with AI-driven responses to handle common queries efficiently. Fallback mechanisms and escalation paths were carefully designed to transfer complex issues to human agents. Continuous training and monitoring improved conversational accuracy over time.",
+      impact:
+        "The chatbot significantly reduced response times and provided 24/7 customer support. It lowered the workload on human support teams and improved operational efficiency. Customer satisfaction increased due to faster resolutions and consistent service quality. The chatbot became a scalable solution for handling high volumes of support requests.",
+      techStack: "JavaScript, NLP, AI, Chatbot Frameworks",
       liveLink: "https://example.com/support-chatbot",
     },
     {
-      id: 5,
       name: "Real-Time Stock Price Tracker",
-      description:
-        "A responsive web application that displays live stock prices, historical trends, and interactive charts using real-time APIs to help users analyze market movements effectively.",
+      overview:
+        "The Real-Time Stock Price Tracker delivers live stock prices and interactive charts for market analysis.",
+      challenges:
+        "Managing continuous real-time data streams without performance degradation was a significant challenge. Ensuring accurate data synchronization while updating charts frequently required optimized state management. Handling API rate limits, network latency, and potential data inconsistencies added further complexity. The application needed to remain responsive even during high market activity.",
+      solution:
+        "The application integrated real-time market APIs with optimized data handling strategies. State updates were carefully managed to prevent unnecessary re-renders. Data throttling and batching techniques were applied to improve performance. Interactive charts were implemented to provide smooth and responsive visualizations without compromising accuracy.",
+      impact:
+        "Users gained access to timely and reliable market data, enabling better investment decisions. The platform increased user engagement through real-time updates and intuitive data visualization. It provided a dependable tool for tracking market trends and analyzing historical data efficiently.",
+      techStack: "JavaScript, APIs, Data Visualization, Charts",
       liveLink: "https://example.com/stock-tracker",
     },
     {
-      id: 6,
       name: "Online Learning Management System",
-      description:
-        "A scalable learning platform that supports course creation, video streaming, quizzes, progress tracking, and role-based access for students, instructors, and administrators.",
+      overview:
+        "The Online Learning Management System (LMS) is a scalable platform designed to manage digital learning content, users, and progress tracking.",
+      challenges:
+        "Designing a secure role-based access system for students, instructors, and administrators was a major challenge. Delivering video and learning content efficiently at scale required careful backend architecture planning. Maintaining consistent performance while supporting multiple concurrent users added complexity. Ensuring a smooth user experience across different roles was also critical.",
+      solution:
+        "A modular architecture was implemented with clearly defined roles and permissions. Secure authentication and authorization mechanisms were integrated to protect user data. Backend APIs were optimized for content delivery and user interactions. Progress tracking and analytics were added to support both learners and instructors effectively.",
+      impact:
+        "The LMS improved accessibility to educational resources and simplified course management workflows. Learners benefited from structured content and progress visibility, while instructors gained better control over course delivery. The platform supported scalable digital learning and improved overall engagement and efficiency.",
+      techStack: "JavaScript, Backend APIs, Authentication, LMS Architecture",
       liveLink: "https://example.com/learning-management-system",
     },
   ];
@@ -79,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }.jpg" alt="" class="lg:w-lg object-cover rounded-lg aspect-video h-80 group-hover:h-full projectImg"/><div><h3 class="text-5xl uppercase font-bold projectTitle">${
       projectsData[i].name
     }</h3><p class="text-2xl leading-6 max-w-lg mt-4 projectPara opacity-0 group-hover:opacity-100 transition duration-500">${
-      projectsData[i].description
+      projectsData[i].overview
     }</p></div></div><button type="button" class="bg-transparent cursor-pointer p-0 outline-0 border-0 h-fit overflow-hidden w-16 flex justify-center items-center aspect-square relative group projectButton hover:text-orange-500 transition duration-500"><i class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 -translate-x-full translate-y-full group-hover:translate-0 duration-500 transition"></i><i class="bi bi-arrow-up-right text-6xl inline-block absolute top-0 left-0 group-hover:-translate-y-full group-hover:translate-x-full transition duration-500"></i></button></div>`;
   }
 
@@ -281,7 +318,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const projectPopupPara = document.getElementById("projectPopupPara");
   const projectPopupTitle = document.getElementById("projectPopupTitle");
   const projectImgContainer = document.getElementById("projectImgContainer");
-  const projectPopupBGimg = document.getElementById("projectPopupBGimg");
   const projectLiveLink = document.getElementById("projectLiveLink");
   const openProjectsTimeline = gsap.timeline({ paused: true });
 
@@ -296,17 +332,22 @@ document.addEventListener("DOMContentLoaded", () => {
     .from(projectPopupLink, { y: 200, opacity: 0, ease: "none" }, "popup")
     .from(projectPopupCBox, { x: "200%", opacity: 0 }, "popup")
     .from(projectImgContainer, { opacity: 0 })
-    .from(projectPopupBGimg, { opacity: 0 });
 
   projectButtons.forEach((projectButton, i) => {
     projectButton.addEventListener("click", () => {
       projectPopupTitle.textContent = projectsData[i].name;
-      projectPopupPara.textContent = projectsData[i].description;
+      projectPopupPara.textContent = projectsData[i].overview;
       projectLiveLink.setAttribute("href", `${projectsData[i].liveLink}`);
+      document.getElementById("techStack").textContent =
+        projectsData[i].techStack;
+      document.getElementById("impact").textContent = projectsData[i].impact;
+      document.getElementById("solution").textContent =
+        projectsData[i].solution;
+      document.getElementById("challenges").textContent =
+        projectsData[i].challenges;
 
       const imgPath = projectImgs[i].getAttribute("src");
       projectImgContainer.setAttribute("src", `${imgPath}`);
-      projectPopupBGimg.setAttribute("src", `${imgPath}`);
       openProjectsTimeline.play();
     });
   });
