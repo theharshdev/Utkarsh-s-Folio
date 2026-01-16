@@ -111,9 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let data = "";
 
   for (let i = 0; i < projectsData.length; i++) {
-    data += `<div class="flex justify-between gap-6 w-full text-start bg-white h-44 hover:h-full group transition-all duration-500 hover:pb-4 overflow-hidden projectist translate-x-full opacity-0 pt-4 border-b border-orange-500"><div class="flex gap-6"><img src="./src/img/prroject-img-0
-    ${i + 1}
-    .jpg" alt="" class="lg:w-lg object-cover rounded-lg aspect-video h-80 group-hover:h-full projectImg"/><div><h3 class="text-5xl uppercase font-bold projectTitle">
+    data += `<div class="flex justify-between gap-6 w-full text-start bg-white h-44 hover:h-full group transition-all duration-500 hover:pb-4 overflow-hidden projectist translate-x-full opacity-0 pt-4 border-b border-orange-500"><div class="flex gap-6"><img src="./src/img/prroject-img-0${i + 1}.jpg" alt="" class="lg:w-lg object-cover rounded-lg aspect-video h-80 group-hover:h-full projectImg"/><div><h3 class="text-5xl uppercase font-bold projectTitle">
     ${projectsData[i].name}
     </h3><p class="text-2xl leading-6 max-w-lg mt-4 projectPara opacity-0 group-hover:opacity-100 transition duration-500">
     ${projectsData[i].overview}
