@@ -1,494 +1,1497 @@
-<!-- npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch -->
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
-    />
-    <link href="./src/output.css" rel="stylesheet" />
-  </head>
-  <body class="bg-white text-orange-500 font-primary select-none">
-    <!-- Loader -->
-    <div
-      id="namaste"
-      class="flex justify-center items-center fixed top-0 left-0 w-full h-dvh z-9999999999 bg-white"
-    >
-      <div class="text-center text-3xl font-medium leading-none">
-        <div class="animate-pulse duration-1000 transition">
-          <p>नमस्ते</p>
-          <p class="border-t-2 border-orange-500 w-fit mx-auto">Namaste</p>
-        </div>
-        <p class="text-sm mt-6">Creative coding by Harsh Kushwaha</p>
-      </div>
+<html lang="en" class="scroll-smooth bg-theme-bg text-theme-text selection:bg-neutral-900 selection:text-neutral-100 overflow-x-hidden w-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Utkarsh Kushwaha — Gen AI & Full-Stack Consultant | Deloitte USI</title>
+  
+  <meta name="description" content="Utkarsh Kushwaha is a Gen AI & Full-Stack Consultant at Deloitte USI specializing in React, Next.js, Python, FastAPI, AWS, and Agentic AI.">
+  <meta name="keywords" content="Utkarsh Kushwaha, Deloitte USI, Gen AI Consultant, Full Stack Developer, React, Python, FastAPI, AWS, Agentic AI, Meerut Institute of Technology">
+  <meta name="author" content="Utkarsh Kushwaha">
+  <meta name="theme-color" content="#F6F6F4">
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Utkarsh Kushwaha — Gen AI & Full-Stack Consultant">
+  <meta property="og:description" content="Building intelligent digital experiences at the intersection of engineering, AI and interaction.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Google Fonts: Plus Jakarta Sans (Primary Unified Typography), JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+  <!-- Local Compiled Tailwind CSS -->
+  <link rel="stylesheet" href="/styles/tailwind.css">
+</head>
+<body class="bg-theme-bg text-theme-text font-sans antialiased overflow-x-hidden w-full relative">
+
+  <!-- Minimal Loading Screen -->
+  <div id="cinematic-loader" class="fixed inset-0 z-[100] bg-theme-bg flex flex-col justify-between px-8 sm:px-14 py-10 sm:py-14 select-none border-b border-theme-border" role="progressbar" aria-label="Loading">
+
+    <!-- Top: Name -->
+    <div id="loader-name" class="flex items-center gap-3">
+      <span class="font-extrabold text-sm text-theme-text tracking-tight">Utkarsh Kushwaha</span>
+      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
     </div>
-    <!-- Go Back to Home Btn -->
-    <button
-      id="closeProjects"
-      type="button"
-      class="text-lg p-0 border-0 outline-0 bg-transparent cursor-pointer fixed top-2 right-12 navLinks z-999 -translate-y-75 opacity-0"
-    >
-      Back to Home
-    </button>
-    <!-- Custom Cursor -->
-    <span
-      id="cursor"
-      class="w-2.5 h-2.5 bg-orange-500 cursor-auto top-0 left-0 fixed z-99 rounded-full -translate-1/2 pointer-events-none opacity-0"
-    ></span>
-    <!-- Resume Box -->
-    <div class="fixed top-1/2 left-1/2 z-999 -translate-1/2">
-      <div
-        id="resumeBox"
-        class="flex items-start gap-2 opacity-0 scale-0 w-full h-full"
-      >
-        <a
-          href="#"
-          class="rounded-lg border border-orange-500 w-full h-full bg-orange-500/20 hover:bg-orange-500 backdrop-blur-md text-white text-7xl py-8 px-32 font-bold flex justify-center items-center transition duration-500"
-        >
-          Download CV
+
+    <!-- Center: Large counter -->
+    <div class="flex items-end justify-between">
+      <span id="loader-percent" class="font-extrabold text-[18vw] sm:text-[14vw] leading-none text-theme-text tracking-tighter tabular-nums">0</span>
+      <span id="loader-status" class="text-xs text-theme-muted font-medium pb-4 sm:pb-6 text-right leading-relaxed hidden sm:block">
+        Gen AI &amp; Full-Stack<br>Consultant · Deloitte USI
+      </span>
+    </div>
+
+    <!-- Bottom: Thin progress line -->
+    <div class="w-full h-px bg-theme-border relative overflow-hidden">
+      <div id="loader-progress-bar" class="absolute left-0 top-0 h-full bg-theme-text w-0 transition-none"></div>
+    </div>
+
+  </div>
+
+  <!-- Ambient Three.js 3D Background Canvas -->
+  <div id="three-web-bg" class="fixed inset-0 pointer-events-none z-0 overflow-hidden max-w-full" aria-hidden="true"></div>
+  <div class="fixed inset-0 bg-tech-grid-light bg-[size:40px_40px] opacity-40 pointer-events-none z-0" aria-hidden="true"></div>
+
+
+  <!-- FULL-BLEED MULTI-COLUMN INFO GRID NAVBAR (FIXED VIEWPORT ANCHORED) -->
+  <header id="nav-wrapper" class="fixed top-0 left-0 right-0 w-full bg-white/95 backdrop-blur-md border-b border-theme-border z-50 select-none shadow-nav-light transition-transform duration-300 will-change-transform">
+
+    <!-- DESKTOP: Full-width info grid (lg+) -->
+    <div class="hidden lg:grid w-full px-8 xl:px-14 py-5 items-start"
+         style="grid-template-columns: auto auto 1fr auto auto auto; gap: 0;">
+
+      <!-- Col 1: Name -->
+      <div class="pr-12 border-r border-theme-border">
+        <a href="#hero" data-nav="home" id="nav-brand-logo" class="group block">
+          <span class="block text-sm font-semibold text-theme-text group-hover:text-theme-muted transition-colors leading-tight">
+            Utkarsh Kushwaha
+          </span>
+          <span class="block text-[11px] text-theme-subtle mt-0.5 font-medium">Gen AI &amp; Full-Stack</span>
         </a>
-        <button
-          id="closeResume"
-          type="button"
-          class="text-2xl p-0 bg-transparent outline-0 border-0 cursor-pointer hover:text-orange-500 transition duration-500"
-        >
-          <i class="bi bi-x-lg"></i>
-        </button>
+      </div>
+
+      <!-- Col 2: Availability -->
+      <div class="px-10 border-r border-theme-border">
+        <p class="text-[11px] text-theme-subtle font-medium uppercase tracking-wider mb-1.5">Status</p>
+        <div class="flex items-center gap-1.5 text-sm text-theme-text font-medium bg-theme-surface-subtle px-2.5 py-1 rounded-md border border-theme-border w-fit">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+          Available Q3/Q4 2026
+        </div>
+        <p class="text-[11px] text-theme-subtle mt-1">Deloitte USI · Gurugram</p>
+      </div>
+
+      <!-- Col 3: Services -->
+      <div class="px-10 border-r border-theme-border">
+        <p class="text-[11px] text-theme-subtle font-medium uppercase tracking-wider mb-1.5">Services</p>
+        <ul class="space-y-0.5 text-sm text-theme-muted">
+          <li>Gen AI &amp; Agentic Systems</li>
+          <li>Full-Stack Development</li>
+          <li>Frontend Architecture</li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Navigate (links as a column) -->
+      <div class="px-10 border-r border-theme-border">
+        <p class="text-[11px] text-theme-subtle font-medium uppercase tracking-wider mb-1.5">Navigate</p>
+        <nav id="main-nav">
+          <ul class="space-y-0.5 text-sm">
+            <li><a href="#projects"   data-nav="projects"   class="nav-item-link text-theme-muted hover:text-theme-text transition-colors">Work</a></li>
+            <li><a href="#about"      data-nav="about"      class="nav-item-link text-theme-muted hover:text-theme-text transition-colors">About</a></li>
+            <li><a href="#experience" data-nav="experience" class="nav-item-link text-theme-muted hover:text-theme-text transition-colors">Experience</a></li>
+            <li><a href="#blog"       data-nav="blog"       class="nav-item-link text-theme-muted hover:text-theme-text transition-colors">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Col 5: Stack -->
+      <div class="px-10 border-r border-theme-border">
+        <p class="text-[11px] text-theme-subtle font-medium uppercase tracking-wider mb-1.5">Stack</p>
+        <ul class="space-y-0.5 text-sm text-theme-muted">
+          <li>React · Next.js</li>
+          <li>Python · FastAPI</li>
+          <li>AWS · TypeScript</li>
+        </ul>
+      </div>
+
+      <!-- Col 6: CTA -->
+      <div class="pl-10 flex flex-col items-start gap-3">
+        <a href="#contact" data-nav="contact"
+           class="nav-item-link px-4 py-1.5 bg-theme-text hover:bg-neutral-800 text-white text-sm font-medium rounded-lg transition-colors whitespace-nowrap">
+          Contact
+        </a>
+        <a href="mailto:utkarsh.kushwaha@deloitte.com"
+           class="text-sm text-theme-muted hover:text-theme-text transition-colors underline underline-offset-2 decoration-theme-border hover:decoration-theme-text">
+          Email me
+        </a>
+      </div>
+
+    </div>
+
+    <!-- TABLET (md): Compact 3-zone bar -->
+    <div class="hidden md:flex lg:hidden w-full px-8 h-16 items-center justify-between gap-6">
+      <a href="#hero" data-nav="home" class="group flex items-center gap-2.5 shrink-0">
+        <div class="w-8 h-8 rounded-lg bg-theme-text flex items-center justify-center font-extrabold text-white text-xs">UK</div>
+        <span class="font-semibold text-sm text-theme-text group-hover:text-theme-muted transition-colors">Utkarsh Kushwaha</span>
+      </a>
+      <nav id="main-nav-tablet" class="flex items-center gap-1">
+        <a href="#projects"   data-nav="projects"   class="nav-item-link px-3 py-1.5 rounded-md text-sm text-theme-muted hover:text-theme-text hover:bg-theme-surface transition-all">Work</a>
+        <a href="#about"      data-nav="about"      class="nav-item-link px-3 py-1.5 rounded-md text-sm text-theme-muted hover:text-theme-text hover:bg-theme-surface transition-all">About</a>
+        <a href="#experience" data-nav="experience" class="nav-item-link px-3 py-1.5 rounded-md text-sm text-theme-muted hover:text-theme-text hover:bg-theme-surface transition-all">Exp</a>
+        <a href="#blog"       data-nav="blog"       class="nav-item-link px-3 py-1.5 rounded-md text-sm text-theme-muted hover:text-theme-text hover:bg-theme-surface transition-all">Blog</a>
+      </nav>
+      <a href="#contact" data-nav="contact" class="nav-item-link shrink-0 px-4 py-2 bg-theme-text hover:bg-neutral-800 text-white text-sm font-medium rounded-lg transition-colors">
+        Contact
+      </a>
+    </div>
+
+    <!-- MOBILE: Minimal bar with hamburger -->
+    <div class="flex md:hidden w-full px-5 h-14 items-center justify-between">
+      <a href="#hero" data-nav="home" class="flex items-center gap-2 group">
+        <div class="w-7 h-7 rounded-lg bg-theme-text flex items-center justify-center font-extrabold text-white text-[10px]">UK</div>
+        <span class="font-semibold text-sm text-theme-text group-hover:text-theme-muted transition-colors">Utkarsh Kushwaha</span>
+      </a>
+      <button id="mobile-menu-toggle"
+              class="w-9 h-9 flex items-center justify-center rounded-lg border border-theme-border text-theme-muted hover:text-theme-text transition-colors focus:outline-none"
+              aria-label="Open navigation menu">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h10"/>
+        </svg>
+      </button>
+    </div>
+
+  </header>
+
+  <!-- FULL-SCREEN MOBILE MENU OVERLAY -->
+  <div id="mobile-menu" class="fixed inset-0 bg-theme-bg z-[99] hidden flex-col select-none overflow-y-auto">
+
+    <!-- Header row -->
+    <div class="flex items-center justify-between px-6 py-5 border-b border-theme-border bg-white">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-theme-text flex items-center justify-center font-extrabold text-white text-xs">UK</div>
+        <span class="font-bold text-sm text-theme-text tracking-tight">Utkarsh Kushwaha</span>
+      </div>
+      <button id="mobile-menu-close"
+              class="w-9 h-9 flex items-center justify-center rounded-lg border border-theme-border text-theme-muted hover:text-theme-text transition-colors focus:outline-none"
+              aria-label="Close navigation menu">
+        <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Nav links (large) -->
+    <nav class="flex-1 px-6 py-8 space-y-1">
+      <div class="mobile-menu-item">
+        <a href="#hero"       data-nav="home"       class="mobile-nav-link flex items-center justify-between py-4 border-b border-theme-border/60 text-2xl font-bold text-theme-text hover:text-theme-muted transition-colors">
+          <span>Home</span><span class="text-base text-theme-subtle">↗</span>
+        </a>
+      </div>
+      <div class="mobile-menu-item">
+        <a href="#projects"   data-nav="projects"   class="mobile-nav-link flex items-center justify-between py-4 border-b border-theme-border/60 text-2xl font-bold text-theme-text hover:text-theme-muted transition-colors">
+          <span>Work</span><span class="text-base text-theme-subtle">↗</span>
+        </a>
+      </div>
+      <div class="mobile-menu-item">
+        <a href="#about"      data-nav="about"      class="mobile-nav-link flex items-center justify-between py-4 border-b border-theme-border/60 text-2xl font-bold text-theme-text hover:text-theme-muted transition-colors">
+          <span>About</span><span class="text-base text-theme-subtle">↗</span>
+        </a>
+      </div>
+      <div class="mobile-menu-item">
+        <a href="#experience" data-nav="experience" class="mobile-nav-link flex items-center justify-between py-4 border-b border-theme-border/60 text-2xl font-bold text-theme-text hover:text-theme-muted transition-colors">
+          <span>Experience</span><span class="text-base text-theme-subtle">↗</span>
+        </a>
+      </div>
+      <div class="mobile-menu-item">
+        <a href="#blog"       data-nav="blog"       class="mobile-nav-link flex items-center justify-between py-4 border-b border-theme-border/60 text-2xl font-bold text-theme-text hover:text-theme-muted transition-colors">
+          <span>Blog</span><span class="text-base text-theme-subtle">↗</span>
+        </a>
+      </div>
+      <div class="mobile-menu-item">
+        <a href="#contact"    data-nav="contact"    class="mobile-nav-link flex items-center justify-between py-4 border-b border-theme-border/60 text-2xl font-bold text-theme-text hover:text-theme-muted transition-colors">
+          <span>Contact</span><span class="text-base text-theme-text">↗</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Footer info -->
+    <div id="mobile-menu-footer" class="px-6 py-6 border-t border-theme-border bg-theme-surface grid grid-cols-2 gap-4 text-xs text-theme-subtle">
+      <div>
+        <p class="font-semibold text-theme-text mb-0.5">Status</p>
+        <div class="flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          Available Q3/Q4 2026
+        </div>
+      </div>
+      <div>
+        <p class="font-semibold text-theme-text mb-0.5">Location</p>
+        <p>Gurugram, India</p>
+        <p>Deloitte USI</p>
       </div>
     </div>
-    <!-- Project Popup Box -->
-    <div
-      id="projectPopupBox"
-      class="fixed top-0 left-0 w-full h-dvh bg-white px-8 z-99999 text-start overflow-auto flex gap-6 justify-between items-start"
-    >
-      <img
-        id="projectPopupBGimg"
-        src="./src/img/prroject-img-01.jpg"
-        alt="..."
-        class="absolute top-0 left-0 w-full h-[50dvh] object-cover z-0 saturate-0"
-      />
-      <div
-        class="max-w-lg flex flex-col justify-between gap-6 h-dvh py-8 sticky top-0 z-10"
-      >
-        <div>
-          <h3
-            id="projectPopupTitle"
-            class="text-6xl font-bold uppercase mb-4 leading-12"
-          >
-            Lorem ipsum dolor sit amet.
-          </h3>
-          <p id="projectPopupPara" class="text-xl leading-6 mb-6">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut aliquam
-            accusamus temporibus quod eos assumenda hic nostrum ipsum
-            perferendis quasi.
-          </p>
-          <img
-            id="projectImgContainer"
-            src="./src/img/prroject-img-01.jpg"
-            alt="..."
-            class="block w-full aspect-video object-cover"
-          />
+
+  </div>
+
+
+  <!-- MAIN SCROLLABLE CONTENT CONTAINER -->
+  <main class="relative z-10 w-full overflow-hidden">
+
+    <!-- 1. HERO SECTION (EDITORIAL ART-DIRECTED POSTER COMPOSITION WITH MONUMENTAL ASYMMETRIC TYPOGRAPHY) -->
+    <section id="hero" class="min-h-screen flex flex-col justify-between pt-20 md:pt-24 lg:pt-48 pb-8 sm:pb-12 px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto relative overflow-hidden select-none">
+      
+      <!-- Top Editorial Metadata Row -->
+      <div id="hero-meta-top" class="flex flex-wrap items-center justify-between gap-3 text-xs border border-theme-border bg-theme-surface/60 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-mono text-theme-muted shadow-sm">
+        <div class="flex items-center gap-2">
+          <span class="text-theme-text font-bold">01 // PORTFOLIO INDEX</span>
+          <span class="text-theme-subtle">•</span>
+          <span class="text-[11px] sm:text-xs">GEN AI × FULL STACK ARCHITECTURE</span>
         </div>
-        <div id="projectPopupLink" class="flex gap-3 w-full">
-          <button
-            id="projectPopupCloseBtn"
-            type="button"
-            class="bg-transparent transition duration-500 py-2 px-6 text-2xl font-medium text-center border border-orange-500 hover:bg-orange-500 hover:text-white cursor-pointer w-full"
-          >
-            Go Back
-          </button>
-          <a
-            id="projectLiveLink"
-            target="_blank"
-            href="#"
-            class="bg-transparent transition duration-500 py-2 px-6 text-2xl font-medium text-center border border-orange-500 hover:bg-orange-500 hover:text-white cursor-pointer w-full"
-          >
-            Live Link
+        
+        <div class="flex items-center gap-3 text-[11px]">
+          <span class="text-theme-subtle">2026 EDITION</span>
+          <span class="text-theme-border-strong">•</span>
+          <span class="text-theme-text font-bold">DELOITTE USI</span>
+        </div>
+      </div>
+
+      <!-- Center Monumental Asymmetric Typographic Statement -->
+      <div class="my-auto py-6 sm:py-8 flex flex-col w-full relative z-10">
+
+        <h1 id="hero-statement-title" class="tracking-tight uppercase select-none w-full max-w-full break-normal space-y-0.5 sm:space-y-1">
+          
+          <!-- Line 1: Left Aligned -->
+          <div class="hero-line-wrapper overflow-hidden">
+            <span class="hero-title-line block font-extrabold text-5xl sm:text-7xl md:text-8xl lg:text-[6.5rem] xl:text-[7.5rem] leading-[0.9] text-theme-text tracking-tight">
+              BUILDING
+            </span>
+          </div>
+
+          <!-- Line 2: Asymmetrically Offset Right -->
+          <div class="hero-line-wrapper overflow-hidden sm:pl-16 md:pl-24 lg:pl-40">
+            <span class="hero-title-line block font-extrabold text-5xl sm:text-7xl md:text-8xl lg:text-[6.5rem] xl:text-[7.5rem] leading-[0.9] text-transparent bg-clip-text bg-gradient-to-r from-neutral-950 via-neutral-750 to-neutral-500 tracking-tight">
+              INTELLIGENT
+            </span>
+          </div>
+
+          <!-- Line 3: Left Aligned with Bold Italic Accent -->
+          <div class="hero-line-wrapper overflow-hidden">
+            <span class="hero-title-line block font-extrabold text-5xl sm:text-7xl md:text-8xl lg:text-[6.5rem] xl:text-[7.5rem] leading-[0.9] text-theme-text tracking-tight">
+              <em class="italic font-extrabold text-neutral-900 not-italic-fallback">EXPERIENCES.</em>
+            </span>
+          </div>
+
+        </h1>
+
+      </div>
+
+      <!-- Lower Editorial Information & Understated Link Interactions Grid -->
+      <div id="hero-lower-grid" class="p-5 sm:p-6 bg-theme-surface/50 border border-theme-border rounded-2xl grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6 items-end text-xs shadow-sm">
+        
+        <!-- Column 1: Core Value Statement -->
+        <div class="md:col-span-5 space-y-1">
+          <p class="text-theme-subtle font-mono text-[10px] uppercase tracking-wider font-semibold">MISSION &amp; ROLE</p>
+          <p class="text-xs sm:text-sm text-theme-muted font-normal leading-relaxed">
+            Consultant at <strong class="text-theme-text font-semibold">Deloitte USI</strong> engineering autonomous Agentic AI workflows, high-throughput FastAPI backends, and responsive React web experiences.
+          </p>
+        </div>
+
+        <!-- Column 2: Editorial Navigation Links -->
+        <div class="md:col-span-4 flex flex-col sm:flex-row md:flex-col gap-2.5 font-medium">
+          <a href="#projects" class="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-theme-text hover:text-theme-muted transition-colors">
+            <span class="border-b border-theme-text group-hover:border-theme-muted transition-colors pb-0.5">VIEW SELECTED WORK</span>
+            <span class="transform group-hover:translate-x-1.5 transition-transform text-theme-text font-mono font-bold">↗</span>
+          </a>
+
+          <a href="#contact" class="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-theme-muted hover:text-theme-text transition-colors">
+            <span class="border-b border-theme-border-strong group-hover:border-theme-text transition-colors pb-0.5">INITIATE DIALOGUE</span>
+            <span class="transform group-hover:translate-x-1.5 transition-transform text-theme-text font-mono font-bold">↗</span>
           </a>
         </div>
+
+        <!-- Column 3: Stack Telemetry & Subtle Scroll Pulse -->
+        <div class="md:col-span-3 flex flex-col sm:items-end md:items-end justify-between gap-2.5 text-right">
+          <div class="font-mono text-[10px] text-theme-muted text-left sm:text-right">
+            <span class="text-theme-subtle block font-semibold">FOUNDATION</span>
+            <span class="bg-theme-surface-alt px-2.5 py-1 rounded border border-theme-border inline-block mt-1">React • Python • AWS • AI</span>
+          </div>
+
+          <a href="#about" class="inline-flex items-center gap-2 font-mono text-[10px] text-theme-text font-bold uppercase tracking-widest group">
+            <span>SCROLL TO EXPLORE</span>
+            <span class="w-1.5 h-3 border border-theme-text rounded-full flex items-start justify-center p-0.5">
+              <span class="w-0.5 h-1 bg-theme-text rounded-full animate-pulse"></span>
+            </span>
+          </a>
+        </div>
+
       </div>
-      <div
-        id="projectPopupContentBox"
-        class="w-full max-w-xl py-8 flex flex-col gap-8 relative z-10"
-      >
-        <h3 class="text-4xl underline font-semibold uppercase">
-          Lorem ipsum dolor sit amet.
-        </h3>
-        <p class="text-2xl font-medium leading-8">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, expedita
-          labore quaerat iusto provident sapiente omnis neque quod accusamus,
-          suscipit sunt facilis quia obcaecati recusandae iste, officia nihil
-          fugiat quas rerum assumenda natus? Itaque perferendis quis laudantium
-          autem temporibus esse cumque aut ea fugiat voluptatem aliquid nulla
-          tenetur voluptates laboriosam, id quod iure. Architecto libero
-          exercitationem a ut voluptatibus omnis laudantium, eaque dicta facere
-          maxime, sed minima impedit dignissimos nesciunt corrupti! Vitae
-          repellat mollitia exercitationem praesentium eveniet! Blanditiis
-          architecto totam, sed vitae provident quaerat, ullam non repellendus
-          ipsum at deserunt earum nostrum voluptatibus accusamus expedita,
-          voluptate quod rerum. Laudantium, rerum.
+
+    </section>
+
+    <!-- 2. INTRO / MANIFESTO SECTION (CLEAN EDITORIAL SANS) -->
+    <section class="py-24 sm:py-32 px-4 sm:px-6 lg:px-16 max-w-7xl mx-auto relative overflow-hidden bg-theme-surface border border-theme-border rounded-3xl shadow-card-light my-12">
+      <div class="bg-huge-number absolute -top-12 -left-6 font-black text-[14rem] sm:text-[20rem] text-neutral-900/[0.03] select-none pointer-events-none leading-none">
+        01
+      </div>
+
+      <div class="relative z-10 max-w-5xl space-y-16">
+        <div class="editorial-reveal">
+          <p class="font-mono text-xs text-theme-text uppercase tracking-widest font-bold mb-4">// MANIFESTO</p>
+          <h2 class="font-bold text-3xl sm:text-5xl md:text-6xl text-theme-text uppercase tracking-tight leading-[1.15]">
+            "I BUILD DIGITAL EXPERIENCES WHERE <span class="italic font-extrabold text-neutral-900">ENGINEERING</span> MEETS <span class="italic font-extrabold text-neutral-900">INTELLIGENCE</span>."
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-6">
+          
+          <div class="editorial-reveal p-8 bg-white border border-theme-border rounded-2xl shadow-card-light hover:shadow-card-hover hover:border-theme-border-strong transition-all space-y-3">
+            <span class="font-mono text-xs text-theme-text font-bold bg-theme-surface-subtle px-2 py-0.5 rounded border border-theme-border">PILLAR 01</span>
+            <h3 class="font-bold text-lg text-theme-text">Algorithmic <span class="italic text-neutral-900 font-semibold">Rigor</span></h3>
+            <p class="text-sm text-theme-muted leading-relaxed font-normal">
+              Strong foundations in Data Structures and Algorithms ensure systems are built for low computational complexity, zero memory bloat, and enterprise scale.
+            </p>
+          </div>
+
+          <div class="editorial-reveal p-8 bg-white border border-theme-border rounded-2xl shadow-card-light hover:shadow-card-hover hover:border-theme-border-strong transition-all space-y-3">
+            <span class="font-mono text-xs text-theme-text font-bold bg-theme-surface-subtle px-2 py-0.5 rounded border border-theme-border">PILLAR 02</span>
+            <h3 class="font-bold text-lg text-theme-text">Agentic <span class="italic text-neutral-900 font-semibold">Workflows</span></h3>
+            <p class="text-sm text-theme-muted leading-relaxed font-normal">
+              Moving beyond basic LLM prompts into structured Agentic AI workflows with multi-agent routing, deterministic tool use, and verification loops.
+            </p>
+          </div>
+
+          <div class="editorial-reveal p-8 bg-white border border-theme-border rounded-2xl shadow-card-light hover:shadow-card-hover hover:border-theme-border-strong transition-all space-y-3">
+            <span class="font-mono text-xs text-theme-text font-bold bg-theme-surface-subtle px-2 py-0.5 rounded border border-theme-border">PILLAR 03</span>
+            <h3 class="font-bold text-lg text-theme-text">Kinetic <span class="italic text-neutral-900 font-semibold">Interaction</span></h3>
+            <p class="text-sm text-theme-muted leading-relaxed font-normal">
+              Bridging backend intelligence with tactile, responsive, 60 FPS frontend user interfaces that make complex data feel natural to interact with.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. DUAL VELOCITY-DRIVEN MARQUEE TICKERS (LIGHT GREY THEME) -->
+    <section id="marquee-section" class="py-12 border-y border-theme-border overflow-hidden w-full max-w-full select-none bg-theme-surface-alt relative z-10" aria-hidden="true">
+      <div id="marquee-track-1" class="flex whitespace-nowrap gap-8 mb-4 font-black text-4xl sm:text-6xl md:text-7xl text-neutral-400/80 uppercase tracking-tight will-change-transform">
+        <span>BUILD • CREATE • EXPERIMENT • SHIP • SCALE • INNOVATE •&nbsp;</span>
+        <span>BUILD • CREATE • EXPERIMENT • SHIP • SCALE • INNOVATE •&nbsp;</span>
+        <span>BUILD • CREATE • EXPERIMENT • SHIP • SCALE • INNOVATE •&nbsp;</span>
+      </div>
+      <div id="marquee-track-2" class="flex whitespace-nowrap gap-8 font-black text-4xl sm:text-6xl md:text-7xl text-neutral-500/60 uppercase tracking-tight will-change-transform italic">
+        <span>REACT • PYTHON • FASTAPI • AWS • AGENTIC AI • NEXT.JS •&nbsp;</span>
+        <span>REACT • PYTHON • FASTAPI • AWS • AGENTIC AI • NEXT.JS •&nbsp;</span>
+        <span>REACT • PYTHON • FASTAPI • AWS • AGENTIC AI • NEXT.JS •&nbsp;</span>
+      </div>
+    </section>
+
+    <!-- 4. ABOUT SECTION (02 // DOSSIER) -->
+    <section id="about" class="py-24 sm:py-36 px-4 sm:px-6 lg:px-16 max-w-7xl mx-auto relative overflow-hidden">
+      <div class="bg-huge-number absolute -top-10 -right-6 font-black text-[14rem] sm:text-[20rem] text-neutral-900/[0.03] select-none pointer-events-none leading-none">
+        02
+      </div>
+
+      <div class="section-heading-reveal mb-16 sm:mb-20">
+        <div class="flex items-center gap-2 font-mono text-xs text-theme-text uppercase tracking-widest mb-3 font-bold">
+          <span class="w-2 h-2 bg-theme-text rounded-full"></span>
+          02 // DOSSIER &amp; PROFILE
+        </div>
+        <h2 class="font-extrabold text-4xl sm:text-6xl md:text-7xl text-theme-text uppercase tracking-tight leading-tight">
+          ABOUT THE<br>
+          <span class="italic font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-neutral-950 via-neutral-750 to-neutral-500">CONSULTANT</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        
+        <div class="lg:col-span-5 space-y-6">
+          <div class="p-8 bg-white border border-theme-border rounded-2xl shadow-card-light space-y-4">
+            <p class="font-mono text-xs text-theme-text uppercase tracking-widest font-bold">// PROFESSIONAL POSITIONING</p>
+            <p class="text-xl sm:text-2xl font-bold text-theme-text leading-snug">
+              Utkarsh Kushwaha is a <span class="italic text-neutral-900 font-semibold">Gen AI Consultant</span> at Deloitte USI who works with cross-functional teams to develop intelligent software solutions.
+            </p>
+            <p class="text-sm text-theme-muted font-normal leading-relaxed">
+              Based in Gurugram, India, delivering enterprise-scale digital architectures by uniting full-stack engineering with generative and agentic workflows.
+            </p>
+          </div>
+
+          <div class="p-6 bg-theme-surface-subtle border border-theme-border rounded-2xl shadow-card-light space-y-2">
+            <p class="font-mono text-xs text-theme-subtle uppercase tracking-wider font-semibold">EDUCATION</p>
+            <p class="font-bold text-base text-theme-text">Bachelor of Technology in Computer Science &amp; Engineering</p>
+            <p class="font-mono text-xs text-theme-muted font-medium">Meerut Institute of Technology • Graduated 2023</p>
+            <div class="pt-3 flex flex-wrap gap-2 text-xs font-medium text-theme-text">
+              <span class="px-2.5 py-1 bg-white border border-theme-border rounded">Data Structures</span>
+              <span class="px-2.5 py-1 bg-white border border-theme-border rounded">Algorithms</span>
+              <span class="px-2.5 py-1 bg-white border border-theme-border rounded">Software Engineering</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 space-y-6 text-base sm:text-lg text-theme-muted font-normal leading-relaxed">
+          <p>
+            At <strong class="text-theme-text font-semibold">Deloitte USI</strong>, I partner with engineering teams and stakeholders to design and deploy modern web applications, high-throughput microservices, and autonomous AI agents.
+          </p>
+          <p>
+            My engineering stack focuses on <strong class="text-theme-text font-semibold">React.js</strong> and <strong class="text-theme-text font-semibold">Next.js</strong> for responsive, accessible web interfaces, coupled with asynchronous <strong class="text-theme-text font-semibold">Python</strong> and <strong class="text-theme-text font-semibold">FastAPI</strong> backends deployed on <strong class="text-theme-text font-semibold">AWS</strong>.
+          </p>
+          <p>
+            With formal training in Computer Science and Engineering from Meerut Institute of Technology, every solution is built on solid architectural principles: modular components, predictable state management, resilient API contracts, and low-latency data pipelines.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+            <div class="p-5 bg-theme-surface-subtle border border-theme-border rounded-xl shadow-card-light">
+              <p class="text-xs text-theme-text font-bold mb-1">Gen AI &amp; <span class="italic text-neutral-900 font-semibold">Agentic Systems</span></p>
+              <p class="text-xs text-theme-muted leading-relaxed font-normal">RAG search pipelines, vector embeddings, multi-agent tool routing, prompt optimization.</p>
+            </div>
+            <div class="p-5 bg-theme-surface-subtle border border-theme-border rounded-xl shadow-card-light">
+              <p class="text-xs text-theme-text font-bold mb-1">Full-Stack <span class="italic text-neutral-900 font-semibold">Cloud Delivery</span></p>
+              <p class="text-xs text-theme-muted leading-relaxed font-normal">React/Next.js interfaces, FastAPI async REST APIs, AWS Lambda/ECS container deployments.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. EXPERIENCE & CHRONOLOGY SECTION (03 // CHRONOLOGY - LIGHT GREY) -->
+    <section id="experience" class="py-24 sm:py-36 px-4 sm:px-6 lg:px-16 max-w-7xl mx-auto relative overflow-hidden bg-theme-surface border border-theme-border rounded-3xl my-12 shadow-card-light">
+      <div class="bg-huge-number absolute -top-10 -left-6 font-black text-[14rem] sm:text-[20rem] text-neutral-900/[0.03] select-none pointer-events-none leading-none">
+        03
+      </div>
+
+      <div class="section-heading-reveal mb-16 sm:mb-20">
+        <div class="flex items-center gap-2 font-mono text-xs text-theme-text uppercase tracking-widest mb-3 font-bold">
+          <span class="w-2 h-2 bg-theme-text rounded-full"></span>
+          03 // CHRONOLOGY &amp; TRACK RECORD
+        </div>
+        <h2 class="font-extrabold text-4xl sm:text-6xl md:text-7xl text-theme-text uppercase tracking-tight leading-tight">
+          CAREER &amp;<br>
+          <span class="italic font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-neutral-950 via-neutral-750 to-neutral-500">EXPERIENCE</span>
+        </h2>
+      </div>
+
+      <div class="relative border-l-2 border-theme-border-strong ml-4 sm:ml-8 pl-6 sm:pl-12 space-y-16">
+        
+        <!-- Timeline Item 1: Deloitte USI -->
+        <div class="timeline-node-item relative group">
+          <div class="timeline-dot absolute -left-[31px] sm:-left-[55px] top-2 w-4 h-4 rounded-full bg-theme-text border-4 border-white z-10 flex items-center justify-center">
+            <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+          </div>
+
+          <div class="timeline-card p-6 sm:p-10 bg-white border border-theme-border rounded-2xl shadow-card-light space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <span class="font-mono text-xs text-theme-text font-bold uppercase tracking-widest">2023 — PRESENT</span>
+                <h3 class="font-bold text-2xl text-theme-text mt-1">Gen AI &amp; Full-Stack <span class="italic text-neutral-900 font-semibold">Consultant</span></h3>
+                <p class="font-mono text-xs text-theme-muted font-medium">Deloitte USI • Gurugram, Haryana, India</p>
+              </div>
+              <span class="inline-flex px-3 py-1 bg-theme-surface-alt text-theme-text text-xs font-mono rounded-full border border-theme-border w-fit font-bold">
+                CURRENT ROLE
+              </span>
+            </div>
+
+            <p class="text-sm sm:text-base text-theme-muted font-normal leading-relaxed">
+              Collaborating with cross-functional teams to architect and deploy intelligent full-stack software solutions. Developing robust web applications using React.js and Next.js, building scalable backend services with Python and FastAPI, and implementing Generative AI &amp; Agentic AI workflows deployed on AWS cloud infrastructure.
+            </p>
+
+            <div class="flex flex-wrap gap-2 pt-2 text-xs font-medium">
+              <span class="px-3 py-1 bg-theme-surface text-theme-text rounded border border-theme-border">React.js</span>
+              <span class="px-3 py-1 bg-theme-surface text-theme-text rounded border border-theme-border">Next.js</span>
+              <span class="px-3 py-1 bg-theme-surface text-theme-text rounded border border-theme-border">Python</span>
+              <span class="px-3 py-1 bg-theme-surface text-theme-text rounded border border-theme-border">FastAPI</span>
+              <span class="px-3 py-1 bg-theme-surface-alt text-theme-text rounded border border-theme-border font-bold">Generative AI</span>
+              <span class="px-3 py-1 bg-theme-surface-alt text-theme-text rounded border border-theme-border font-bold">Agentic AI</span>
+              <span class="px-3 py-1 bg-theme-surface text-theme-text rounded border border-theme-border">AWS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 2: MIT Education -->
+        <div class="timeline-node-item relative group">
+          <div class="timeline-dot absolute -left-[31px] sm:-left-[55px] top-2 w-4 h-4 rounded-full bg-theme-border-strong border-4 border-white z-10"></div>
+
+          <div class="timeline-card p-6 sm:p-10 bg-white border border-theme-border rounded-2xl shadow-card-light space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <span class="font-mono text-xs text-theme-subtle font-bold uppercase tracking-widest">2019 — 2023</span>
+                <h3 class="font-bold text-2xl text-theme-text mt-1">Bachelor of Technology in <span class="italic text-neutral-900 font-semibold">Computer Science</span></h3>
+                <p class="font-mono text-xs text-theme-muted font-medium">Meerut Institute of Technology • Meerut, Uttar Pradesh, India</p>
+              </div>
+              <span class="inline-flex px-3 py-1 bg-theme-surface text-theme-muted text-xs font-mono rounded-full border border-theme-border w-fit font-medium">
+                B.TECH CSE
+              </span>
+            </div>
+
+            <p class="text-sm sm:text-base text-theme-muted font-normal leading-relaxed">
+              Graduated with a comprehensive computer science curriculum emphasizing Data Structures, Algorithms, Software Engineering, Object-Oriented Programming, Database Management Systems, and Web Technologies. Built foundational full-stack web and backend projects.
+            </p>
+
+            <div class="flex flex-wrap gap-2 pt-2 text-xs font-medium">
+              <span class="px-3 py-1 bg-theme-surface text-theme-text rounded border border-theme-border">Data Structures</span>
+              <span class="px-3 py-1 bg-theme-surface text-theme-text rounded border border-theme-border">Algorithms</span>
+              <span class="px-3 py-1 bg-theme-surface text-theme-text rounded border border-theme-border">Software Engineering</span>
+              <span class="px-3 py-1 bg-theme-surface text-theme-text rounded border border-theme-border">Python</span>
+              <span class="px-3 py-1 bg-theme-surface text-theme-text rounded border border-theme-border">JavaScript</span>
+              <span class="px-3 py-1 bg-theme-surface text-theme-text rounded border border-theme-border">SQL</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. SELECTED WORK — PINNED HORIZONTAL SHOWCASE (04 // WORK) -->
+    <section id="projects" class="min-h-screen flex flex-col justify-center py-12 sm:py-16 relative overflow-hidden w-full max-w-full bg-theme-surface-subtle border-y border-theme-border">
+      
+      <div class="px-4 sm:px-6 lg:px-16 max-w-7xl mx-auto mb-6 sm:mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-2 w-full">
+        <div>
+          <div class="flex items-center gap-2 font-mono text-xs text-theme-text uppercase tracking-widest mb-2 font-bold">
+            <span class="w-2 h-2 bg-theme-text rounded-full"></span>
+            04 // CASE STUDIES &amp; ARCHITECTURE
+          </div>
+          <h2 class="font-extrabold text-3xl sm:text-5xl text-theme-text uppercase tracking-tight">
+            SELECTED <span class="italic text-neutral-900">WORK</span>
+          </h2>
+        </div>
+        <p class="font-mono text-xs text-theme-muted uppercase tracking-widest hidden lg:block font-medium">
+          SCROLL TO EXPLORE ARCHITECTURE →
         </p>
       </div>
-    </div>
-    <section id="mainSection" class="text-center p-10 h-dvh relative">
-      <!-- Navbar -->
-      <nav
-        class="flex justify-between items-center gap-4 absolute top-2 right-10 left-10 text-lg font-medium"
-      >
-        <div class="flex items-center gap-4">
-          <a href="#" class="navLinks">Linkedin</a>
-          <a href="#" class="navLinks">Github</a>
-        </div>
-        <div id="navbar" class="flex justify-end items-center gap-4 relative">
-          <button
-            id="projectBtn"
-            type="button"
-            class="navLinks p-0 bg-transparent border-0 outline-0 cursor-pointer"
-          >
-            Projects
-          </button>
-          <button
-            id="resumeBtn"
-            type="button"
-            class="navLinks p-0 bg-transparent border-0 outline-0 cursor-pointer"
-          >
-            Resume
-          </button>
-          <button
-            id="hiremeBtn"
-            type="button"
-            class="navLinks p-0 bg-transparent border-0 outline-0 cursor-pointer"
-          >
-            Hire Me
-          </button>
-        </div>
-      </nav>
-      <!-- Bottom Date -->
-      <div
-        class="flex justify-between items-center gap-4 absolute bottom-2 right-10 left-10 text-lg font-medium"
-      >
-        <p id="coordinates"></p>
-        <p id="dateTime"></p>
-      </div>
-      <!-- About Button -->
-      <button
-        id="stackBtn"
-        type="button"
-        class="text-lg py-2 px-6 rounded-lg cursor-pointer bg-orange-500 transition duration-500 text-white hover:text-orange-500 font-medium fixed bottom-4 z-40 left-1/2 -translate-x-1/2 hover:bg-white"
-      >
-        About Me
-      </button>
-      <!-- Horizontal Scroller Animation -->
-      <div
-        id="scrollerContainer"
-        class="w-full fixed text-6xl font-medium top-1/2 left-0 -translate-y-1/2 z-10 overflow-hidden pointer-events-none"
-      >
-        <div class="flex items-center gap-12 transformAnimation w-max">
-          <!-- First set -->
-          <div class="flex items-center gap-12">
-            <p class="orange-500space-nowrap">React.JS</p>
-            <p class="orange-500space-nowrap">HTML</p>
-            <p class="orange-500space-nowrap">CSS</p>
-            <p class="orange-500space-nowrap">Python</p>
-            <p class="orange-500space-nowrap">Node.JS</p>
-            <p class="orange-500space-nowrap">SQL</p>
-            <p class="orange-500space-nowrap">MongoDB</p>
-            <p class="orange-500space-nowrap">Next.JS</p>
-            <p class="orange-500space-nowrap">Bootstrap</p>
-            <p class="orange-500space-nowrap">TailwindCSS</p>
-            <p class="orange-500space-nowrap">Shadcn</p>
-            <p class="orange-500space-nowrap">GEN AI</p>
-            <p class="orange-500space-nowrap">JavaScript</p>
-            <p class="orange-500space-nowrap">TypeScript</p>
-          </div>
-          <!-- Duplicate set -->
-          <div class="flex items-center gap-12">
-            <p class="orange-500space-nowrap">React.JS</p>
-            <p class="orange-500space-nowrap">HTML</p>
-            <p class="orange-500space-nowrap">CSS</p>
-            <p class="orange-500space-nowrap">Python</p>
-            <p class="orange-500space-nowrap">Node.JS</p>
-            <p class="orange-500space-nowrap">SQL</p>
-            <p class="orange-500space-nowrap">MongoDB</p>
-            <p class="orange-500space-nowrap">Next.JS</p>
-            <p class="orange-500space-nowrap">Bootstrap</p>
-            <p class="orange-500space-nowrap">TailwindCSS</p>
-            <p class="orange-500space-nowrap">Shadcn</p>
-            <p class="orange-500space-nowrap">GEN AI</p>
-            <p class="orange-500space-nowrap">JavaScript</p>
-            <p class="orange-500space-nowrap">TypeScript</p>
-          </div>
-        </div>
-      </div>
-      <!-- Hero Section -->
-      <div
-        id="mainContainer"
-        class="w-full h-full flex justify-center items-center flex-col gap-4 px-4 pb-4 border border-orange-500 rounded-lg relative overflow-hidden"
-      >
-        <!-- Absolute text -->
-        <div
-          id="hireMeTxt"
-          class="absolute top-3 left-3 max-w-md text-start pointer-events-none"
-        >
-          <p class="text-3xl leading-6 font-medium uppercase max-w-64">
-            Hire me before AI replaces both of us.
-          </p>
-        </div>
-        <!-- Absolute text -->
-        <div
-          id="myNameTxt"
-          class="absolute bottom-2 right-3 w-fit text-end pointer-events-none z-50"
-        >
-          <p class="text-2xl font-bold uppercase windowMove leading-none">
-            Beckham Petersen
-          </p>
-          <p class="text-lg font-medium leading-none windowMove">Portfolio</p>
-        </div>
-        <!-- Absolute text -->
-        <span
-          id="absoluteText"
-          class="absolute bottom-0 windowMove left-0 text-[15.5dvw] leading-40 whitespace-nowrap uppercase font-bold text-orange-100 pointer-events-none z-0 block text-center w-full"
-        >
-          Beckham Petersen
-        </span>
-        <!-- Object 3D -->
-        <script
-          type="module"
-          src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"
-        ></script>
-        <spline-viewer
-          id="3dmodel"
-          class="fixed top-0 left-0 w-full h-full pointer-events-none z-20"
-          url="https://prod.spline.design/FVZWbQH2B6ndj9UU/scene.splinecode"
-          events-target="global"
-        ></spline-viewer>
-        <!-- Hero Box -->
-        <div
-          id="heroBox"
-          class="fixed top-1/2 left-1/2 -translate-1/2 text-white font-semibold z-30 px-12 py-6 pointer-events-none opacity-100"
-        >
-          <h2 class="text-8xl font-bold leading-16">
-            Creative Full Stack <br />
-            Developer.
-          </h2>
-          <p class="text-2xl max-w-md leading-5 mx-auto mt-6">
-            A Full-Stack Developer and GenAI enthusiast with expertise in React,
-            Next.js, Node.js, Python.
-          </p>
-        </div>
-        <!-- About Me -->
-        <div
-          id="aboutme"
-          class="flex flex-col gap-6 text-start pointer-events-none opacity-0 absolute top-1/2 left-1/2 w-full max-w-6xl -translate-1/2 z-10 px-4"
-        >
-          <div class="flex items-end gap-6">
-            <div>
-              <img
-                id="aboutImg"
-                src="./src/img/user.jpg"
-                alt="..."
-                class="max-w-32 block rounded-lg absolute top-0 right-4"
-              />
-              <h3 id="aboutTitle" class="text-6xl">
-                Hello! I'm Beckham Petersen
-              </h3>
-              <div
-                class="flex gap-2 items-center flex-wrap mt-4 text-lg font-medium max-w-md"
-              >
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  Python
+
+      <!-- Horizontal Slides Track -->
+      <div class="w-full overflow-hidden">
+        <div id="horizontal-track" class="flex flex-col lg:flex-row gap-6 px-4 sm:px-6 lg:px-16 w-full lg:w-max will-change-transform items-center">
+          
+          <!-- SLIDE 01: AGENTIC AI ORCHESTRATOR -->
+          <div class="horizontal-project-slide w-full lg:w-[68vw] max-w-4xl bg-white border border-theme-border rounded-2xl p-6 sm:p-8 shadow-card-light hover:shadow-card-hover transition-all flex flex-col justify-between shrink-0">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+              
+              <div class="lg:col-span-6 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="font-mono text-xs text-theme-text font-bold tracking-widest">SYSTEM // 01</span>
+                  <span class="font-mono text-[10px] text-theme-subtle font-semibold">SYS-ORCHESTRATOR-v2</span>
+                </div>
+                <h3 class="font-extrabold text-2xl sm:text-3xl text-theme-text tracking-tight">
+                  Agentic AI <span class="italic text-neutral-900 font-semibold">Workflow Orchestrator</span>
+                </h3>
+                <p class="font-mono text-xs text-theme-muted font-medium">Python • FastAPI • React.js • AWS • Agentic AI</p>
+                <p class="text-xs sm:text-sm text-theme-muted font-normal leading-relaxed">
+                  An enterprise-grade agentic orchestration platform coordinating autonomous LLM agents for complex multi-step data verification, synthesis, and code execution workflows with real-time telemetry.
                 </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  GEN AI
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  React.JS
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  Next.JS
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  Node.JS
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  JavaScript
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  TypeScript
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  SQL
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  MongoDB
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  Bootstrap
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  TailwindCSS
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  Shadcn
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  HTML
-                </p>
-                <p
-                  class="orange-500space-nowrap border border-orange-500 rounded-lg py-0.5 aboutSkills px-3"
-                >
-                  CSS
-                </p>
+                <div class="p-2.5 bg-theme-surface border border-theme-border rounded-xl font-mono text-[11px] text-theme-text font-semibold">
+                  ✦ METRICS: Sub-50ms Routing • 99.4% Tool Accuracy • Full Observability
+                </div>
+                <div class="pt-1">
+                  <button data-open-modal="project-01" class="px-5 py-2 bg-theme-text hover:bg-neutral-800 text-white text-xs font-bold tracking-wider rounded-lg uppercase transition-colors shadow-sm">
+                    INSPECT ARCHITECTURE →
+                  </button>
+                </div>
               </div>
+
+              <!-- Technical Architecture Visualizer -->
+              <div class="lg:col-span-6 p-4 sm:p-5 bg-theme-surface border border-theme-border rounded-xl font-mono text-xs space-y-3">
+                <div class="flex items-center justify-between border-b border-theme-border pb-2">
+                  <span class="text-theme-text font-bold text-xs">// MULTI-AGENT EXECUTION GRAPH</span>
+                  <span class="text-emerald-600 text-[10px] font-bold animate-pulse">● STREAMING ACTIVE</span>
+                </div>
+                <div class="space-y-1.5 text-[11px]">
+                  <div class="p-2.5 bg-white rounded-lg border border-theme-border flex items-center justify-between shadow-sm">
+                    <span class="text-theme-text font-sans font-medium">01 / CLIENT TELEMETRY</span>
+                    <span class="text-theme-text font-bold font-mono">WebSocket / 60 FPS</span>
+                  </div>
+                  <div class="p-2.5 bg-white rounded-lg border border-theme-border flex items-center justify-between shadow-sm">
+                    <span class="text-theme-text font-sans font-medium">02 / ROUTING GATEWAY</span>
+                    <span class="text-theme-text font-semibold font-mono">FastAPI Async Core</span>
+                  </div>
+                  <div class="p-2.5 bg-white rounded-lg border border-theme-border flex items-center justify-between shadow-sm">
+                    <span class="text-theme-text font-sans font-medium">03 / REASONING ENGINE</span>
+                    <span class="text-theme-text font-bold font-mono">Multi-Agent LangChain</span>
+                  </div>
+                  <div class="p-2.5 bg-white rounded-lg border border-theme-border flex items-center justify-between shadow-sm">
+                    <span class="text-theme-text font-sans font-medium">04 / ISOLATED RUNTIME</span>
+                    <span class="text-theme-text font-semibold font-mono">AWS ECS Sandbox</span>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
-          <p id="aboutPara" class="text-2xl max-w-6xl mt-4">
-            I'm a Full-Stack Developer with a strong frontend foundation and a
-            growing focus on Generative AI solutions. With hands-on experience
-            in React.js and Next.js, I build fast, scalable, and visually
-            refined web applications that prioritize performance and user
-            experience. On the backend, I work with Node.js, Express, MongoDB,
-            and Python to design reliable APIs and data-driven systems. I
-            actively explore GenAI technologies to create intelligent features
-            such as AI-poweorange workflows, automation, and smart user
-            interactions.
-          </p>
-          <div class="flex justify-end text-2xl">
-            <a id="aboutLink" href="#" class="hover:underline">
-              ndhsaidnaj@gmail.com
-            </a>
+
+          <!-- SLIDE 02: GEN AI KNOWLEDGE HUB -->
+          <div class="horizontal-project-slide w-full lg:w-[68vw] max-w-4xl bg-white border border-theme-border rounded-2xl p-6 sm:p-8 shadow-card-light hover:shadow-card-hover transition-all flex flex-col justify-between shrink-0">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+              
+              <div class="lg:col-span-6 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="font-mono text-xs text-theme-text font-bold tracking-widest">SYSTEM // 02</span>
+                  <span class="font-mono text-[10px] text-theme-subtle font-semibold">SYS-RAG-ENGINE-v3</span>
+                </div>
+                <h3 class="font-extrabold text-2xl sm:text-3xl text-theme-text tracking-tight">
+                  Enterprise Gen AI <span class="italic text-neutral-900 font-semibold">Knowledge Hub</span>
+                </h3>
+                <p class="font-mono text-xs text-theme-muted font-medium">Python • FastAPI • Next.js • Vector DB • AWS</p>
+                <p class="text-xs sm:text-sm text-theme-muted font-normal leading-relaxed">
+                  A semantic search and document intelligence engine built with RAG architecture, vector embeddings, and streaming responses, enabling instant cross-document query synthesis with source citation verification.
+                </p>
+                <div class="p-2.5 bg-theme-surface border border-theme-border rounded-xl font-mono text-[11px] text-theme-text font-semibold">
+                  ✦ METRICS: 1M+ Tokens/Min • Hybrid Search • Citation Provenance
+                </div>
+                <div class="pt-1">
+                  <button data-open-modal="project-02" class="px-5 py-2 bg-theme-text hover:bg-neutral-800 text-white text-xs font-bold tracking-wider rounded-lg uppercase transition-colors shadow-sm">
+                    INSPECT ARCHITECTURE →
+                  </button>
+                </div>
+              </div>
+
+              <!-- Technical Architecture Visualizer -->
+              <div class="lg:col-span-6 p-4 sm:p-5 bg-theme-surface border border-theme-border rounded-xl font-mono text-xs space-y-3">
+                <div class="flex items-center justify-between border-b border-theme-border pb-2">
+                  <span class="text-theme-text font-bold text-xs">// RAG VECTOR SEARCH PIPELINE</span>
+                  <span class="text-theme-text text-[10px] font-bold">HNSW INDEXED</span>
+                </div>
+                <div class="space-y-1.5 text-[11px]">
+                  <div class="p-2.5 bg-white rounded-lg border border-theme-border flex items-center justify-between shadow-sm">
+                    <span class="text-theme-text font-sans font-medium">01 / DOCUMENT INGESTION</span>
+                    <span class="text-theme-text font-semibold font-mono">Hierarchical Chunking</span>
+                  </div>
+                  <div class="p-2.5 bg-white rounded-lg border border-theme-border flex items-center justify-between shadow-sm">
+                    <span class="text-theme-text font-sans font-medium">02 / VECTOR RETRIEVAL</span>
+                    <span class="text-theme-text font-bold font-mono">Dense + Sparse BM25</span>
+                  </div>
+                  <div class="p-2.5 bg-white rounded-lg border border-theme-border flex items-center justify-between shadow-sm">
+                    <span class="text-theme-text font-sans font-medium">03 / CONTEXT RE-RANKER</span>
+                    <span class="text-theme-text font-semibold font-mono">Cross-Encoder Scoring</span>
+                  </div>
+                  <div class="p-2.5 bg-white rounded-lg border border-theme-border flex items-center justify-between shadow-sm">
+                    <span class="text-theme-text font-sans font-medium">04 / STREAMING OUTPUT</span>
+                    <span class="text-theme-text font-bold font-mono">Next.js Server Actions</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
+
+          <!-- SLIDE 03: CLOUD TELEMETRY CONSOLE -->
+          <div class="horizontal-project-slide w-full lg:w-[68vw] max-w-4xl bg-white border border-theme-border rounded-2xl p-6 sm:p-8 shadow-card-light hover:shadow-card-hover transition-all flex flex-col justify-between shrink-0">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+              
+              <div class="lg:col-span-6 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="font-mono text-xs text-theme-text font-bold tracking-widest">SYSTEM // 03</span>
+                  <span class="font-mono text-[10px] text-theme-subtle font-semibold">SYS-TELEMETRY-v1</span>
+                </div>
+                <h3 class="font-extrabold text-2xl sm:text-3xl text-theme-text tracking-tight">
+                  Full-Stack Cloud <span class="italic text-neutral-900 font-semibold">Telemetry Console</span>
+                </h3>
+                <p class="font-mono text-xs text-theme-muted font-medium">React.js • Tailwind CSS • Python • FastAPI • WebSockets</p>
+                <p class="text-xs sm:text-sm text-theme-muted font-normal leading-relaxed">
+                  A high-performance monitoring interface connecting to distributed backend microservices, providing real-time telemetry metrics, automated threshold alerts, and asynchronous API orchestration.
+                </p>
+                <div class="p-2.5 bg-theme-surface border border-theme-border rounded-xl font-mono text-[11px] text-theme-text font-semibold">
+                  ✦ METRICS: 60 FPS Visualizer • &lt;12ms Socket Latency • Zero Frame Drop
+                </div>
+                <div class="pt-1">
+                  <button data-open-modal="project-03" class="px-5 py-2 bg-theme-text hover:bg-neutral-800 text-white text-xs font-bold tracking-wider rounded-lg uppercase transition-colors shadow-sm">
+                    INSPECT ARCHITECTURE →
+                  </button>
+                </div>
+              </div>
+
+              <!-- Technical Architecture Visualizer -->
+              <div class="lg:col-span-6 p-4 sm:p-5 bg-theme-surface border border-theme-border rounded-xl font-mono text-xs space-y-3">
+                <div class="flex items-center justify-between border-b border-theme-border pb-2">
+                  <span class="text-theme-text font-bold text-xs">// REAL-TIME STREAMING TOPOLOGY</span>
+                  <span class="text-theme-text text-[10px] font-bold">PUB/SUB BROKER</span>
+                </div>
+                <div class="space-y-1.5 text-[11px]">
+                  <div class="p-2.5 bg-white rounded-lg border border-theme-border flex items-center justify-between shadow-sm">
+                    <span class="text-theme-text font-sans font-medium">01 / CANVAS RENDERER</span>
+                    <span class="text-theme-text font-bold font-mono">60 FPS Render</span>
+                  </div>
+                  <div class="p-2.5 bg-white rounded-lg border border-theme-border flex items-center justify-between shadow-sm">
+                    <span class="text-theme-text font-sans font-medium">02 / REDIS PUB/SUB HUB</span>
+                    <span class="text-theme-text font-semibold font-mono">FastAPI Broadcast</span>
+                  </div>
+                  <div class="p-2.5 bg-white rounded-lg border border-theme-border flex items-center justify-between shadow-sm">
+                    <span class="text-theme-text font-sans font-medium">03 / AWS CLOUDWATCH</span>
+                    <span class="text-theme-text font-bold font-mono">Metric Bridge</span>
+                  </div>
+                  <div class="p-2.5 bg-white rounded-lg border border-theme-border flex items-center justify-between shadow-sm">
+                    <span class="text-theme-text font-sans font-medium">04 / DISPATCH ROUTER</span>
+                    <span class="text-theme-text font-semibold font-mono">Webhook Pipeline</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- SLIDE 04: MICROSERVICES GATEWAY -->
+          <div class="horizontal-project-slide w-full lg:w-[68vw] max-w-4xl bg-white border border-theme-border rounded-2xl p-6 sm:p-8 shadow-card-light hover:shadow-card-hover transition-all flex flex-col justify-between shrink-0">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+              
+              <div class="lg:col-span-6 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="font-mono text-xs text-theme-text font-bold tracking-widest">SYSTEM // 04</span>
+                  <span class="font-mono text-[10px] text-theme-subtle font-semibold">SYS-GATEWAY-v4</span>
+                </div>
+                <h3 class="font-extrabold text-2xl sm:text-3xl text-theme-text tracking-tight">
+                  Intelligent Microservices <span class="italic text-neutral-900 font-semibold">Gateway</span>
+                </h3>
+                <p class="font-mono text-xs text-theme-muted font-medium">Python • FastAPI • Node.js • AWS Lambda • Docker</p>
+                <p class="text-xs sm:text-sm text-theme-muted font-normal leading-relaxed">
+                  A resilient backend gateway engineered with FastAPI and AWS infrastructure, handling JWT authentication, token-bucket rate limiting, request validation with Pydantic, and asynchronous service discovery.
+                </p>
+                <div class="p-2.5 bg-theme-surface border border-theme-border rounded-xl font-mono text-[11px] text-theme-text font-semibold">
+                  ✦ METRICS: 10k+ Req/Sec • P99 &lt; 8ms • Automated Failover
+                </div>
+                <div class="pt-1">
+                  <button data-open-modal="project-04" class="px-5 py-2 bg-theme-text hover:bg-neutral-800 text-white text-xs font-bold tracking-wider rounded-lg uppercase transition-colors shadow-sm">
+                    INSPECT ARCHITECTURE →
+                  </button>
+                </div>
+              </div>
+
+              <!-- Technical Architecture Visualizer -->
+              <div class="lg:col-span-6 p-4 sm:p-5 bg-theme-surface border border-theme-border rounded-xl font-mono text-xs space-y-3">
+                <div class="flex items-center justify-between border-b border-theme-border pb-2">
+                  <span class="text-theme-text font-bold text-xs">// ZERO-TRUST GATEWAY MIDDLEWARE</span>
+                  <span class="text-theme-text text-[10px] font-bold">P99 &lt; 8MS</span>
+                </div>
+                <div class="space-y-1.5 text-[11px]">
+                  <div class="p-2.5 bg-white rounded-lg border border-theme-border flex items-center justify-between shadow-sm">
+                    <span class="text-theme-text font-sans font-medium">01 / EDGE INGRESS</span>
+                    <span class="text-theme-text font-semibold font-mono">AWS ALB &amp; TLS</span>
+                  </div>
+                  <div class="p-2.5 bg-white rounded-lg border border-theme-border flex items-center justify-between shadow-sm">
+                    <span class="text-theme-text font-sans font-medium">02 / RATE LIMITER</span>
+                    <span class="text-theme-text font-bold font-mono">Redis Token Bucket</span>
+                  </div>
+                  <div class="p-2.5 bg-white rounded-lg border border-theme-border flex items-center justify-between shadow-sm">
+                    <span class="text-theme-text font-sans font-medium">03 / SCHEMA VALIDATION</span>
+                    <span class="text-theme-text font-semibold font-mono">Pydantic Type</span>
+                  </div>
+                  <div class="p-2.5 bg-white rounded-lg border border-theme-border flex items-center justify-between shadow-sm">
+                    <span class="text-theme-text font-sans font-medium">04 / ASYNC SERVICE ROUTER</span>
+                    <span class="text-theme-text font-bold font-mono">HTTP/2 Pool</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
-        <!-- Projects -->
-        <div
-          id="projectBox"
-          class="w-full h-full flex flex-col opacity-0 pointer-events-none relative z-9999"
-        ></div>
-        <!-- Contact Me -->
-        <div
-          id="contactSection"
-          class="pointer-events-none absolute top-0 left-0 p-8 z-9999 text-start h-full overflow-hidden w-full flex flex-col justify-between gap-12 opacity-0"
-        >
-          <div class="flex justify-between items-start gap-8 w-full">
-            <h3
-              id="contactTitle"
-              class="text-8xl leading-24 font-light uppercase translate-y-40 opacity-0"
-            >
-              Let's Collaborate <br />
-              OR
-              <span class="font-bold">Hire Me</span>
-              <span>
-                <div class="text-xl lowercase">(ndhsaidnaj@gmail.com)</div>
-                <div class="text-xl lowercase">(+91 4238493322)</div>
-              </span>
-            </h3>
-            <button
-              id="closeContact"
-              type="button"
-              class="p-0 bg-transparent border-0 outline-0 hover:underline text-xl cursor-pointer"
-            >
-              Go Back to Home
+      </div>
+    </section>
+
+    <!-- 7. MAJOR FEATURED ARCHITECTURAL SPOTLIGHT (LIGHT GREY BACKGROUND) -->
+    <section id="featured-spotlight-section" class="py-24 sm:py-36 px-4 sm:px-6 lg:px-16 max-w-7xl mx-auto relative overflow-hidden">
+      <div class="p-8 sm:p-16 lg:p-20 bg-theme-surface border border-theme-border rounded-3xl relative overflow-hidden shadow-card-light">
+        
+        <div class="relative z-10 max-w-4xl space-y-6">
+          <span class="font-mono text-xs text-theme-text uppercase tracking-widest font-bold">
+            ✦ FEATURED ENGINEERING SPOTLIGHT // SYSTEM ARCHITECTURE
+          </span>
+          <h2 class="font-extrabold text-4xl sm:text-6xl text-theme-text uppercase tracking-tight leading-[0.95]">
+            AUTONOMOUS AGENTIC <span class="italic text-neutral-900 font-semibold">WORKFLOW ENGINE</span>
+          </h2>
+          <p class="text-base sm:text-lg text-theme-muted font-normal leading-relaxed">
+            Architecting end-to-end multi-agent systems that connect custom LLM reasoning with deterministic tool calling, real-time Python/FastAPI execution sandboxes, and enterprise AWS infrastructure.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 text-xs">
+            <div class="p-4 bg-white border border-theme-border rounded-xl shadow-sm">
+              <span class="text-theme-subtle uppercase block text-[10px] font-semibold font-mono">REASONING CORE</span>
+              <span class="text-theme-text font-bold mt-1 block text-sm">Multi-Agent Router</span>
+              <span class="text-theme-muted text-[11px] mt-1 block">LangChain • Function Calling</span>
+            </div>
+            <div class="p-4 bg-white border border-theme-border rounded-xl shadow-sm">
+              <span class="text-theme-text uppercase block text-[10px] font-bold font-mono">BACKEND SPEED</span>
+              <span class="text-theme-text font-bold mt-1 block text-sm italic">FastAPI Asynchronous</span>
+              <span class="text-theme-muted text-[11px] mt-1 block">Sub-50ms Task Ingestion</span>
+            </div>
+            <div class="p-4 bg-white border border-theme-border rounded-xl shadow-sm">
+              <span class="text-theme-subtle uppercase block text-[10px] font-semibold font-mono">CLOUD PLATFORM</span>
+              <span class="text-theme-text font-bold mt-1 block text-sm">AWS ECS / Lambda</span>
+              <span class="text-theme-muted text-[11px] mt-1 block">Container Isolation Sandbox</span>
+            </div>
+          </div>
+
+          <div class="pt-4 flex items-center gap-4">
+            <button data-open-modal="project-01" class="px-8 py-3.5 bg-theme-text hover:bg-neutral-800 text-white text-xs font-bold tracking-wider rounded-xl uppercase transition-colors shadow-sm">
+              EXPLORE SCHEMATIC SPECIFICATION →
             </button>
           </div>
-          <div class="grid gap-8 grid-cols-3">
-            <div>
-              <p
-                class="text-2xl font-medium contactPara translate-y-40 opacity-0"
-              >
-                Got an idea that's waiting to come alive? Let's build it
-                together. Whether you're a designer, developer, or a creative
-                studio, I'd love to collaborate and turn your thoughts into
-                something real.
-              </p>
-              <a
-                href="#"
-                class="inline-block contactLink opacity-0 mt-6 w-fit py-3 px-8 text-2xl border border-orange-500 uppercase hover:bg-orange-500 hover:text-white transition duration-500"
-              >
-                Let's Collaborate
-              </a>
-            </div>
-            <div>
-              <p
-                class="text-2xl font-medium contactPara translate-y-40 opacity-0"
-              >
-                If you're a digital agency or company looking for a designer,
-                developer who cares about details, motion, and meaningful
-                design. I'm always open to exciting opportunities.
-              </p>
-              <a
-                href="#"
-                class="inline-block contactLink opacity-0 mt-6 w-fit py-3 px-8 text-2xl border border-orange-500 uppercase bg-white hover:bg-orange-500 hover:text-white transition duration-500"
-              >
-                Hire Me
-              </a>
-            </div>
-            <div>
-              <p
-                class="text-2xl font-medium contactPara translate-y-40 opacity-0"
-              >
-                You can reach me through any of my socials below or drop me a
-                message. I'd be happy to connect, collaborate, or just chat
-                about new ideas.
-              </p>
-              <div class="flex gap-3 mt-6">
-                <a
-                  href="#"
-                  class="inline-block contactLink opacity-0 w-fit font-bold py-3 text-2xl hover:underline uppercase"
-                >
-                  Linkedin
-                </a>
-                <a
-                  href="#"
-                  class="inline-block contactLink opacity-0 w-fit font-bold py-3 text-2xl hover:underline uppercase"
-                >
-                  Github
-                </a>
-              </div>
-            </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 8. TECHNOLOGY ARSENAL MATRIX HUB (05 // TECHNOLOGY) -->
+    <section id="tech" class="py-24 sm:py-36 px-4 sm:px-6 lg:px-16 max-w-7xl mx-auto relative overflow-hidden">
+      <div class="bg-huge-number absolute -top-10 -left-6 font-black text-[14rem] sm:text-[20rem] text-neutral-900/[0.03] select-none pointer-events-none leading-none">
+        05
+      </div>
+
+      <div class="section-heading-reveal flex flex-col md:flex-row md:items-end justify-between mb-16 sm:mb-20 gap-6">
+        <div>
+          <div class="flex items-center gap-2 font-mono text-xs text-theme-text uppercase tracking-widest mb-3 font-bold">
+            <span class="w-2 h-2 bg-theme-text rounded-full"></span>
+            05 // ARSENAL MATRIX
+          </div>
+          <h2 class="font-extrabold text-4xl sm:text-6xl md:text-7xl text-theme-text uppercase tracking-tight leading-tight">
+            TECHNOLOGY<br>
+            <span class="italic font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-neutral-950 via-neutral-750 to-neutral-500">MATRIX</span>
+          </h2>
+        </div>
+        <p class="max-w-md text-sm sm:text-base text-theme-muted font-normal">
+          Hover over any technology node in the matrix to inspect capability depth, domain category, and architectural use cases.
+        </p>
+      </div>
+
+      <div id="tech-interactive-hub" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs">
+          
+          <div data-tech-node="React.js" class="p-4 bg-white border border-theme-border rounded-xl cursor-pointer hover:bg-theme-surface-subtle hover:border-theme-border-strong hover:shadow-card-hover transition-all flex flex-col justify-between h-28 group shadow-card-light">
+            <span class="text-[10px] text-theme-subtle uppercase font-semibold font-mono">// FRONTEND</span>
+            <p class="font-bold text-base text-theme-text group-hover:text-theme-text transition-colors">React.js</p>
+            <span class="text-[11px] text-theme-muted">SPA &amp; Custom Hooks</span>
+          </div>
+
+          <div data-tech-node="Next.js" class="p-4 bg-white border border-theme-border rounded-xl cursor-pointer hover:bg-theme-surface-subtle hover:border-theme-border-strong hover:shadow-card-hover transition-all flex flex-col justify-between h-28 group shadow-card-light">
+            <span class="text-[10px] text-theme-subtle uppercase font-semibold font-mono">// FRONTEND</span>
+            <p class="font-bold text-base text-theme-text group-hover:text-theme-text transition-colors">Next.js</p>
+            <span class="text-[11px] text-theme-muted">SSR &amp; App Router</span>
+          </div>
+
+          <div data-tech-node="Python" class="p-4 bg-white border border-theme-border rounded-xl cursor-pointer hover:bg-theme-surface-subtle hover:border-theme-border-strong hover:shadow-card-hover transition-all flex flex-col justify-between h-28 group shadow-card-light">
+            <span class="text-[10px] text-theme-subtle uppercase font-semibold font-mono">// BACKEND</span>
+            <p class="font-bold text-base text-theme-text group-hover:text-theme-text transition-colors">Python</p>
+            <span class="text-[11px] text-theme-muted">Async Core &amp; Logic</span>
+          </div>
+
+          <div data-tech-node="FastAPI" class="p-4 bg-white border border-theme-border rounded-xl cursor-pointer hover:bg-theme-surface-subtle hover:border-theme-border-strong hover:shadow-card-hover transition-all flex flex-col justify-between h-28 group shadow-card-light">
+            <span class="text-[10px] text-theme-subtle uppercase font-semibold font-mono">// BACKEND</span>
+            <p class="font-bold text-base text-theme-text group-hover:text-theme-text transition-colors">FastAPI</p>
+            <span class="text-[11px] text-theme-muted">High-Speed REST APIs</span>
+          </div>
+
+          <div data-tech-node="AWS Cloud" class="p-4 bg-white border border-theme-border rounded-xl cursor-pointer hover:bg-theme-surface-subtle hover:border-theme-border-strong hover:shadow-card-hover transition-all flex flex-col justify-between h-28 group shadow-card-light">
+            <span class="text-[10px] text-theme-subtle uppercase font-semibold font-mono">// CLOUD</span>
+            <p class="font-bold text-base text-theme-text group-hover:text-theme-text transition-colors">AWS Cloud</p>
+            <span class="text-[11px] text-theme-muted">Lambda, ECS, S3</span>
+          </div>
+
+          <div data-tech-node="Agentic AI" class="p-4 bg-theme-surface-subtle border border-theme-border rounded-xl cursor-pointer hover:bg-theme-surface hover:border-theme-border-strong transition-all flex flex-col justify-between h-28 group shadow-card-light">
+            <span class="text-[10px] text-theme-text uppercase font-bold font-mono">// INTELLIGENCE</span>
+            <p class="font-extrabold text-base text-theme-text italic">Agentic AI</p>
+            <span class="text-[11px] text-theme-muted font-medium">Multi-Agent Tool Routing</span>
+          </div>
+
+          <div data-tech-node="Generative AI" class="p-4 bg-theme-surface-subtle border border-theme-border rounded-xl cursor-pointer hover:bg-theme-surface hover:border-theme-border-strong transition-all flex flex-col justify-between h-28 group shadow-card-light">
+            <span class="text-[10px] text-theme-text uppercase font-bold font-mono">// INTELLIGENCE</span>
+            <p class="font-extrabold text-base text-theme-text italic">Generative AI</p>
+            <span class="text-[11px] text-theme-muted font-medium">RAG &amp; Vector Search</span>
+          </div>
+
+          <div data-tech-node="TypeScript" class="p-4 bg-white border border-theme-border rounded-xl cursor-pointer hover:bg-theme-surface-subtle hover:border-theme-border-strong hover:shadow-card-hover transition-all flex flex-col justify-between h-28 group shadow-card-light">
+            <span class="text-[10px] text-theme-subtle uppercase font-semibold font-mono">// FRONTEND</span>
+            <p class="font-bold text-base text-theme-text group-hover:text-theme-text transition-colors">TypeScript</p>
+            <span class="text-[11px] text-theme-muted">Static Type Safety</span>
+          </div>
+
+          <div data-tech-node="Node.js" class="p-4 bg-white border border-theme-border rounded-xl cursor-pointer hover:bg-theme-surface-subtle hover:border-theme-border-strong hover:shadow-card-hover transition-all flex flex-col justify-between h-28 group shadow-card-light">
+            <span class="text-[10px] text-theme-subtle uppercase font-semibold font-mono">// BACKEND</span>
+            <p class="font-bold text-base text-theme-text group-hover:text-theme-text transition-colors">Node.js</p>
+            <span class="text-[11px] text-theme-muted">Runtime Services</span>
+          </div>
+
+          <div data-tech-node="Tailwind CSS" class="p-4 bg-white border border-theme-border rounded-xl cursor-pointer hover:bg-theme-surface-subtle hover:border-theme-border-strong hover:shadow-card-hover transition-all flex flex-col justify-between h-28 group shadow-card-light">
+            <span class="text-[10px] text-theme-subtle uppercase font-semibold font-mono">// STYLING</span>
+            <p class="font-bold text-base text-theme-text group-hover:text-theme-text transition-colors">Tailwind CSS</p>
+            <span class="text-[11px] text-theme-muted">Design Systems</span>
+          </div>
+
+          <div data-tech-node="GSAP Motion" class="p-4 bg-white border border-theme-border rounded-xl cursor-pointer hover:bg-theme-surface-subtle hover:border-theme-border-strong hover:shadow-card-hover transition-all flex flex-col justify-between h-28 group shadow-card-light">
+            <span class="text-[10px] text-theme-subtle uppercase font-semibold font-mono">// MOTION</span>
+            <p class="font-bold text-base text-theme-text group-hover:text-theme-text transition-colors">GSAP Motion</p>
+            <span class="text-[11px] text-theme-muted">ScrollTrigger Physics</span>
+          </div>
+
+          <div data-tech-node="Data Structures" class="p-4 bg-white border border-theme-border rounded-xl cursor-pointer hover:bg-theme-surface-subtle hover:border-theme-border-strong hover:shadow-card-hover transition-all flex flex-col justify-between h-28 group shadow-card-light">
+            <span class="text-[10px] text-theme-subtle uppercase font-semibold font-mono">// CS FOUNDATION</span>
+            <p class="font-bold text-base text-theme-text group-hover:text-theme-text transition-colors">DSA &amp; Algorithms</p>
+            <span class="text-[11px] text-theme-muted">Optimized Complexity</span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4 p-8 bg-theme-surface border border-theme-border rounded-2xl shadow-card-light space-y-6 lg:sticky lg:top-28">
+          <div class="flex items-center justify-between border-b border-theme-border pb-3">
+            <span id="tech-detail-category" class="font-mono text-xs text-theme-text uppercase tracking-wider font-bold">// AGENTIC AI</span>
+            <span id="tech-detail-level" class="font-mono text-[10px] text-theme-text px-2.5 py-1 bg-white rounded-md border border-theme-border font-bold">ADVANCED</span>
+          </div>
+
+          <div>
+            <h3 id="tech-detail-title" class="font-extrabold text-3xl text-theme-text">Agentic <span class="italic text-neutral-900">AI</span></h3>
+            <p id="tech-detail-desc" class="text-sm text-theme-muted font-normal leading-relaxed mt-3">
+              Autonomous multi-agent orchestration, LangChain routing, deterministic function calling, and structured verification workflows.
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-theme-border space-y-3 text-xs text-theme-muted">
+            <p class="text-theme-text font-bold">PRODUCTION APPLICATION:</p>
+            <p class="text-xs leading-relaxed">Architecting autonomous task execution and retrieval pipelines for enterprise software at Deloitte USI.</p>
           </div>
         </div>
       </div>
     </section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/Flip.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/TextPlugin.min.js"></script>
-    <script src="./src/js/script.js"></script>
-  </body>
+
+    <!-- 9. BLOG / PUBLICATIONS SECTION (06 // INSIGHTS - EDITORIAL MAGAZINE STYLE) -->
+    <section id="blog" class="py-24 sm:py-36 px-4 sm:px-6 lg:px-16 max-w-7xl mx-auto relative overflow-hidden bg-white rounded-3xl border border-theme-border shadow-card-light my-12">
+      <div class="bg-huge-number absolute -top-10 -right-6 font-black text-[14rem] sm:text-[20rem] text-neutral-900/[0.03] select-none pointer-events-none leading-none">
+        06
+      </div>
+
+      <div class="section-heading-reveal flex flex-col md:flex-row md:items-end justify-between mb-16 sm:mb-20 gap-6">
+        <div>
+          <div class="flex items-center gap-2 font-mono text-xs text-theme-text uppercase tracking-widest mb-3 font-bold">
+            <span class="w-2 h-2 bg-theme-text rounded-full"></span>
+            06 // PUBLICATIONS &amp; TECHNICAL NOTES
+          </div>
+          <h2 class="font-extrabold text-4xl sm:text-6xl md:text-7xl text-theme-text uppercase tracking-tight leading-tight">
+            THOUGHTS &amp;<br>
+            <span class="italic font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-neutral-950 via-neutral-750 to-neutral-500">EXPERIMENTS</span>
+          </h2>
+        </div>
+        <p class="max-w-md text-sm sm:text-base text-theme-muted font-normal">
+          Technical explorations into multi-agent orchestration, RAG latency optimization, React server components, and 60 FPS animation systems.
+        </p>
+      </div>
+
+      <div class="divide-y divide-theme-border border-y border-theme-border">
+
+        <!-- Article 01 -->
+        <article data-blog-row data-open-blog="article-01" class="py-8 sm:py-10 group cursor-pointer transition-all duration-300 hover:bg-theme-surface-subtle px-4 sm:px-8 -mx-4 sm:-mx-8 rounded-2xl">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+            <div class="space-y-2 max-w-3xl">
+              <div class="flex items-center gap-3 font-mono text-xs">
+                <span class="text-theme-text font-bold bg-theme-surface px-2 py-0.5 rounded border border-theme-border">01 // AGENTIC AI</span>
+                <span class="text-theme-subtle">•</span>
+                <span class="text-theme-muted font-medium">FEB 2026</span>
+                <span class="text-theme-subtle">•</span>
+                <span class="text-theme-muted">08 MIN READ</span>
+              </div>
+              <h3 class="font-bold text-2xl sm:text-3xl text-theme-text group-hover:text-theme-muted transition-colors leading-snug">
+                Architecting Multi-Agent <span class="italic font-bold text-neutral-900">Autonomous Workflows</span> with FastAPI &amp; Python
+              </h3>
+              <p class="text-sm text-theme-muted font-normal leading-relaxed">
+                How to structure autonomous agent routing, deterministic tool verification, and asynchronous task execution in enterprise environments without non-deterministic failure loops.
+              </p>
+            </div>
+            <div class="shrink-0 flex items-center gap-2 font-mono text-xs text-theme-text group-hover:text-theme-muted transition-colors font-bold">
+              <span>READ NOTE</span>
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 02 -->
+        <article data-blog-row data-open-blog="article-02" class="py-8 sm:py-10 group cursor-pointer transition-all duration-300 hover:bg-theme-surface-subtle px-4 sm:px-8 -mx-4 sm:-mx-8 rounded-2xl">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+            <div class="space-y-2 max-w-3xl">
+              <div class="flex items-center gap-3 font-mono text-xs">
+                <span class="text-theme-text font-bold bg-theme-surface px-2 py-0.5 rounded border border-theme-border">02 // GEN AI &amp; RAG</span>
+                <span class="text-theme-subtle">•</span>
+                <span class="text-theme-muted font-medium">DEC 2025</span>
+                <span class="text-theme-subtle">•</span>
+                <span class="text-theme-muted">06 MIN READ</span>
+              </div>
+              <h3 class="font-bold text-2xl sm:text-3xl text-theme-text group-hover:text-theme-muted transition-colors leading-snug">
+                Enterprise RAG: <span class="italic font-bold text-neutral-900">Vector Search Optimization</span> &amp; Streaming Latency
+              </h3>
+              <p class="text-sm text-theme-muted font-normal leading-relaxed">
+                Techniques for optimizing dense vector retrieval, hybrid BM25 re-ranking, and low-latency token streaming across distributed cloud endpoints.
+              </p>
+            </div>
+            <div class="shrink-0 flex items-center gap-2 font-mono text-xs text-theme-text group-hover:text-theme-muted transition-colors font-bold">
+              <span>READ NOTE</span>
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 03 -->
+        <article data-blog-row data-open-blog="article-03" class="py-8 sm:py-10 group cursor-pointer transition-all duration-300 hover:bg-theme-surface-subtle px-4 sm:px-8 -mx-4 sm:-mx-8 rounded-2xl">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+            <div class="space-y-2 max-w-3xl">
+              <div class="flex items-center gap-3 font-mono text-xs">
+                <span class="text-theme-text font-bold bg-theme-surface px-2 py-0.5 rounded border border-theme-border">03 // FRONTEND ARCHITECTURE</span>
+                <span class="text-theme-subtle">•</span>
+                <span class="text-theme-muted font-medium">OCT 2025</span>
+                <span class="text-theme-subtle">•</span>
+                <span class="text-theme-muted">05 MIN READ</span>
+              </div>
+              <h3 class="font-bold text-2xl sm:text-3xl text-theme-text group-hover:text-theme-muted transition-colors leading-snug">
+                State Management &amp; <span class="italic font-bold text-neutral-900">Server Components</span> in Enterprise Next.js
+              </h3>
+              <p class="text-sm text-theme-muted font-normal leading-relaxed">
+                Deep dive into combining React Server Components, server actions, and localized client state for ultra-fast First Contentful Paint and seamless UX.
+              </p>
+            </div>
+            <div class="shrink-0 flex items-center gap-2 font-mono text-xs text-theme-text group-hover:text-theme-muted transition-colors font-bold">
+              <span>READ NOTE</span>
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 04 -->
+        <article data-blog-row data-open-blog="article-04" class="py-8 sm:py-10 group cursor-pointer transition-all duration-300 hover:bg-theme-surface-subtle px-4 sm:px-8 -mx-4 sm:-mx-8 rounded-2xl">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+            <div class="space-y-2 max-w-3xl">
+              <div class="flex items-center gap-3 font-mono text-xs">
+                <span class="text-theme-text font-bold bg-theme-surface px-2 py-0.5 rounded border border-theme-border">04 // CLOUD MICROSERVICES</span>
+                <span class="text-theme-subtle">•</span>
+                <span class="text-theme-muted font-medium">JUN 2025</span>
+                <span class="text-theme-subtle">•</span>
+                <span class="text-theme-muted">07 MIN READ</span>
+              </div>
+              <h3 class="font-bold text-2xl sm:text-3xl text-theme-text group-hover:text-theme-muted transition-colors leading-snug">
+                Microservices API Gateway Routing with <span class="italic font-bold text-neutral-900">AWS Lambda &amp; Docker</span>
+              </h3>
+              <p class="text-sm text-theme-muted font-normal leading-relaxed">
+                Designing zero-trust JWT authentication middleware, token bucket rate limiting, and containerized microservice routing with FastAPI.
+              </p>
+            </div>
+            <div class="shrink-0 flex items-center gap-2 font-mono text-xs text-theme-text group-hover:text-theme-muted transition-colors font-bold">
+              <span>READ NOTE</span>
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 05 -->
+        <article data-blog-row data-open-blog="article-05" class="py-8 sm:py-10 group cursor-pointer transition-all duration-300 hover:bg-theme-surface-subtle px-4 sm:px-8 -mx-4 sm:-mx-8 rounded-2xl">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+            <div class="space-y-2 max-w-3xl">
+              <div class="flex items-center gap-3 font-mono text-xs">
+                <span class="text-theme-text font-bold bg-theme-surface px-2 py-0.5 rounded border border-theme-border">05 // CREATIVE CODE</span>
+                <span class="text-theme-subtle">•</span>
+                <span class="text-theme-muted font-medium">MAR 2025</span>
+                <span class="text-theme-subtle">•</span>
+                <span class="text-theme-muted">09 MIN READ</span>
+              </div>
+              <h3 class="font-bold text-2xl sm:text-3xl text-theme-text group-hover:text-theme-muted transition-colors leading-snug">
+                60 FPS WebGL &amp; GSAP Animation <span class="italic font-bold text-neutral-900">Pipelines for Production</span>
+              </h3>
+              <p class="text-sm text-theme-muted font-normal leading-relaxed">
+                Managing requestAnimationFrame cycles, offloading buffer geometry computations to WebGL, and avoiding layout thrashing in modern interactive web experiences.
+              </p>
+            </div>
+            <div class="shrink-0 flex items-center gap-2 font-mono text-xs text-theme-text group-hover:text-theme-muted transition-colors font-bold">
+              <span>READ NOTE</span>
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 10. HUGE CONTACT SECTION (07 // CONTACT - LIGHT GREY THEME) -->
+    <section id="contact" class="py-24 sm:py-36 px-4 sm:px-6 lg:px-16 max-w-7xl mx-auto relative overflow-hidden">
+      <div class="p-8 sm:p-14 lg:p-16 bg-theme-surface border border-theme-border rounded-3xl shadow-card-light relative z-10">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          <!-- Left Column: Editorial Header & Direct Channels -->
+          <div class="lg:col-span-5 space-y-8 text-left">
+            <div class="inline-flex items-center gap-2 font-mono text-xs text-theme-text uppercase tracking-widest px-3.5 py-1.5 rounded-full bg-white border border-theme-border font-bold shadow-sm">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              07 // INITIATE DIALOGUE
+            </div>
+
+            <div class="space-y-4">
+              <h2 class="font-extrabold text-4xl sm:text-5xl lg:text-6xl text-theme-text uppercase tracking-tight leading-[0.95]">
+                LET'S BUILD<br>
+                <span class="italic font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-neutral-950 via-neutral-750 to-neutral-500">WHAT'S NEXT.</span>
+              </h2>
+              <p class="text-sm sm:text-base text-theme-muted font-normal leading-relaxed">
+                Have an ambitious enterprise AI initiative, complex full-stack product, or technical consultation? Fill out the brief or reach out directly.
+              </p>
+            </div>
+
+            <!-- Direct Contact Badges -->
+            <div class="space-y-3 pt-2 text-xs">
+              <button id="contact-copy-email" class="w-full p-4 bg-white border border-theme-border rounded-2xl hover:border-theme-border-strong hover:bg-theme-surface-subtle transition-all group shadow-sm text-left">
+                <span class="text-[10px] text-theme-subtle uppercase block font-semibold font-mono">DIRECT TRANSMISSION (CLICK TO COPY)</span>
+                <span class="text-theme-text font-bold group-hover:text-theme-muted flex items-center justify-between mt-1 text-sm">
+                  utkarsh.kushwaha.dev@gmail.com
+                  <svg class="w-4 h-4 text-theme-subtle group-hover:text-theme-text" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                </span>
+              </button>
+
+              <div class="grid grid-cols-2 gap-3">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="p-4 bg-white border border-theme-border rounded-2xl hover:border-theme-border-strong hover:bg-theme-surface-subtle transition-all group shadow-sm">
+                  <span class="text-[10px] text-theme-subtle uppercase block font-semibold font-mono">NETWORK</span>
+                  <span class="text-theme-text font-bold group-hover:text-theme-muted flex items-center justify-between mt-1 text-sm">
+                    LINKEDIN ↗
+                  </span>
+                </a>
+
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="p-4 bg-white border border-theme-border rounded-2xl hover:border-theme-border-strong hover:bg-theme-surface-subtle transition-all group shadow-sm">
+                  <span class="text-[10px] text-theme-subtle uppercase block font-semibold font-mono">SOURCE</span>
+                  <span class="text-theme-text font-bold group-hover:text-theme-muted flex items-center justify-between mt-1 text-sm">
+                    GITHUB ↗
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Inline Form with Live Validation -->
+          <div class="lg:col-span-7 bg-white border border-theme-border rounded-3xl p-6 sm:p-10 shadow-sm text-left">
+            <div class="border-b border-theme-border pb-4 mb-6 flex items-center justify-between">
+              <div>
+                <h3 class="font-extrabold text-xl text-theme-text tracking-tight">// TRANSMIT MISSION BRIEF</h3>
+                <p class="text-xs text-theme-muted mt-0.5">Real-time client-validated inquiry submission.</p>
+              </div>
+              <span class="px-2.5 py-1 rounded bg-theme-surface border border-theme-border font-mono text-[10px] text-theme-muted font-semibold uppercase">
+                ENCRYPTED DIRECT
+              </span>
+            </div>
+
+            <form id="inline-contact-form" class="space-y-4" novalidate>
+              
+              <!-- Name Field -->
+              <div class="form-group space-y-1.5">
+                <label for="inline-contact-name" class="block text-xs text-theme-text uppercase font-bold tracking-wider font-mono">
+                  NAME / ORGANIZATION <span class="text-neutral-400">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="inline-contact-name" 
+                  name="name" 
+                  placeholder="e.g. Alex Morgan / Stealth AI Lab" 
+                  class="w-full px-4 py-3.5 bg-theme-surface-subtle border border-theme-border rounded-xl text-theme-text placeholder-theme-subtle focus:outline-none focus:border-theme-text transition-all text-xs sm:text-sm font-medium"
+                >
+                <p data-error-for="name" class="hidden text-xs text-red-500 font-mono font-medium pl-1"></p>
+              </div>
+
+              <!-- Email Field -->
+              <div class="form-group space-y-1.5">
+                <label for="inline-contact-email" class="block text-xs text-theme-text uppercase font-bold tracking-wider font-mono">
+                  EMAIL ADDRESS <span class="text-neutral-400">*</span>
+                </label>
+                <input 
+                  type="email" 
+                  id="inline-contact-email" 
+                  name="email" 
+                  placeholder="alex@organization.com" 
+                  class="w-full px-4 py-3.5 bg-theme-surface-subtle border border-theme-border rounded-xl text-theme-text placeholder-theme-subtle focus:outline-none focus:border-theme-text transition-all text-xs sm:text-sm font-medium"
+                >
+                <p data-error-for="email" class="hidden text-xs text-red-500 font-mono font-medium pl-1"></p>
+              </div>
+
+              <!-- Service Category Dropdown -->
+              <div class="form-group space-y-1.5">
+                <label for="inline-contact-service" class="block text-xs text-theme-text uppercase font-bold tracking-wider font-mono">
+                  INITIATIVE DOMAIN <span class="text-neutral-400">*</span>
+                </label>
+                <select 
+                  id="inline-contact-service" 
+                  name="service" 
+                  class="w-full px-4 py-3.5 bg-theme-surface-subtle border border-theme-border rounded-xl text-theme-text focus:outline-none focus:border-theme-text transition-all text-xs sm:text-sm font-medium cursor-pointer"
+                >
+                  <option value="">Select an initiative domain...</option>
+                  <option value="Enterprise AI &amp; Multi-Agent Workflows">Enterprise AI &amp; Multi-Agent Workflows</option>
+                  <option value="Full-Stack Web Architecture &amp; Next.js">Full-Stack Web Architecture &amp; Next.js</option>
+                  <option value="WebGL &amp; High-Performance Creative Engineering">WebGL &amp; High-Performance Creative Engineering</option>
+                  <option value="Cloud Microservices &amp; API Engineering">Cloud Microservices &amp; API Engineering</option>
+                  <option value="Advisory &amp; Technical Consulting">Advisory &amp; Technical Consulting</option>
+                </select>
+                <p data-error-for="service" class="hidden text-xs text-red-500 font-mono font-medium pl-1"></p>
+              </div>
+
+              <!-- Message Field -->
+              <div class="form-group space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <label for="inline-contact-message" class="block text-xs text-theme-text uppercase font-bold tracking-wider font-mono">
+                    MISSION BRIEF <span class="text-neutral-400">*</span>
+                  </label>
+                  <span class="char-counter text-[11px] font-mono text-theme-subtle">0 / 1000</span>
+                </div>
+                <textarea 
+                  id="inline-contact-message" 
+                  name="message" 
+                  rows="4" 
+                  maxlength="1000"
+                  placeholder="Describe your technical objectives, product architecture, timeline, or consultation scope..." 
+                  class="w-full px-4 py-3.5 bg-theme-surface-subtle border border-theme-border rounded-xl text-theme-text placeholder-theme-subtle focus:outline-none focus:border-theme-text transition-all resize-none text-xs sm:text-sm font-medium"
+                ></textarea>
+                <p data-error-for="message" class="hidden text-xs text-red-500 font-mono font-medium pl-1"></p>
+              </div>
+
+              <!-- Submit Button -->
+              <button 
+                type="submit" 
+                class="w-full py-4 sm:py-4.5 bg-theme-text hover:bg-neutral-800 text-white text-xs sm:text-sm font-bold tracking-wider rounded-xl uppercase transition-all shadow-sm flex items-center justify-center gap-2 mt-2"
+              >
+                <span>TRANSMIT MISSION BRIEF →</span>
+              </button>
+
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 11. EDITORIAL FOOTER -->
+    <footer class="border-t border-theme-border relative z-10 bg-white overflow-hidden w-full">
+
+      <!-- TOP GRID: 3-column bordered layout like reference -->
+      <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-theme-border">
+
+        <!-- Col 1: Big CTA Statement -->
+        <div class="px-8 sm:px-12 py-12 sm:py-16 space-y-5">
+          <h2 class="font-extrabold text-3xl sm:text-4xl lg:text-[2.6rem] text-theme-text leading-[1.1] tracking-tight">
+            Let me work on<br>
+            your next <span class="italic font-bold text-neutral-900">project.</span>
+          </h2>
+          <p class="text-sm text-theme-muted font-normal leading-relaxed max-w-xs">
+            Available for consulting, full-stack builds, and intelligent AI systems. Based in Gurugram, working globally.
+          </p>
+          <div class="flex items-center gap-2 text-[11px] font-mono text-theme-subtle uppercase tracking-wider bg-theme-surface-subtle px-3 py-1.5 rounded-md border border-theme-border w-fit">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            Deloitte USI · Gurugram, India
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div class="px-8 sm:px-12 py-12 sm:py-16 space-y-5">
+          <p class="font-bold text-sm text-theme-text tracking-wide">Links</p>
+          <ul class="space-y-3">
+            <li><a href="#about" class="text-sm text-theme-muted hover:text-theme-text transition-colors tracking-widest uppercase font-medium">About</a></li>
+            <li><a href="#projects" class="text-sm text-theme-muted hover:text-theme-text transition-colors tracking-widest uppercase font-medium">Work</a></li>
+            <li><a href="#experience" class="text-sm text-theme-muted hover:text-theme-text transition-colors tracking-widest uppercase font-medium">Experience</a></li>
+            <li><a href="#blog" class="text-sm text-theme-muted hover:text-theme-text transition-colors tracking-widest uppercase font-medium">Blog</a></li>
+            <li>
+              <a href="#contact" class="text-sm text-theme-muted hover:text-theme-text transition-colors tracking-widest uppercase font-medium inline-flex items-center gap-2">
+                Let's Create
+                <span class="w-2 h-2 rounded-sm bg-neutral-400 inline-block"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Contact Channels -->
+        <div class="px-8 sm:px-12 py-12 sm:py-16 space-y-5">
+          <p class="font-bold text-sm text-theme-text tracking-wide">Contact</p>
+          <ul class="space-y-3">
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-sm text-theme-muted hover:text-theme-text transition-colors tracking-widest uppercase font-medium">LinkedIn</a></li>
+            <li><a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-sm text-theme-muted hover:text-theme-text transition-colors tracking-widest uppercase font-medium">GitHub</a></li>
+            <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="text-sm text-theme-muted hover:text-theme-text transition-colors tracking-widest uppercase font-medium">Twitter / X</a></li>
+            <li><a href="mailto:utkarsh.kushwaha.dev@gmail.com" class="text-sm text-theme-muted hover:text-theme-text transition-colors tracking-widest uppercase font-medium">Email Direct</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- BOTTOM: Full-bleed monumental brand name (fitted cleanly within viewport) -->
+      <div class="relative w-full overflow-hidden border-t border-theme-border select-none bg-theme-surface/30">
+        <a href="#hero" data-nav="home" class="block group" aria-label="Back to top">
+          <div class="px-4 sm:px-8 lg:px-12 pt-6 sm:pt-10 pb-16 sm:pb-20">
+            <span class="block font-extrabold leading-[0.85] tracking-tighter text-[13.5vw] sm:text-[14.5vw] lg:text-[15vw] text-neutral-200/90 group-hover:text-neutral-300 transition-colors duration-500 whitespace-nowrap">
+              UTKARSH.
+            </span>
+          </div>
+        </a>
+        <div class="absolute bottom-4 left-0 right-0 flex items-center justify-between px-6 sm:px-12 text-[11px] text-theme-subtle font-mono">
+          <span>© 2026 Utkarsh Kushwaha. All rights reserved.</span>
+          <a href="#hero" data-nav="home" class="hover:text-theme-text transition-colors font-bold uppercase tracking-widest">↑ Top</a>
+        </div>
+      </div>
+
+    </footer>
+
+  </main>
+
+  <!-- CASE STUDY QUICK-VIEW MODAL (Warm Editorial Grey Theme) -->
+  <div id="project-modal" class="fixed inset-0 z-[90] bg-neutral-950/40 backdrop-blur-md hidden items-start justify-center p-4 overflow-y-auto" data-lenis-prevent role="dialog" aria-modal="true">
+    <div id="project-modal-card" class="relative w-full max-w-3xl bg-white border border-theme-border rounded-3xl overflow-hidden shadow-2xl my-8 sm:my-12">
+      
+      <!-- Close Button -->
+      <button id="project-modal-close" class="absolute top-5 right-5 sm:top-6 sm:right-6 z-20 p-2.5 rounded-full bg-theme-surface border border-theme-border text-theme-muted hover:text-theme-text transition-colors focus:outline-none shadow-sm" aria-label="Close Case Study Modal">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div class="p-6 sm:p-10 space-y-6">
+        <div class="flex items-center justify-between border-b border-theme-border pb-4 pr-12 sm:pr-14">
+          <span id="project-modal-tag" class="px-3 py-1 rounded-full bg-theme-surface border border-theme-border text-theme-text text-xs font-mono uppercase tracking-wider font-bold"></span>
+          <span id="project-modal-system-id" class="font-mono text-xs text-theme-subtle font-semibold"></span>
+        </div>
+
+        <div>
+          <h3 id="project-modal-title" class="font-extrabold text-2xl sm:text-3xl text-theme-text"></h3>
+          <p id="project-modal-tagline" class="font-mono text-xs text-theme-muted font-medium mt-1"></p>
+        </div>
+
+        <p id="project-modal-desc" class="text-sm sm:text-base text-theme-muted font-normal leading-relaxed"></p>
+
+        <!-- Technical Multi-Layer Schema Visualizer -->
+        <div class="p-4 bg-theme-surface border border-theme-border rounded-xl font-mono text-xs space-y-2">
+          <p class="text-theme-text font-bold text-xs mb-2">// MULTI-TIER ARCHITECTURE SPECIFICATION</p>
+          <div class="p-2.5 bg-white rounded border border-theme-border text-theme-text shadow-sm">
+            <span class="text-neutral-900 font-bold">TIER 1:</span> <span id="project-modal-arch-1"></span>
+          </div>
+          <div class="p-2.5 bg-white rounded border border-theme-border text-theme-text shadow-sm">
+            <span class="text-neutral-900 font-bold">TIER 2:</span> <span id="project-modal-arch-2"></span>
+          </div>
+          <div class="p-2.5 bg-white rounded border border-theme-border text-theme-text shadow-sm">
+            <span class="text-neutral-900 font-bold">TIER 3:</span> <span id="project-modal-arch-3"></span>
+          </div>
+          <div class="p-2.5 bg-white rounded border border-theme-border text-theme-text shadow-sm">
+            <span class="text-neutral-900 font-bold">TIER 4:</span> <span id="project-modal-arch-4"></span>
+          </div>
+        </div>
+
+        <div>
+          <p class="font-mono text-xs text-theme-text uppercase tracking-wider mb-2 font-bold">TECHNOLOGY STACK</p>
+          <div id="project-modal-tech" class="flex flex-wrap gap-2"></div>
+        </div>
+
+        <div class="flex items-center gap-4 pt-4 border-t border-theme-border text-xs font-mono">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 bg-theme-text hover:bg-neutral-800 text-white rounded-lg transition-colors font-bold shadow-sm">
+            VIEW CODE REPOSITORY ↗
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BLOG PUBLICATION DETAIL READER MODAL (Warm Editorial Grey Theme) -->
+  <div id="blog-modal" class="fixed inset-0 z-[95] bg-neutral-950/45 backdrop-blur-md hidden items-start justify-center p-3 sm:p-6 overflow-y-auto" data-lenis-prevent role="dialog" aria-modal="true">
+    
+    <!-- Top Fixed Reading Progress Indicator -->
+    <div class="fixed top-0 left-0 right-0 h-1 bg-theme-border/40 z-[100] pointer-events-none">
+      <div id="blog-modal-progress" class="h-full bg-theme-text w-0 transition-all duration-75 ease-out"></div>
+    </div>
+
+    <div id="blog-modal-card" class="relative w-full max-w-4xl bg-white border border-theme-border rounded-3xl overflow-hidden shadow-2xl my-6 sm:my-12">
+      
+      <!-- Close Button -->
+      <button id="blog-modal-close" class="absolute top-5 right-5 sm:top-6 sm:right-6 z-20 p-2.5 rounded-full bg-theme-surface border border-theme-border text-theme-muted hover:text-theme-text transition-colors focus:outline-none shadow-sm" aria-label="Close Blog Note">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <!-- Dynamic Article Container -->
+      <div id="blog-modal-content" class="p-6 sm:p-12 lg:p-14 space-y-8 max-w-none">
+        <!-- Injected dynamically by BlogModal -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CONTACT INQUIRY MODAL (Warm Editorial Grey Theme) -->
+  <div id="contact-modal" class="fixed inset-0 z-[90] bg-neutral-950/40 backdrop-blur-md hidden items-start justify-center p-4 overflow-y-auto" data-lenis-prevent role="dialog" aria-modal="true">
+    <div id="contact-modal-card" class="relative w-full max-w-lg bg-white border border-theme-border rounded-3xl p-6 sm:p-8 shadow-2xl my-8">
+      
+      <button id="contact-modal-close" class="absolute top-5 right-5 sm:top-6 sm:right-6 z-20 p-2 rounded-lg bg-theme-surface border border-theme-border text-theme-muted hover:text-theme-text transition-colors focus:outline-none" aria-label="Close Contact Modal">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div class="text-left space-y-1 mb-6 pr-12 sm:pr-14">
+        <span class="font-mono text-xs text-theme-text uppercase tracking-wider font-bold">// INITIATE INQUIRY</span>
+        <h3 class="font-extrabold text-2xl text-theme-text">START A <span class="italic text-neutral-900 font-semibold">CONVERSATION</span></h3>
+        <p class="text-xs text-theme-muted font-normal">Transmit an inquiry directly to Utkarsh Kushwaha.</p>
+      </div>
+
+      <form id="contact-form" class="space-y-4 text-sm" novalidate>
+        
+        <!-- Name Field -->
+        <div class="form-group space-y-1">
+          <label for="contact-name" class="block text-xs text-theme-text uppercase font-semibold tracking-wider font-mono">NAME / ORGANIZATION</label>
+          <input 
+            type="text" 
+            id="contact-name" 
+            name="name" 
+            placeholder="Your Name or Company" 
+            class="w-full px-4 py-3 bg-theme-surface-subtle border border-theme-border rounded-xl text-theme-text placeholder-theme-subtle focus:outline-none focus:border-theme-text transition-colors text-xs font-medium"
+          >
+          <p data-error-for="name" class="hidden text-[11px] text-red-500 font-mono font-medium pl-1"></p>
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-group space-y-1">
+          <label for="contact-email" class="block text-xs text-theme-text uppercase font-semibold tracking-wider font-mono">EMAIL ADDRESS</label>
+          <input 
+            type="email" 
+            id="contact-email" 
+            name="email" 
+            placeholder="you@organization.com" 
+            class="w-full px-4 py-3 bg-theme-surface-subtle border border-theme-border rounded-xl text-theme-text placeholder-theme-subtle focus:outline-none focus:border-theme-text transition-colors text-xs font-medium"
+          >
+          <p data-error-for="email" class="hidden text-[11px] text-red-500 font-mono font-medium pl-1"></p>
+        </div>
+
+        <!-- Service Category Dropdown -->
+        <div class="form-group space-y-1">
+          <label for="contact-service" class="block text-xs text-theme-text uppercase font-semibold tracking-wider font-mono">INITIATIVE DOMAIN</label>
+          <select 
+            id="contact-service" 
+            name="service" 
+            class="w-full px-4 py-3 bg-theme-surface-subtle border border-theme-border rounded-xl text-theme-text focus:outline-none focus:border-theme-text transition-colors text-xs font-medium cursor-pointer"
+          >
+            <option value="">Select an initiative domain...</option>
+            <option value="Enterprise AI &amp; Multi-Agent Workflows">Enterprise AI &amp; Multi-Agent Workflows</option>
+            <option value="Full-Stack Web Architecture &amp; Next.js">Full-Stack Web Architecture &amp; Next.js</option>
+            <option value="WebGL &amp; High-Performance Creative Engineering">WebGL &amp; High-Performance Creative Engineering</option>
+            <option value="Cloud Microservices &amp; API Engineering">Cloud Microservices &amp; API Engineering</option>
+            <option value="Advisory &amp; Technical Consulting">Advisory &amp; Technical Consulting</option>
+          </select>
+          <p data-error-for="service" class="hidden text-[11px] text-red-500 font-mono font-medium pl-1"></p>
+        </div>
+
+        <!-- Message Field -->
+        <div class="form-group space-y-1">
+          <div class="flex items-center justify-between">
+            <label for="contact-message" class="block text-xs text-theme-text uppercase font-semibold tracking-wider font-mono">MISSION BRIEF</label>
+            <span class="char-counter text-[11px] font-mono text-theme-subtle">0 / 1000</span>
+          </div>
+          <textarea 
+            id="contact-message" 
+            name="message" 
+            rows="4" 
+            maxlength="1000"
+            placeholder="Describe your product vision, enterprise AI project, or timeline..." 
+            class="w-full px-4 py-3 bg-theme-surface-subtle border border-theme-border rounded-xl text-theme-text placeholder-theme-subtle focus:outline-none focus:border-theme-text transition-colors resize-none text-xs font-medium"
+          ></textarea>
+          <p data-error-for="message" class="hidden text-[11px] text-red-500 font-mono font-medium pl-1"></p>
+        </div>
+
+        <button type="submit" class="w-full py-4 bg-theme-text hover:bg-neutral-800 text-white text-xs font-bold tracking-wider rounded-xl uppercase transition-colors shadow-sm flex items-center justify-center gap-2">
+          <span>TRANSMIT MESSAGE →</span>
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- FLOATING HUD TOAST -->
+  <div id="toast-notification" class="fixed bottom-6 right-6 z-[100] hidden items-center gap-2.5 px-5 py-3 bg-white border border-theme-border rounded-xl shadow-2xl text-theme-text font-mono text-xs transition-all duration-200" role="status">
+    <span class="w-2 h-2 rounded-full bg-theme-text animate-ping"></span>
+    <span id="toast-text" class="font-semibold">Email copied to clipboard</span>
+  </div>
+
+  <!-- Main Entry Script -->
+  <script type="module" src="/src/main.js"></script>
+</body>
 </html>
