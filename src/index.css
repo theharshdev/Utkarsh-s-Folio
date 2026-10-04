@@ -22,6 +22,24 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  .modal-custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.22) transparent;
+  }
+  .modal-custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .modal-custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .modal-custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 9999px;
+  }
+  .modal-custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.38);
+  }
 }
 
 @keyframes marquee {

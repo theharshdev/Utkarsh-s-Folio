@@ -276,28 +276,31 @@ export function initNavigation() {
   const roadmapSection = document.getElementById('velocity-roadmap');
 
   if (roadmapSection) {
-    ScrollTrigger.create({
-      trigger: roadmapSection,
-      start: 'top top',
-      end: '+=280%',
-      onEnter: () => {
-        isBallRoadmapActive = true;
-        if (navbar) {
-          gsap.to(navbar, { y: '-100%', duration: 0.25, ease: 'power2.inOut' });
-        }
-      },
-      onEnterBack: () => {
-        isBallRoadmapActive = true;
-        if (navbar) {
-          gsap.to(navbar, { y: '-100%', duration: 0.25, ease: 'power2.inOut' });
-        }
-      },
-      onLeave: () => {
-        isBallRoadmapActive = false;
-      },
-      onLeaveBack: () => {
-        isBallRoadmapActive = false;
-      },
+    const mm = gsap.matchMedia();
+    mm.add('(min-width: 1024px)', () => {
+      ScrollTrigger.create({
+        trigger: roadmapSection,
+        start: 'top top',
+        end: '+=280%',
+        onEnter: () => {
+          isBallRoadmapActive = true;
+          if (navbar) {
+            gsap.to(navbar, { y: '-100%', duration: 0.25, ease: 'power2.inOut' });
+          }
+        },
+        onEnterBack: () => {
+          isBallRoadmapActive = true;
+          if (navbar) {
+            gsap.to(navbar, { y: '-100%', duration: 0.25, ease: 'power2.inOut' });
+          }
+        },
+        onLeave: () => {
+          isBallRoadmapActive = false;
+        },
+        onLeaveBack: () => {
+          isBallRoadmapActive = false;
+        },
+      });
     });
   }
 

@@ -615,7 +615,10 @@ function initRollingBallScrollAnimation() {
 
   if (!ball || !stage || !section) return;
 
-  const getPositions = () => {
+  const mm = gsap.matchMedia();
+
+  mm.add('(min-width: 1024px)', () => {
+    const getPositions = () => {
     const stageWidth = stage.offsetWidth;
     const isMobile = stageWidth < 640;
     const ballSize = ball.offsetWidth || (isMobile ? 56 : 72);
@@ -876,11 +879,18 @@ function initRollingBallScrollAnimation() {
     })
     .to(shadow, { x: ballPts[15].x + 4, y: shadowY[6], opacity: 0, ease: 'power1.in', duration: 0.9 }, '<');
 
-  // Update on window resize
-  window.addEventListener('resize', () => {
-    const updated = getPositions();
-    ballPts = updated.ballPts;
-    shadowY = updated.shadowY;
-    ballSize = updated.ballSize;
+    // Update on window resize
+    const handleResize = () => {
+      const updated = getPositions();
+      ballPts = updated.ballPts;
+      shadowY = updated.shadowY;
+      ballSize = updated.ballSize;
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   });
 }

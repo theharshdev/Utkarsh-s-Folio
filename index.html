@@ -95,7 +95,7 @@
   <!-- ========================================================================= -->
   <!-- 4. FULLSCREEN VIVID ORANGE MENU OVERLAY                                   -->
   <!-- ========================================================================= -->
-  <div id="fullscreen-orange-menu" class="hidden pointer-events-none fixed inset-0 z-50 w-screen h-screen max-h-screen bg-[#ff4d00] text-black flex flex-col justify-between p-6 sm:p-10 md:p-12 lg:p-14 select-none overflow-hidden will-change-transform">
+  <div id="fullscreen-orange-menu" data-lenis-prevent class="hidden pointer-events-none fixed inset-0 z-50 w-screen h-screen max-h-screen bg-[#ff4d00] text-black flex flex-col justify-between p-5 sm:p-10 md:p-12 lg:p-14 select-none overflow-y-auto overscroll-contain will-change-transform">
     <!-- Menu Header -->
     <div id="menu-header-bar" class="flex items-center justify-between border-b border-black/15 pb-4 shrink-0">
       <div class="font-black text-3xl tracking-tighter uppercase font-display text-black">
@@ -1125,7 +1125,7 @@
   <!-- ========================================================================= -->
   <!-- 9.5 FULL-SCREEN STEPPED TRACKS & 3D ROLLING ORANGE BALL                   -->
   <!-- ========================================================================= -->
-  <section id="velocity-roadmap" class="h-screen max-h-screen w-full py-8 sm:py-12 px-6 sm:px-12 md:px-16 flex flex-col justify-between bg-[#dedcd6]/60 border-y border-black/10 relative overflow-hidden">
+  <section id="velocity-roadmap" class="hidden lg:flex h-screen max-h-screen w-full py-8 sm:py-12 px-6 sm:px-12 md:px-16 flex-col justify-between bg-[#dedcd6]/60 border-y border-black/10 relative overflow-hidden">
     <div class="max-w-7xl mx-auto w-full flex flex-col justify-between h-full flex-1">
       
       <!-- Top Header -->
@@ -1646,40 +1646,68 @@
   <!-- ========================================================================= -->
   <!-- 15. PROJECT INSPECTION MODAL                                              -->
   <!-- ========================================================================= -->
-  <div id="project-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden opacity-0 pointer-events-none transition-opacity duration-300">
-    <div id="modal-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
-    <div id="modal-card-content" class="relative z-10 w-full max-w-xl bg-white rounded-2xl border border-black/10 shadow-2xl p-8 overflow-hidden text-[#0c0c0c]">
-      <div class="flex items-center justify-between pb-4 border-b border-black/10">
-        <div>
-          <span id="modal-project-category" class="font-mono text-[10px] font-bold text-brand-orange uppercase">CATEGORY</span>
-          <h3 id="modal-project-title" class="text-2xl font-bold text-[#0c0c0c]">Project Title</h3>
+  <div id="project-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 md:p-8 hidden opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="modal-backdrop" class="absolute inset-0 bg-black/70 backdrop-blur-md cursor-pointer"></div>
+    <div id="modal-card-content" data-lenis-prevent class="relative z-10 w-full max-w-2xl max-h-[90vh] max-h-[90dvh] flex flex-col bg-white rounded-2xl sm:rounded-3xl border border-black/10 shadow-2xl overflow-hidden text-[#0c0c0c]">
+      
+      <!-- Modal Header (Fixed / Non-scrolling) -->
+      <div class="px-5 py-4 sm:px-6 sm:py-5 border-b border-black/10 flex items-start justify-between gap-3 bg-white shrink-0">
+        <div class="flex-1 min-w-0 pr-2">
+          <div class="flex items-center space-x-1.5 mb-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-orange shrink-0"></span>
+            <span id="modal-project-category" class="font-mono text-[10px] sm:text-xs font-bold text-brand-orange uppercase tracking-wider truncate block">CATEGORY</span>
+          </div>
+          <h3 id="modal-project-title" class="text-lg sm:text-xl md:text-2xl font-black text-[#0c0c0c] leading-tight break-words">Project Title</h3>
         </div>
-        <button id="modal-close-btn" class="w-8 h-8 rounded-full bg-[#f3f2ee] hover:bg-neutral-200 flex items-center justify-center text-neutral-600 hover:text-black font-mono text-sm cursor-pointer" aria-label="Close Modal">
+        <button id="modal-close-btn" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#f3f2ee] hover:bg-[#e6e4df] active:scale-95 flex items-center justify-center text-neutral-600 hover:text-black font-mono text-sm sm:text-base transition-all shrink-0 cursor-pointer shadow-xs border border-black/5" aria-label="Close Modal">
           ✕
         </button>
       </div>
 
-      <div class="my-6 space-y-4">
-        <div id="modal-project-tags" class="flex flex-wrap gap-2"></div>
-        <p id="modal-project-desc" class="text-sm text-neutral-600 leading-relaxed"></p>
-        <div class="pt-2">
-          <div class="font-mono text-xs font-bold text-[#0c0c0c] uppercase mb-2">Key Engineering Highlights:</div>
-          <ul id="modal-project-highlights" class="space-y-2"></ul>
+      <!-- Modal Body (Scrollable with custom scrollbar) -->
+      <div id="modal-body-scroll" data-lenis-prevent class="modal-custom-scrollbar overflow-y-auto overscroll-contain flex-1 px-5 py-5 sm:px-6 sm:py-6 space-y-5 text-[#0c0c0c]">
+        <!-- Tech Stack Tags -->
+        <div>
+          <div class="font-mono text-[10px] sm:text-[11px] font-bold text-neutral-400 uppercase tracking-widest mb-2">Technologies &amp; Architecture</div>
+          <div id="modal-project-tags" class="flex flex-wrap gap-1.5 sm:gap-2"></div>
+        </div>
+
+        <!-- Project Overview / Description Card -->
+        <div class="bg-[#f7f6f2] rounded-xl sm:rounded-2xl p-4 sm:p-5 border border-black/5">
+          <div class="font-mono text-[10px] sm:text-[11px] font-bold text-neutral-500 uppercase tracking-widest mb-1.5">Overview</div>
+          <p id="modal-project-desc" class="text-xs sm:text-sm text-neutral-700 leading-relaxed font-normal"></p>
+        </div>
+
+        <!-- Highlights Section -->
+        <div class="pt-1">
+          <div class="flex items-center space-x-2 mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
+            <div class="font-mono text-[11px] sm:text-xs font-bold text-[#0c0c0c] uppercase tracking-wider">Key Engineering Highlights</div>
+          </div>
+          <ul id="modal-project-highlights" class="space-y-2 sm:space-y-2.5"></ul>
         </div>
       </div>
 
-      <div class="pt-4 border-t border-black/10 flex items-center justify-between">
-        <span class="font-mono text-xs text-neutral-500">PRODUCTION ARTIFACT</span>
-        <div class="flex items-center space-x-3">
-          <a id="modal-project-link" href="#" target="_blank" rel="noopener noreferrer" class="hidden px-4 py-2 rounded-xl bg-black text-white font-mono text-xs font-bold hover:bg-neutral-800 transition-colors flex items-center space-x-1.5">
+      <!-- Modal Footer (Fixed / Non-scrolling & Fully Responsive) -->
+      <div class="px-5 py-3.5 sm:px-6 sm:py-4 border-t border-black/10 bg-[#faf9f5] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 shrink-0">
+        <div class="flex items-center space-x-2 shrink-0">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span class="font-mono text-[10px] sm:text-xs font-semibold text-neutral-500 uppercase tracking-wider">PRODUCTION ARTIFACT</span>
+        </div>
+        <div class="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
+          <a id="modal-project-link" href="#" target="_blank" rel="noopener noreferrer" class="hidden flex-1 sm:flex-initial items-center justify-center space-x-1.5 px-4 sm:px-5 py-2.5 rounded-xl bg-black text-white font-mono text-xs font-bold hover:bg-neutral-800 active:scale-95 transition-all text-center shadow-xs">
             <span>VISIT LIVE PLATFORM</span>
-            <span>↗</span>
+            <span class="text-xs">↗</span>
           </a>
-          <button onclick="document.getElementById('modal-close-btn').click();" class="px-5 py-2 rounded-xl bg-brand-orange text-black font-mono text-xs font-bold hover:bg-brand-orange-light transition-colors cursor-pointer">
+          <button id="modal-footer-close-btn" class="flex-1 sm:flex-initial items-center justify-center px-5 py-2.5 rounded-xl bg-brand-orange text-black font-mono text-xs font-bold hover:bg-brand-orange-light active:scale-95 transition-all cursor-pointer text-center shadow-xs">
             CLOSE
           </button>
         </div>
       </div>
+
     </div>
   </div>
 </body>

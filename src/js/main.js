@@ -203,13 +203,17 @@ function initProjectModals() {
   };
 
   const modal = document.getElementById('project-modal');
+  const modalCard = document.getElementById('modal-card-content');
+  const modalBody = document.getElementById('modal-body-scroll');
   const modalTitle = document.getElementById('modal-project-title');
   const modalCategory = document.getElementById('modal-project-category');
   const modalTags = document.getElementById('modal-project-tags');
   const modalDescription = document.getElementById('modal-project-desc');
   const modalHighlights = document.getElementById('modal-project-highlights');
   const closeModalBtn = document.getElementById('modal-close-btn');
+  const footerCloseBtn = document.getElementById('modal-footer-close-btn');
   const modalBackdrop = document.getElementById('modal-backdrop');
+  const modalLinkBtn = document.getElementById('modal-project-link');
 
   if (!modal) return;
 
@@ -218,11 +222,13 @@ function initProjectModals() {
   const lockScroll = () => {
     document.body.classList.add('overflow-hidden');
     document.documentElement.classList.add('overflow-hidden');
+    if (window.lenis) window.lenis.stop();
   };
 
   const unlockScroll = () => {
     document.body.classList.remove('overflow-hidden');
     document.documentElement.classList.remove('overflow-hidden');
+    if (window.lenis) window.lenis.start();
   };
 
   const openModal = (projectId) => {
@@ -237,7 +243,7 @@ function initProjectModals() {
     modalTags.innerHTML = '';
     data.tags.forEach((tag) => {
       const span = document.createElement('span');
-      span.className = 'px-3 py-1 text-xs font-mono rounded-full bg-[#f3f2ee] text-neutral-800 border border-brand-orange/30 font-semibold';
+      span.className = 'px-2.5 sm:px-3 py-1 text-[11px] sm:text-xs font-mono font-medium rounded-full bg-white text-neutral-800 border border-black/10 shadow-2xs hover:border-brand-orange/60 transition-colors';
       span.textContent = tag;
       modalTags.appendChild(span);
     });
@@ -245,21 +251,26 @@ function initProjectModals() {
     modalHighlights.innerHTML = '';
     data.highlights.forEach((item) => {
       const li = document.createElement('li');
-      li.className = 'text-sm text-neutral-600 flex items-start';
-      li.innerHTML = `<span class="text-brand-orange font-mono font-bold mr-2">→</span><span>${item}</span>`;
+      li.className = 'text-xs sm:text-sm text-neutral-700 leading-relaxed flex items-start space-x-2.5 p-1.5 sm:p-2 rounded-lg hover:bg-black/[0.02] transition-colors';
+      li.innerHTML = `<span class="text-brand-orange font-mono font-bold shrink-0 mt-0.5 text-xs sm:text-sm">→</span><span class="flex-1">${item}</span>`;
       modalHighlights.appendChild(li);
     });
 
     // Check if live link button exists in modal, update it
-    const modalLinkBtn = document.getElementById('modal-project-link');
     if (modalLinkBtn) {
       if (data.link && data.link !== '#') {
         modalLinkBtn.href = data.link;
         modalLinkBtn.classList.remove('hidden');
-        modalLinkBtn.innerHTML = `<span>VISIT LIVE PLATFORM</span><span>↗</span>`;
+        modalLinkBtn.classList.add('inline-flex');
       } else {
         modalLinkBtn.classList.add('hidden');
+        modalLinkBtn.classList.remove('inline-flex');
       }
+    }
+
+    // Always reset modal body scroll to top on open
+    if (modalBody) {
+      modalBody.scrollTop = 0;
     }
 
     modal.classList.remove('hidden');
@@ -269,9 +280,13 @@ function initProjectModals() {
 
     gsap.fromTo(
       '#modal-card-content',
-      { y: 30, opacity: 0, scale: 0.96 },
+      { y: 25, opacity: 0, scale: 0.97 },
       { y: 0, opacity: 1, scale: 1, duration: 0.35, ease: 'power3.out' }
     );
+
+    if (window.refreshCursorInteractions) {
+      window.refreshCursorInteractions();
+    }
   };
 
   const closeModal = () => {
@@ -279,14 +294,15 @@ function initProjectModals() {
     isModalOpen = false;
 
     gsap.to('#modal-card-content', {
-      y: 20,
+      y: 15,
       opacity: 0,
-      scale: 0.96,
-      duration: 0.25,
+      scale: 0.97,
+      duration: 0.22,
       ease: 'power2.in',
       onComplete: () => {
         modal.classList.add('hidden');
         modal.classList.add('opacity-0', 'pointer-events-none');
+        modal.classList.remove('opacity-100');
         unlockScroll();
       },
     });
@@ -301,6 +317,7 @@ function initProjectModals() {
   });
 
   if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+  if (footerCloseBtn) footerCloseBtn.addEventListener('click', closeModal);
   if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
 
   window.addEventListener('keydown', (e) => {
